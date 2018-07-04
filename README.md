@@ -1,3 +1,3 @@
 # D&amp;D 3.5e Character Builder (SRD Data Only)
 
-This is the Peer Review branch created in order to make a Pull Request...
+A step-by-step web app to create a character for a D&D 3.5e character. Starting very simple and limited, can expand over time.
