@@ -1,0 +1,35 @@
+.grid-container {
+    display:grid;
+    grid-template-columns: 20% auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+.portrait {
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.portrait > img {
+    max-width: 100%;
+    max-height: auto;
+}
+
+.specs {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.header > .charName {
+    color:Red;
+}
+
+
+.choices {
+    grid-column-start:1;
+    grid-column-end: 3;
+}
+
+.sectionName {
+    text-align: center;
+    color: green;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>D&amp;D 3.5e Character Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<div class="grid-container" id="pageContainer">
+    <div class="portrait" id="portraitSection">
+        <img src="placeholder.png" />
+    </div> <!-- /portraitSection-->
+    <div class="specs" id="specsSection">
+        <h1 class="charName">NAME</h1>
+        <p>
+            A really long section that continually adds the specs of the
+            character as it is being built. This should only take up
+            3/4 of the width, whereas the Portrait section takes up
+            1/4 of the width.
+        </p>
+    </div> <!-- /specsSection-->
+
+    <div class="choices">
+        <hr />
+        <form action="class.php" method="get" enctype="application/x-www-form-urlencoded">
+            <h1 class="sectionName">SECTION NAME</h1>
+            <fieldset class="optionsField">
+                <label>Options</label>
+            </fieldset>
+            <fieldset class="descriptionField">
+                <label>Description</label>
+            </fieldset>
+        
+            <input type="button" name="back" value="Back">
+            <input type="submit" name="next" value="Next">
+        </form>
+    </div> <!-- /choices-->
+</div> <!-- /pageContainer-->
+</body>
+</html>
