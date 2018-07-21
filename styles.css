@@ -1,29 +1,43 @@
 .pageGrid-container {
     display: grid;
-    }
+}
     
-    .pageGrid-item {
+.pageGrid-item {
     
-    }
+}
     
-    .optionsGrid-container {
+.optionsGrid-container {
     display:grid;
-    }
+}
     
-    .optionsGrid-item {
+.optionsGrid-item {
     
-    }
+}
     
-    .charClass {
-    
-    }
-    
-    #portraitContainer {
+.charClass {
+    width: 25%;
+}
+
+#charClassCleric {
         grid-column: 1;
-        grid-row: 1;
-    }
+}
     
-    #specsContainer {
-        grid-column: 2 / 2;
-        grid-row: 1;
-    }
+#charClassFighter {
+        grid-column: 2;
+}
+
+#charClassRogue {
+        grid-column: 3;
+}
+    
+#portraitContainer {
+        grid-column: 1;
+}
+    
+#specsContainer {
+        grid-column: 2 / span 2;
+}
+
+.header {
+        max-height: 100%;
+}
