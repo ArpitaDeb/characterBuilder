@@ -1,3 +1,7 @@
+img {
+        max-height: 100%;
+}
+
 .pageGrid-container {
     display: grid;
 }
@@ -8,8 +12,13 @@
     
 .optionsGrid-container {
     display:grid;
+    height: 35%;
 }
-    
+
+.descGrid-container {
+        display: grid;
+        height: 40%;
+}
 .optionsGrid-item {
     
 }
@@ -39,5 +48,5 @@
 }
 
 .header {
-        max-height: 100%;
+        height: 25%;
 }
