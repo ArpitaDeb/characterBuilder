@@ -6,54 +6,55 @@
     <title>D&amp;D 3.5e Character Creator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Cinzel|Merienda|Permanent+Marker');
+        </style> 
+    <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Nothing+You+Could+Do|Permanent+Marker|Shadows+Into+Light" rel="stylesheet"> 
     <script src="main.js"></script>
 </head>
 
 <body>
     <div class="pageGrid-container" id="pageContainer">
-        <div class="pageGrid-item header" id="portraitContainer">
+        <div class="header" id="portraitContainer">
             <img src="placeholder.png">
         </div>
         <!-- /portraitContainer -->
-        <div class="pageGrid-item header" id="specsContainer">
+        <div class="header" id="specsContainer">
             <h4>Specs</h4>
         </div>
         <!-- /specsContainer -->
 
-        <div class="pageGrid-item optionsGrid-container body" id="optionsContainer">
-            <h1>SECTION NAME</h1>
-            <form action="class.php" method="get" enctype="application/x-www-form-urlencoded" id="classForm">
-                <div class="optionsGrid-item charClass" id="charClassFighter">
+        <form class="optionsForm" action="class.php" method="get" enctype="application/x-www-form-urlencoded" id="charClassForm">
+            <div class="optionsHeader" id="charClassHeader"> <h1>Character Class</h1></div>
+            
+                <div class="charClass" id="charClassFighter">
                     <img src="placeholder.png">
-                    <h3>Fighter</h3>
+                    <h1>Fighter</h1>
                 </div>
                 <!-- /charClassFighter -->
-                <div class="optionsGrid-item charClass" id="charClassCleric">
+                <div class="charClass" id="charClassCleric">
                     <img src="placeholder.png">
-                    <h3>Cleric</h3>
+                    <h1>Cleric</h1>
                 </div>
                 <!-- /charClassCleric -->
-                <div class="optionsGrid-item charClass" id="charClassRogue">
+                <div class="charClass" id="charClassRogue">
                     <img src="placeholder.png">
-                    <h3>Rogue</h3>
+                    <h1>Rogue</h1>
                 </div>
                 <!-- /classRogue -->
-                <div class="optionsGrid-item charClass" id="charClassWizard">
+                <div class="charClass" id="charClassWizard">
                     <img src="placeholder.png">
-                    <h3>Wizard</h3>
+                    <h1>Wizard</h1>
                 </div>
                 <!-- /classWizard -->
-                <input type="button " name="back " value="Back ">
-                <input type="submit " name="next " value="Next ">
+                <div class="optionsFooter">
+                <input class="optionsBack floatLeft" type="button " name="back " value="Back ">
+                <input class="optionsNext floatRight" type="submit " name="next " value="Next ">
+            </div>
             </form>
-        </div>
-        <!-- /classOptions -->
-
-    </div>
-    <!-- /optionsContainer -->
-    </div>
-    <div class="pageGrid-item descGrid-container">
+    <div class="descGrid-container">
         <p>&nbsp;</p>
+    </div>
     </div>
     <!-- /pageContainer -->
 </body>

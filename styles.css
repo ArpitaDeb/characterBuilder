@@ -1,52 +1,82 @@
 img {
         max-height: 100%;
+        max-width: 100%;
 }
 
 .pageGrid-container {
     display: grid;
-}
+    grid: 20em 40em 40em / repeat(4,1fr);
     
-.pageGrid-item {
-    
-}
-    
-.optionsGrid-container {
-    display:grid;
-    height: 35%;
 }
 
-.descGrid-container {
-        display: grid;
-        height: 40%;
-}
-.optionsGrid-item {
-    
-}
-    
-.charClass {
-    width: 25%;
-}
-
-#charClassCleric {
-        grid-column: 1;
-}
-    
-#charClassFighter {
-        grid-column: 2;
-}
-
-#charClassRogue {
-        grid-column: 3;
-}
-    
 #portraitContainer {
         grid-column: 1;
+        background-color: brown;
 }
     
 #specsContainer {
-        grid-column: 2 / span 2;
+        grid-column: 2 / span 3;
+        background-color: blue;
 }
 
-.header {
-        height: 25%;
+.optionsForm {
+        grid-column: 1 / span 4;
+        grid-row: 2;
+        display:grid;
+        grid: 5em 32em 3em / repeat(4,1fr);
+        background-color:grey;
+}
+.optionsHeader {
+        grid-column: 1 / span 4;
+        grid-row: 1;
+        background-color: green;
+}
+.optionsFooter {
+        grid-column: 1 / span 4;
+        grid-row: 3;
+}
+
+.charClass {
+        margin: 1em;
+        text-align: center;
+}
+#charClassCleric {
+        font-family: 'Cinzel', serif;
+        background-color: yellow;
+}
+    
+#charClassFighter {
+        font-family: 'Permanent Marker', cursive;
+        background-color: red;
+}
+
+#charClassRogue {
+        font-family: 'Merienda', cursive;
+        background-color: purple;
+}
+#charClassWizard {
+        font-family: 'Calligraffitti', cursive;
+        background-color: blue;
+}
+
+.optionsBack, .optionsNext {
+        text-align: center;
+        vertical-align: middle;
+        margin: 1em;
+
+}
+
+.floatLeft {
+        float:left;
+}
+
+.floatRight {
+        float:right;
+}
+
+.descGrid-container {
+        grid-column: 1 / span 4;
+        grid-row: 3;
+        display: grid;
+        background-color: orange;
 }
