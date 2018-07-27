@@ -80,3 +80,11 @@ img {
         display: grid;
         background-color: orange;
 }
+
+.hidden {
+        visibility: hidden;
+}
+
+.visible {
+        visibility: visible;
+}

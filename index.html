@@ -6,6 +6,7 @@
     <title>D&amp;D 3.5e Character Creator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script src="main.js" type="text/javascript" defer></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Cinzel|Merienda|Permanent+Marker');
         </style> 
@@ -23,8 +24,8 @@
             <h4>Specs</h4>
         </div>
         <!-- /specsContainer -->
-
-        <form class="optionsForm" action="class.php" method="get" enctype="application/x-www-form-urlencoded" id="charClassForm">
+<!-- --------------------------------CLASS FORM------------------------------ -->
+        <form class="optionsForm visible" action="class.php" method="get" enctype="application/x-www-form-urlencoded" id="charClassForm">
             <div class="optionsHeader" id="charClassHeader"> <h1>Character Class</h1></div>
             
                 <div class="charClass" id="charClassFighter">
@@ -48,10 +49,41 @@
                 </div>
                 <!-- /classWizard -->
                 <div class="optionsFooter">
-                <input class="optionsBack floatLeft" type="button " name="back " value="Back ">
-                <input class="optionsNext floatRight" type="submit " name="next " value="Next ">
+                <input class="optionsBack floatLeft" type="button" name="back " value="Back " id="charClassBack">
+                <input class="optionsNext floatRight" type="submit" name="next " value="Next " id="charClassSubmit">
             </div>
             </form>
+<!-- ------------------------------------- /CLASS FORM ------------------------------ -->
+<!-- ------------------------------------- RACE FORM -------------------------------- -->
+        <form class="optionsForm hidden" action="race.php" method="get" enctype="application/x-www-form-urlencoded" id="charRaceForm">
+            <div class="optionsHeader" id="charRaceHeader"> <h1>Character Race</h1></div>
+            
+            <div class="charRace" id="charRaceHuman">
+                <img src="placeholder.png">
+                <h1>Human</h1>
+            </div>
+            <!-- /charRaceHuman -->
+            <div class="charRace" id="charRaceElf">
+                <img src="placeholder.png">
+                <h1>Elf</h1>
+            </div>
+            <!-- /charRaceElf -->
+            <div class="charRace" id="charRaceDwarf">
+                <img src="placeholder.png">
+                <h1>Dwarf</h1>
+            </div>
+            <!-- /charRaceDwarf -->
+            <div class="charRace" id="charRaceHalfling">
+                <img src="placeholder.png">
+                <h1>Halfling</h1>
+            </div>
+            <!-- /charRaceHalfling -->
+            <div class="optionsFooter">
+            <input class="optionsBack floatLeft" type="button " name="back " value="Back " id="charRaceBack">
+            <input class="optionsNext floatRight" type="submit " name="next " value="Next " id="charRaceSubmit">
+        </div>       
+        </form>
+<!-- -------------------------------------- /RACE FORM ------------------------------ -->
     <div class="descGrid-container">
         <p>&nbsp;</p>
     </div>
