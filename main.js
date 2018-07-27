@@ -1,10 +1,23 @@
 window.onload = () => {
-    console.log('Test?');
 
+    const btnCharClassSubmit = document.getElementById('charClassSubmit');
+    const btnCharRaceBack = document.getElementById('charRaceBack');
 
-    const btnCharClassSubmit = document.getElementById('charClassSubmit')
+    const changeForm = (toHide, toReveal) => {
+        let hiding = document.getElementById(toHide);
+        let revealing = document.getElementById(toReveal);
 
-    btnCharClassSubmit.onclick = function () {
-        console.log('You\'ve clicked the Class Submit button');
+        hiding.classList.remove('visible');
+        hiding.classList.add('hidden');
+        revealing.classList.remove('hidden');
+        revealing.classList.add('visible');
+    }
+
+    btnCharClassSubmit.onclick = () => {
+        changeForm('charClassForm', 'charRaceForm');
+    }
+
+    btnCharRaceBack.onclick = () => {
+        changeForm('charRaceForm', 'charClassForm');
     }
 }
