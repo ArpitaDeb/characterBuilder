@@ -13,6 +13,19 @@ window.onload = () => {
         revealing.classList.add('visible');
     }
 
+    const fetchFromDndAPI = (category,num) => {
+        fetch(`http://www.dnd5eapi.co/api/${category}/${num}/`)
+            .then(res => {
+                return res.json();
+            })
+            .then(spell => {
+                console.log(spell.name);
+            })
+        }
+
+        let acidArrow = fetchFromDndAPI('spells','1');
+        console.log((acidArrow.name));
+
     btnCharClassSubmit.onclick = () => {
         changeForm('charClassForm', 'charRaceForm');
     }
@@ -20,4 +33,5 @@ window.onload = () => {
     btnCharRaceBack.onclick = () => {
         changeForm('charRaceForm', 'charClassForm');
     }
+    
 }
