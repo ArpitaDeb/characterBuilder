@@ -1,9 +1,17 @@
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017';
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+
 window.onload = () => {
 
     const btnCharClassSubmit = document.getElementById('charClassSubmit');
     const btnCharRaceBack = document.getElementById('charRaceBack');
-    const MongoClient = require('mongodb').MongoClient;
-    const url = 'mongodb://localhost:27017';
 
     const changeForm = (toHide, toReveal) => {
         let hiding = document.getElementById(toHide);
