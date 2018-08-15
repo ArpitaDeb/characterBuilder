@@ -2,6 +2,8 @@ window.onload = () => {
 
     const btnCharClassSubmit = document.getElementById('charClassSubmit');
     const btnCharRaceBack = document.getElementById('charRaceBack');
+    const MongoClient = require('mongodb').MongoClient;
+    const url = 'mongodb://localhost:27017';
 
     const changeForm = (toHide, toReveal) => {
         let hiding = document.getElementById(toHide);
@@ -26,6 +28,13 @@ window.onload = () => {
         let acidArrow = fetchFromDndAPI('spells','1');
         console.log((acidArrow.name));
 
+    const charClassFighter = document.getElementById("charClassFighter");
+    let charClass;
+    charClassFighter.onclick = () => {
+        charClass = "Fighter";
+        console.log = `Class: ${charClass}`;
+    }
+    
     btnCharClassSubmit.onclick = () => {
         changeForm('charClassForm', 'charRaceForm');
     }

@@ -1,0 +1,23 @@
+{
+  "name": "characterbuilder",
+  "version": "1.0.0",
+  "description": "DnD Character Builder",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwitow/characterBuilder.git"
+  },
+  "author": "Jesse Witow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwitow/characterBuilder/issues"
+  },
+  "homepage": "https://github.com/jwitow/characterBuilder#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
