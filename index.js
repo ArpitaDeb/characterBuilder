@@ -1,13 +1,6 @@
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+})
 window.onload = () => {
 
     const btnCharClassSubmit = document.getElementById('charClassSubmit');
@@ -23,7 +16,7 @@ window.onload = () => {
         revealing.classList.add('visible');
     }
 
-    const fetchFromDndAPI = (category,num) => {
+    const fetchFromDndAPI = (category, num) => {
         fetch(`http://www.dnd5eapi.co/api/${category}/${num}/`)
             .then(res => {
                 return res.json();
@@ -31,10 +24,10 @@ window.onload = () => {
             .then(spell => {
                 console.log(spell.name);
             })
-        }
+    }
 
-        let acidArrow = fetchFromDndAPI('spells','1');
-        console.log((acidArrow.name));
+    let acidArrow = fetchFromDndAPI('spells', '1');
+    console.log((acidArrow.name));
 
     const charClassFighter = document.getElementById("charClassFighter");
     let charClass;
@@ -42,7 +35,7 @@ window.onload = () => {
         charClass = "Fighter";
         console.log = `Class: ${charClass}`;
     }
-    
+
     btnCharClassSubmit.onclick = () => {
         changeForm('charClassForm', 'charRaceForm');
     }
@@ -50,5 +43,5 @@ window.onload = () => {
     btnCharRaceBack.onclick = () => {
         changeForm('charRaceForm', 'charClassForm');
     }
-    
+
 }
