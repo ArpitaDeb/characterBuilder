@@ -1,21 +1,19 @@
 img {
-        max-height: 100%;
         max-width: 100%;
+        max-height: auto;
 }
 
-.pageGrid-container {
-    display: grid;
-    grid: 20em 40em 40em / repeat(4,1fr);
-    
+#headerContainer {
+        display: grid;
+        grid-template-columns: 25% 75%;
 }
-
 #portraitContainer {
         grid-column: 1;
         background-color: brown;
 }
     
 #specsContainer {
-        grid-column: 2 / span 3;
+        grid-column: 2;
         background-color: blue;
 }
 
@@ -60,11 +58,13 @@ img {
 }
 
 
-.floatLeft {
+.optionsBack {
+        grid-column: 1;
         float:left;
 }
 
-.floatRight {
+.optionsNext {
+        grid-column: 4;
         float:right;
 }
 
@@ -83,7 +83,7 @@ img {
         visibility: visible;
 }
 
-input[type="button"] {
+input[type="button"],input[type="submit"] {
         text-align: center;
         vertical-align: middle;
         margin: 1em;

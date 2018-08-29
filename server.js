@@ -5,21 +5,28 @@ const app = express();
 const port = 3000;
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static('public'));
+
+app.set('view engine', 'pug');
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
 
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/public/index.html'));
-// });
+app.get('/', (req, res) => {
+    res.render('chooseClass', {});
+});
+
+app.get('/race',(req,res) => {
+    res.render('chooseRace', {});
+});
 
 app.post('/', (req, res) => {
     res.send('This is a POST');
 });
 
-app.post('submitCharClass', (req, res) => {
+app.post('/submitCharClass', (req, res) => {
     console.log('Class Submitted')
+    res.render('chooseRace',{});
 })
