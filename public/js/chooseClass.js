@@ -15,13 +15,13 @@ function printCharClassDescription(num) {
             hitDie.innerText = `Hit Die: ${charClass.hit_die}`;
             descBox.appendChild(hitDie);
 
+
             // let profChoicesData = charClass.proficiency_choices[0];
             // let profChoicesP = document.createElement('p');
             // for (let i=0; i<profChoicesData.length; i++) {
             //     profChoicesP.innerText = `${profChoicesP.innerText}, ${profChoicesData[i].name}`
-            // }
+            })
             // descBox.appendChild(profChoicesP);
-            // })
             // ToDo: Figure out how to grab each option and list (how is it passed from API?)
 }
 
