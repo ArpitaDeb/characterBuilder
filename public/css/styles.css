@@ -72,7 +72,7 @@ img {
         float:right;
 }
 
-.descGrid-container {
+#descriptionBox {
         grid-column: 1 / span 4;
         grid-row: 3;
         display: grid;
@@ -89,3 +89,8 @@ input[type="button"],input[type="submit"] {
         display: none;
 }
 
+.selected {
+        border-style: solid;
+        border-color: #19ff2d;
+        border-width: 10px;
+}

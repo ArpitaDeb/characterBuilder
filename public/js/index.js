@@ -1,4 +1,6 @@
 
+
+
 window.onload = () => {
     let tab = document.querySelectorAll('.tab');
     let currentTab = 0;
@@ -8,13 +10,6 @@ window.onload = () => {
         tab[n].style.display = "grid";
     }
     showTab(currentTab);
-
-    // const move = (n) => {
-    //     let tab = document.querySelectorAll('.tab');
-    //     tab[currentTab].style.display = "none";
-    //     currentTab = currentTab + n
-    //     showTab(currentTab);
-    // }
 
     btnNxt = document.querySelector('#btnNxt');
     btnBack = document.querySelector('#btnBack');
@@ -46,18 +41,8 @@ window.onload = () => {
     //     revealing.classList.add('visible');
     // }
 
-    const fetchFromDndAPI = (category, num) => {
-        fetch(`http://www.dnd5eapi.co/api/${category}/${num}/`)
-            .then(res => {
-                return res.json();
-            })
-            .then(spell => {
-                console.log(spell.name);
-            })
-    }
 
-    let acidArrow = fetchFromDndAPI('spells', '1');
-    console.log((acidArrow.name));
+
 
     const charClassFighter = document.getElementById("charClassFighter");
     let charClass;
