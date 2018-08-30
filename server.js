@@ -15,7 +15,7 @@ app.listen(port, () => {
 
 
 app.get('/', (req, res) => {
-    res.render('chooseClass', {});
+    res.render('index', {});
 });
 
 app.get('/race',(req,res) => {
@@ -28,5 +28,4 @@ app.post('/', (req, res) => {
 
 app.post('/submitCharClass', (req, res) => {
     console.log('Class Submitted')
-    //get next page. Should we really go back to all one page, and show/hide elements here? Or just fetch next page? Or something else? Can't just render the new page, we need to actually go there so the next get/post request workls properly...right?
 })

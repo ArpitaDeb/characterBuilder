@@ -1,7 +1,6 @@
-extends ./layout.pug
+mixin chooseRace
 
-block options
-    form#charRaceForm.optionsForm.visible(action='submitCharRace', method='post', enctype='application/x-www-form-urlencoded')
+    .tab
         #charRaceHeader.optionsHeader
             h1 Character Race
         #charRaceHuman.charRace
@@ -16,5 +15,3 @@ block options
         #charRaceHalfling.charRace
             img(src='img/placeholder.png')
             h1 Halfling
-        input#charRaceBack.optionsBack(name='back ', value='Back ', type='button')
-        input#charRaceSubmit.optionsNext(name='next ', value='Next ', type='button')

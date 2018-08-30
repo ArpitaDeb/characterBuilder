@@ -1,7 +1,6 @@
-extends ./layout.pug
+mixin chooseClass
 
-block options
-    form#charClassForm.optionsForm(action='submitCharClass', method='post', enctype='application/x-www-form-urlencoded')
+    .tab
         #charClassHeader.optionsHeader
             h1 Character Class
         #charClassFighter.charClass
@@ -16,5 +15,3 @@ block options
         #charClassWizard.charClass
             img(src='img/placeholder.png')
             h1 Wizard
-        input#charClassBack.optionsBack(name='back ', value='Back ', type='button')
-        input#charClassSubmit.optionsNext(name='next ', value='Next ', type='submit')
