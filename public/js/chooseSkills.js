@@ -19,3 +19,15 @@ function printSkillDescription(num) {
 
             })
 }
+
+btnSubmitSkills.onclick = () => {
+    //Submit Skills data to database?
+    //Hide Skills tab
+    //Display Next tab (???)
+}
+
+btnUndoSkills.onclick = () => {
+    //Wipe all Skills data from current character object
+    //Hide Skills tab
+    //Display Previous tab (Race?)
+}

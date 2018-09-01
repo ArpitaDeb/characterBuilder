@@ -68,3 +68,15 @@ fighterPanel.addEventListener("click", selectFighter);
 clericPanel.addEventListener("click", selectCleric);
 roguePanel.addEventListener("click", selectRogue);
 wizardPanel.addEventListener("click", selectWizard);
+
+btnSubmitClass.onclick = () => {
+    //Submit Class data to database?
+    //Hide Race tab
+    //Display Race tab
+}
+
+btnUndoClass.onclick = () => {
+    //Wipe all Class data from current character object
+    //Hide Class tab
+    //Display Attributes? tab
+}
