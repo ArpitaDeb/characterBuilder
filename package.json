@@ -1,0 +1,30 @@
+{
+  "name": "characterbuilder",
+  "version": "1.0.0",
+  "description": "DnD Character Builder",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwitow/characterBuilder.git"
+  },
+  "author": "Jesse Witow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwitow/characterBuilder/issues"
+  },
+  "homepage": "https://github.com/jwitow/characterBuilder#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.3",
+    "path": "^0.12.7",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4"
+  }
+}

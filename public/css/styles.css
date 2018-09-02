@@ -1,12 +1,11 @@
 img {
-        max-height: 100%;
         max-width: 100%;
+        max-height: auto;
 }
 
-.pageGrid-container {
-    display: grid;
-    grid: 20em 40em 40em / repeat(4,1fr);
-    
+#headerContainer {
+        display: grid;
+        grid-template-columns: 25% 75%;
 }
 
 #portraitContainer {
@@ -15,14 +14,17 @@ img {
 }
     
 #specsContainer {
-        grid-column: 2 / span 3;
+        grid-column: 2;
         background-color: blue;
 }
 
-.optionsForm {
+#charName {
+        text-align: center;
+}
+.tab {
         grid-column: 1 / span 4;
         grid-row: 2;
-        display:grid;
+        display:none;
         grid: 5em 32em 3em / repeat(4,1fr);
         background-color:grey;
 }
@@ -30,13 +32,14 @@ img {
         grid-column: 1 / span 4;
         grid-row: 1;
         background-color: green;
+        text-align: center;
 }
 .optionsFooter {
         grid-column: 1 / span 4;
         grid-row: 3;
 }
 
-.charClass {
+.charClass, .charRace {
         margin: 1em;
         text-align: center;
 }
@@ -59,32 +62,35 @@ img {
         background-color: blue;
 }
 
-.optionsBack, .optionsNext {
-        text-align: center;
-        vertical-align: middle;
-        margin: 1em;
-
-}
-
-.floatLeft {
+#btnBack {
+        grid-column: 1;
         float:left;
 }
 
-.floatRight {
+#btnNxt {
+        grid-column: 4;
         float:right;
 }
 
-.descGrid-container {
+#descriptionBox {
         grid-column: 1 / span 4;
         grid-row: 3;
         display: grid;
         background-color: orange;
 }
 
-.hidden {
-        visibility: hidden;
+input[type="button"],input[type="submit"] {
+        text-align: center;
+        vertical-align: middle;
+        margin: 1em;
 }
 
-.visible {
-        visibility: visible;
+.hidden {
+        display: none;
+}
+
+.selected {
+        border-style: solid;
+        border-color: #19ff2d;
+        border-width: 10px;
 }

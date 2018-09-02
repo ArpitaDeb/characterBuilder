@@ -1,0 +1,21 @@
+mixin chooseClass
+    
+    .tab
+        #charClassHeader.optionsHeader
+            h1 Character Class
+        #charClassFighter.charClass
+            img(src='img/placeholder.png')
+            h1 Fighter
+        #charClassCleric.charClass
+            img(src='img/placeholder.png')
+            h1 Cleric
+        #charClassRogue.charClass
+            img(src='img/placeholder.png')
+            h1 Rogue
+        #charClassWizard.charClass
+            img(src='img/placeholder.png')
+            h1 Wizard
+        button#btnUndoClass(type='button') Back
+        button#btnSubmitClass(type='button') Next
+
+        script(src='/js/chooseClass.js', type="text/javascript")
