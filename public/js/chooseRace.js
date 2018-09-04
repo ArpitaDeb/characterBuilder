@@ -1,11 +1,12 @@
+let btnSubmitRace = document.getElementById('btnSubmitRace');
+
 btnSubmitRace.onclick = () => {
     //Submit Race data to database?
-    //Hide Race tab
-    //Display Next tab
+    changeTab('chooseRaceTab','chooseClassTab');
+
 }
 
 btnUndoRace.onclick = () => {
     //Wipe all Race data from current character object
-    //Hide Race tab
-    //Display Previous tab
+    changeTab('chooseRaceTab','???')
 }

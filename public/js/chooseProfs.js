@@ -20,14 +20,12 @@ function printSkillDescription(num) {
             })
 }
 
-btnSubmitSkills.onclick = () => {
-    //Submit Skills data to database?
-    //Hide Skills tab
-    //Display Next tab (???)
+btnSubmitProfs.onclick = () => {
+    //Submit Profs data to database?
+    changeTab('chooseProfsTab','???')
 }
 
-btnUndoSkills.onclick = () => {
-    //Wipe all Skills data from current character object
-    //Hide Skills tab
-    //Display Previous tab (Race?)
+btnUndoProfs.onclick = () => {
+    //Wipe all Profs data from current character object
+    changeTab('chooseProfsTab','chooseClassTab');
 }

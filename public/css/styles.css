@@ -62,16 +62,6 @@ img {
         background-color: blue;
 }
 
-#btnBack {
-        grid-column: 1;
-        float:left;
-}
-
-#btnNxt {
-        grid-column: 4;
-        float:right;
-}
-
 #descriptionBox {
         grid-column: 1 / span 4;
         grid-row: 3;
@@ -79,14 +69,26 @@ img {
         background-color: orange;
 }
 
-input[type="button"],input[type="submit"] {
+input[type="button"] {
         text-align: center;
         vertical-align: middle;
         margin: 1em;
 }
 
+.btnUndo {
+        grid-column: 1;
+}
+
+.btnSubmit {
+        grid-column: 4;
+}
+
 .hidden {
         display: none;
+}
+
+.visibleGrid {
+        display: grid;
 }
 
 .selected {

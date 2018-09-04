@@ -1,6 +1,6 @@
 mixin chooseRace
 
-    .tab
+    #chooseRaceTab.tab
         #charRaceHeader.optionsHeader
             h1 Character Race
         #charRaceHuman.charRace
@@ -15,5 +15,7 @@ mixin chooseRace
         #charRaceHalfling.charRace
             img(src='img/placeholder.png')
             h1 Halfling
-        button#btnUndoRace(type='button') Back
-        button#btnSubmitClass(type='button') Next
+        button#btnUndoRace.btnUndo(type='button') Back
+        button#btnSubmitRace.btnSubmit(type='button') Next
+
+    script(src='/js/chooseRace.js', type="text/javascript")

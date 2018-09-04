@@ -1,6 +1,6 @@
 mixin chooseClass
     
-    .tab
+    #chooseClassTab.tab
         #charClassHeader.optionsHeader
             h1 Character Class
         #charClassFighter.charClass
@@ -15,7 +15,7 @@ mixin chooseClass
         #charClassWizard.charClass
             img(src='img/placeholder.png')
             h1 Wizard
-        button#btnUndoClass(type='button') Back
-        button#btnSubmitClass(type='button') Next
+        button#btnUndoClass.btnUndo(type='button') Back
+        button#btnSubmitClass.btnSubmit(type='button') Next
 
         script(src='/js/chooseClass.js', type="text/javascript")

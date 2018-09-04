@@ -44,6 +44,7 @@ const selectFighter = () => {
     clearSelected();
     printCharClassDescription(5);
     fighterPanel.classList.add('selected');
+
 }
 
 const selectCleric = () => {
@@ -71,12 +72,10 @@ wizardPanel.addEventListener("click", selectWizard);
 
 btnSubmitClass.onclick = () => {
     //Submit Class data to database?
-    //Hide Race tab
-    //Display Race tab
+    changeTab('chooseClassTab','chooseProfsTab');
 }
 
 btnUndoClass.onclick = () => {
     //Wipe all Class data from current character object
-    //Hide Class tab
-    //Display Attributes? tab
+    changeTab('chooseClassTab','chooseRaceTab');
 }

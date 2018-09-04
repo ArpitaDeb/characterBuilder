@@ -14,18 +14,17 @@ html
     include header-mixin
     include chooseClass-mixin
     include chooseRace-mixin
-    include chooseSkills-mixin
+    include chooseProfs-mixin
     include description-mixin
   body
     +header
 
     form#optionsForm(action='', method='post', enctype='application/x-www-form-urlencoded')
-      +chooseClass
       +chooseRace
-      +chooseSkills
+      +chooseClass
+      +chooseProfs
       +description
-      button#btnBack(type='button') Back
-      button#btnNxt(type='button') Next
+
 
 
     
