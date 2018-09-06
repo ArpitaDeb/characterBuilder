@@ -44,7 +44,8 @@ const selectFighter = () => {
     clearSelected();
     printCharClassDescription(5);
     fighterPanel.classList.add('selected');
-
+    currentChar.json.charClass = "Fighter";
+    console.log(currentChar.json);
 }
 
 const selectCleric = () => {
