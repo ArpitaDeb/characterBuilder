@@ -1,5 +1,5 @@
 
-function printCharClassDescription(num) {
+const printCharClassDescription = (num) => {
     fetch(`http://www.dnd5eapi.co/api/classes/${num}/`)
         .then(res => {
             return res.json();
@@ -14,27 +14,12 @@ function printCharClassDescription(num) {
             let hitDie = document.createElement('p');
             hitDie.innerText = `Hit Die: ${charClass.hit_die}`;
             descBox.appendChild(hitDie);
+        })
 
-
-            // let profChoicesData = charClass.proficiency_choices[0];
-            // let profChoicesP = document.createElement('p');
-            // for (let i=0; i<profChoicesData.length; i++) {
-            //     profChoicesP.innerText = `${profChoicesP.innerText}, ${profChoicesData[i].name}`
-            })
-            // descBox.appendChild(profChoicesP);
             // ToDo: Figure out how to grab each option and list (how is it passed from API?)
 }
 
-function clearSelected() {
-    let selectedPanel = document.querySelector('.selected');
-    let descBox = document.getElementById('descriptionBox');
-    if(selectedPanel) {
-        selectedPanel.classList.remove('selected');
-    }
-    if(descBox.innerHTML) {
-        descBox.innerHTML = '';
-    }
-}
+
 let fighterPanel = document.getElementById('charClassFighter');
 let clericPanel = document.getElementById('charClassCleric');
 let roguePanel = document.getElementById('charClassRogue');
@@ -44,26 +29,36 @@ const selectFighter = () => {
     clearSelected();
     printCharClassDescription(5);
     fighterPanel.classList.add('selected');
-    currentChar.json.charClass = "Fighter";
-    console.log(currentChar.json);
+    currentChar.charClass = "Fighter";
+    console.log(currentChar);
+    refreshSpecs();
 }
 
 const selectCleric = () => {
     clearSelected();
     printCharClassDescription(3);
     clericPanel.classList.add('selected');
+    currentChar.charClass = "Cleric";
+    console.log(currentChar);
+    refreshSpecs();
 }
 
 const selectRogue = () => {
     clearSelected();
     printCharClassDescription(9);
     roguePanel.classList.add('selected');
+    currentChar.charClass = "Rogue";
+    console.log(currentChar);
+    refreshSpecs();
 }
 
 const selectWizard = () => {
     clearSelected();
     printCharClassDescription(12);
     wizardPanel.classList.add('selected');
+    currentChar.charClass = "Wizard";
+    console.log(currentChar);
+    refreshSpecs();
 }
 
 fighterPanel.addEventListener("click", selectFighter);

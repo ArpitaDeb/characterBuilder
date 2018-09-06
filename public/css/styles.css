@@ -1,21 +1,32 @@
 img {
         max-width: 100%;
-        max-height: auto;
 }
 
 #headerContainer {
         display: grid;
-        grid-template-columns: 25% 75%;
+        grid-template-columns: 15% 85%;
+        grid-template-rows: 90% 10%;
 }
 
 #portraitContainer {
         grid-column: 1;
+        grid-row: 1;
         background-color: brown;
 }
-    
+
+#charName {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 1.5em;
+        font-family: 'Merienda', cursive;
+        padding: 0.5em;
+}
 #specsContainer {
         grid-column: 2;
-        background-color: blue;
+        grid-row: 1 / span 2;
+        display:grid;
+        grid: repeat(4,3em) / repeat(4,1fr);
+        background-color: lightskyblue;
 }
 
 #charName {
@@ -95,4 +106,33 @@ input[type="button"] {
         border-style: solid;
         border-color: #19ff2d;
         border-width: 10px;
+}
+
+#specsAbilities {
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        display: block;
+        font-size: 1.5em;
+        margin: 2%;
+}
+
+#specsAbilities div {
+        padding: 0.1em;
+}
+
+#specsRace {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 1.5em;
+}
+
+#specsClass {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 1.5em;
+}
+
+#specsProfs {
+        grid-column: 3;
+        grid-row: 1 / span 3;
 }
