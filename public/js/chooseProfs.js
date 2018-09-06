@@ -20,6 +20,7 @@ function printSkillDescription(num) {
             })
 }
 
+
 btnSubmitProfs.onclick = () => {
     //Submit Profs data to database?
     changeTab('chooseProfsTab','???')
