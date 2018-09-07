@@ -20,6 +20,15 @@ const printCharRaceDescription = (num) => {
             // ToDo: Figure out how to grab each option and list (how is it passed from API?)
 }
 
+const resetRacialAbilities = () => {
+    currentChar.raceSTR = 0;
+    currentChar.raceDEX = 0;
+    currentChar.raceCON = 0;
+    currentChar.raceINT = 0;
+    currentChar.raceWIS = 0;
+    currentChar.raceCHA = 0;
+}
+
 const selectHuman = () => {
     clearSelected();
     printCharRaceDescription(4);

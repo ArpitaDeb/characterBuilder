@@ -13,19 +13,13 @@ const currentChar = {
     "charRace": "",
     "charClass": "",
     "charProfs": [],
-    "baseSTR": 8,
-    "baseDEX": 8,
-    "baseCON": 8,
-    "baseINT": 8,
-    "baseWIS": 8,
-    "baseCHA": 8,
-    "raceSTR": 0,
-    "raceDEX": 0,
-    "raceCON": 0,
-    "raceINT": 0,
-    "raceWIS": 0,
-    "raceCHA": 0,
+    "charBaseAbs": [8,8,8,8,8,8],
+    "charRaceAbs": [0,1,4,5,5,4]
 }
+
+currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {
+    return num + currentChar.charRaceAbs[idx];
+});
 
 const  clearSelected = () => {
     let selectedPanel = document.querySelector('.selected');
@@ -44,12 +38,13 @@ const refreshSpecs = () => {
     let specsAbilities = document.getElementById('specsAbilities');
     specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;
     specsClass.innerHTML = `<div><strong>Class:</strong> ${currentChar.charClass}`;
-    specsAbilities.innerHTML = `<div><strong>Strength:</strong> ${currentChar.baseSTR + currentChar.raceSTR}</div>
-                                <div><strong>Dexterity:</strong> ${currentChar.baseDEX + currentChar.raceDEX}</div>
-                                <div><strong>Constitution:</strong> ${currentChar.baseCON + currentChar.raceCON}</div>
-                                <div><strong>Intelligence:</strong> ${currentChar.baseINT + currentChar.raceINT}</div>
-                                <div><strong>Wisdom:</strong> ${currentChar.baseWIS + currentChar.raceWIS}</div>
-                                <div><strong>Charisma:</strong> ${currentChar.baseCHA + currentChar.raceCHA}</div>`
+    specsAbilities.innerHTML = `<div><strong>Strength:</strong> ${currentChar.charTotalAbs[0]}</div>
+                                <div><strong>Dexterity:</strong> ${currentChar.charTotalAbs[1]}</div>
+                                <div><strong>Constitution:</strong> ${currentChar.charTotalAbs[2]}</div>
+                                <div><strong>Intelligence:</strong> ${currentChar.charTotalAbs[3]}</div>
+                                <div><strong>Wisdom:</strong> ${currentChar.charTotalAbs[4]}</div>
+                                <div><strong>Charisma:</strong> ${currentChar.charTotalAbs[5]}</div>`
+
 }
 
 
