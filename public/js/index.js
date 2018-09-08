@@ -14,7 +14,7 @@ const currentChar = {
     "charClass": "",
     "charProfs": [],
     "charBaseAbs": [8,8,8,8,8,8],
-    "charRaceAbs": [0,1,4,5,5,4]
+    "charRaceAbs": [0,0,0,0,0,0]
 }
 
 currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {

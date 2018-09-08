@@ -10,11 +10,15 @@ const printCharRaceDescription = (num) => {
             return res.json();
         })
         .then(charRace => {
+            console.log(charRace.name);
             let descBox = document.getElementById('descriptionBox');
 
             let charRaceName = document.createElement('h2');
             charRaceName.innerText = charRace.name;
             descBox.appendChild(charRaceName);
+            //CALL FUNCTIONS WITHIN THE .THEN!!!  PUSH stuff out from fetch, don't PULL from elsewhere! (Async issues)
+            //Consider ONLY updating HTML, and then grabbing values from HTML when submitting. There may not really be a
+            //need for the extra global JS object
         })
 
             // ToDo: Figure out how to grab each option and list (how is it passed from API?)
@@ -34,7 +38,6 @@ const selectHuman = () => {
     printCharRaceDescription(4);
     humanPanel.classList.add('selected');
     currentChar.charRace = "Human";
-    console.log(currentChar);
     refreshSpecs();
 }
 
