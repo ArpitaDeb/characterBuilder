@@ -4,23 +4,36 @@ let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let halflingPanel = document.getElementById('charRaceHalfling');
 
-const printCharRaceDescription = (num) => {
+const grabApiInfo = (num) => {
     fetch(`http://www.dnd5eapi.co/api/races/${num}/`)
         .then(res => {
             return res.json();
         })
         .then(charRace => {
-            console.log(charRace.name);
+            //Update Description Box
             let descBox = document.getElementById('descriptionBox');
-
-            let charRaceName = document.createElement('h2');
-            charRaceName.innerText = charRace.name;
+            let charRaceName = document.createElement('div');
+            charRaceName.innerHTML = `<h2 id="raceDescTitle">${charRace.name}</h2>`;
             descBox.appendChild(charRaceName);
-            //CALL FUNCTIONS WITHIN THE .THEN!!!  PUSH stuff out from fetch, don't PULL from elsewhere! (Async issues)
-            //Consider ONLY updating HTML, and then grabbing values from HTML when submitting. There may not really be a
-            //need for the extra global JS object
-        })
 
+            currentChar.raceTraits.forEach(trait => {
+                traitTag = document.createElement('div');
+                traitTag.innerHTML = trait.name;
+                specsTraits.appendChild(traitTag);
+            });
+
+            //Update currentChar object
+            currentChar.charRace = charRace.name;
+            currentChar.charRaceAbs = charRace.ability_bonuses;
+            currentChar.charSpeed = charRace.speed;
+            currentChar.charSize = charRace.size;
+            currentChar.charLanguages = charRace.languages;
+            currentChar.raceProfs = charRace.starting_proficiencies;
+            currentChar.raceTraits = charRace.traits;
+        })
+        .then( () => {
+            refreshSpecs();
+        })
             // ToDo: Figure out how to grab each option and list (how is it passed from API?)
 }
 
@@ -35,36 +48,29 @@ const resetRacialAbilities = () => {
 
 const selectHuman = () => {
     clearSelected();
-    printCharRaceDescription(4);
     humanPanel.classList.add('selected');
-    currentChar.charRace = "Human";
-    refreshSpecs();
+    grabApiInfo(4);
+    // refreshSpecs();
 }
 
 const selectElf = () => {
     clearSelected();
-    printCharRaceDescription(2);
+    grabApiInfo(2);
     elfPanel.classList.add('selected');
-    currentChar.charRace = "Elf";
-    console.log(currentChar);
     refreshSpecs();
 }
 
 const selectDwarf = () => {
     clearSelected();
-    printCharRaceDescription(1);
+    grabApiInfo(1);
     dwarfPanel.classList.add('selected');
-    currentChar.charRace = "Dwarf";
-    console.log(currentChar);
     refreshSpecs();
 }
 
 const selectHalfling = () => {
     clearSelected();
-    printCharRaceDescription(3);
+    grabApiInfo(3);
     halflingPanel.classList.add('selected');
-    currentChar.charRace = "Halfling";
-    console.log(currentChar);
     refreshSpecs();
 }
 
