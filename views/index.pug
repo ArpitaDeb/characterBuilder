@@ -17,13 +17,15 @@ html
     include chooseProfs-mixin
     include description-mixin
   body
-    +header
-
-    form#optionsForm(action='', method='post', enctype='application/x-www-form-urlencoded')
-      +chooseRace
-      +chooseClass
-      +chooseProfs
-      +description
+    #pageContainer
+      #headerBlock
+        +header
+      #formBlock
+        form#optionsForm(action='', method='post', enctype='application/x-www-form-urlencoded')
+          +chooseRace
+          +chooseClass
+          +chooseProfs
+          +description
 
 
 

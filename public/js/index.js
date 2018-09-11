@@ -10,12 +10,12 @@ const changeTab = (toHide,toShow) => {
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
 const currentChar = {
     "playerName": "",
-    "charName": "",
+    "charName": "Character Name",
     "charRace": "",
     "charClass": "",
     "charProfs": [],
-    "charBaseAbs": [8,10,8,14,8,8],
-    "charRaceAbs": [0,0,0,0,0,8],
+    "charBaseAbs": [8,8,8,8,8,8],
+    "charRaceAbs": [0,0,0,0,0,0],
     "charSpeed": 0,
     "charSize": "",
     "charLanguages": [],
@@ -40,6 +40,7 @@ const  clearSelected = () => {
 }
 
 const refreshSpecs = () => {
+    let specsName = document.getElementById('specsName');
     let specsRace = document.getElementById('specsRace');
     let specsClass = document.getElementById('specsClass');
     let specsAbilities = document.getElementById('specsAbilities');
@@ -49,6 +50,7 @@ const refreshSpecs = () => {
     currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {
         return num + currentChar.charRaceAbs[idx];
     });
+    specsName.innerHTML = 'Hmm?'
     specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;
     specsClass.innerHTML = `<div><strong>Class:</strong> ${currentChar.charClass}`;
     specsAbilities.innerHTML = ``;

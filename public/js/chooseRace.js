@@ -22,8 +22,11 @@ const grabApiInfo = (num) => {
             //Update Description Box
             let descBox = document.getElementById('descriptionBox');
             let charRaceName = document.createElement('div');
+            charRaceName.setAttribute('id','descTitle')
             let descAbilities = document.createElement('div');
-            charRaceName.innerHTML = `<h2 id="raceDescTitle">${charRace.name}</h2>`;
+            let descTraits = document.createElement('div');
+            let descSpeed = document.createElement('div');
+            charRaceName.innerHTML = `${charRace.name}`;
             descBox.appendChild(charRaceName);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
@@ -34,12 +37,15 @@ const grabApiInfo = (num) => {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+${charRace.ability_bonuses[bonusAbIndex]} ${abilityLabels[bonusAbIndex]}`
             }
             descBox.appendChild(descAbilities);
-
-            currentChar.raceTraits.forEach(trait => {
+            descTraits.innerHTML = `<strong>Traits:</strong>`;
+            charRace.traits.forEach(trait => {
                 traitTag = document.createElement('div');
                 traitTag.innerHTML = trait.name;
-                specsTraits.appendChild(traitTag);
+                descTraits.appendChild(traitTag);
             });
+            descBox.appendChild(descTraits);
+            descSpeed.innerHTML = `<strong>Speed:</strong><br>${charRace.speed} feet/round<br>(6 seconds)`
+            descBox.appendChild(descSpeed);
         })
         .then( () => {
             refreshSpecs();
