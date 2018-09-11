@@ -10,18 +10,6 @@ const grabApiInfo = (num) => {
             return res.json();
         })
         .then(charRace => {
-            //Update Description Box
-            let descBox = document.getElementById('descriptionBox');
-            let charRaceName = document.createElement('div');
-            charRaceName.innerHTML = `<h2 id="raceDescTitle">${charRace.name}</h2>`;
-            descBox.appendChild(charRaceName);
-
-            currentChar.raceTraits.forEach(trait => {
-                traitTag = document.createElement('div');
-                traitTag.innerHTML = trait.name;
-                specsTraits.appendChild(traitTag);
-            });
-
             //Update currentChar object
             currentChar.charRace = charRace.name;
             currentChar.charRaceAbs = charRace.ability_bonuses;
@@ -30,11 +18,32 @@ const grabApiInfo = (num) => {
             currentChar.charLanguages = charRace.languages;
             currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
+
+            //Update Description Box
+            let descBox = document.getElementById('descriptionBox');
+            let charRaceName = document.createElement('div');
+            let descAbilities = document.createElement('div');
+            charRaceName.innerHTML = `<h2 id="raceDescTitle">${charRace.name}</h2>`;
+            descBox.appendChild(charRaceName);
+            if (charRace.name == "Human") {
+                descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
+                console.log(currentChar.charRace);
+            }
+            else {
+                let bonusAbIndex= charRace.ability_bonuses.findIndex(element => {return element != 0});
+                descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+${charRace.ability_bonuses[bonusAbIndex]} ${abilityLabels[bonusAbIndex]}`
+            }
+            descBox.appendChild(descAbilities);
+
+            currentChar.raceTraits.forEach(trait => {
+                traitTag = document.createElement('div');
+                traitTag.innerHTML = trait.name;
+                specsTraits.appendChild(traitTag);
+            });
         })
         .then( () => {
             refreshSpecs();
         })
-            // ToDo: Figure out how to grab each option and list (how is it passed from API?)
 }
 
 const resetRacialAbilities = () => {
@@ -50,7 +59,7 @@ const selectHuman = () => {
     clearSelected();
     humanPanel.classList.add('selected');
     grabApiInfo(4);
-    // refreshSpecs();
+    refreshSpecs();
 }
 
 const selectElf = () => {

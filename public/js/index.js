@@ -7,21 +7,22 @@ const changeTab = (toHide,toShow) => {
     tabToShow.classList.add('visibleGrid');
 }
 
+const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
 const currentChar = {
     "playerName": "",
     "charName": "",
     "charRace": "",
-    "charRace": "",
     "charClass": "",
     "charProfs": [],
-    "charBaseAbs": [8,8,8,8,8,8],
-    "charRaceAbs": [0,0,0,0,0,0],
+    "charBaseAbs": [8,10,8,14,8,8],
+    "charRaceAbs": [0,0,0,0,0,8],
     "charSpeed": 0,
     "charSize": "",
     "charLanguages": [],
     "raceProfs":[],
     "raceTraits":[]
 }
+
 
 
 
@@ -50,12 +51,14 @@ const refreshSpecs = () => {
     });
     specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;
     specsClass.innerHTML = `<div><strong>Class:</strong> ${currentChar.charClass}`;
-    specsAbilities.innerHTML = `<div><strong>Strength:</strong> ${currentChar.charTotalAbs[0]}</div>
-                                <div><strong>Dexterity:</strong> ${currentChar.charTotalAbs[1]}</div>
-                                <div><strong>Constitution:</strong> ${currentChar.charTotalAbs[2]}</div>
-                                <div><strong>Intelligence:</strong> ${currentChar.charTotalAbs[3]}</div>
-                                <div><strong>Wisdom:</strong> ${currentChar.charTotalAbs[4]}</div>
-                                <div><strong>Charisma:</strong> ${currentChar.charTotalAbs[5]}</div>`;
+    specsAbilities.innerHTML = ``;
+    let i = -1;
+    abilityLabels.forEach(ability => {
+        i++
+        abilityLabel = document.createElement('div');
+        abilityLabel.innerHTML = `<strong>${ability}:</strong> ${currentChar.charTotalAbs[i]}`;
+        specsAbilities.appendChild(abilityLabel);
+    });
     specsSpeed.innerHTML = `<div><strong>Speed:</strong> ${currentChar.charSpeed} ft./round</div>`;
     specsSize.innerHTML = `<div><strong>Size:</strong> ${currentChar.charSize}</div>`;
     specsTraits.innerHTML = '<div><strong>Racial Traits:</div>';
