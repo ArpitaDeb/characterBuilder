@@ -20,6 +20,11 @@ function printSkillDescription(num) {
             })
 }
 
+window.onclick = () => {
+    if (event.target == descModal){
+    descModal.style.display = "none";
+    }
+}
 
 // btnSubmitProfs.onclick = () => {
 //     //Submit Profs data to database?

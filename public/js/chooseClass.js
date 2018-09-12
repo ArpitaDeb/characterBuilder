@@ -61,6 +61,12 @@ const selectWizard = () => {
     refreshSpecs();
 }
 
+window.onclick = () => {
+    if (event.target == descModal){
+    descModal.style.display = "none";
+    }
+}
+
 fighterPanel.addEventListener("click", selectFighter);
 clericPanel.addEventListener("click", selectCleric);
 roguePanel.addEventListener("click", selectRogue);

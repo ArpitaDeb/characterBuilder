@@ -1,5 +1,6 @@
 mixin chooseClass
-    
+    include description-mixin
+
     #chooseClassTab.tab
         #charClassHeader.optionsHeader
             h1 Character Class
@@ -15,5 +16,5 @@ mixin chooseClass
         #charClassCleric.charClass.gold
             img(src='img/placeholder.png')
             h1.gold Cleric
-
+        +description
         script(src='/js/chooseClass.js', type="text/javascript")

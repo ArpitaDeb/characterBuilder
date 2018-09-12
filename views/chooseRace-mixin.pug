@@ -1,4 +1,5 @@
 mixin chooseRace
+    include description-mixin
 
     #chooseRaceTab.tab
         #charRaceHeader.optionsHeader
@@ -15,5 +16,6 @@ mixin chooseRace
         #charRaceHalfling.charRace
             img(src='img/placeholder.png')
             h1 Halfling
+        +description
 
     script(src='/js/chooseRace.js', type="text/javascript")

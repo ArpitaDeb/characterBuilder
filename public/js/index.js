@@ -1,12 +1,3 @@
-// const changeTab = (toHide,toShow) => {
-//     let tabToHide = document.getElementById(toHide);
-//     let tabToShow = document.getElementById(toShow);
-//     tabToHide.classList.remove('visibleGrid');
-//     tabToHide.classList.add('hidden');
-//     tabToShow.classList.remove('hidden');
-//     tabToShow.classList.add('visibleGrid');
-// }
-
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
 const currentChar = {
     "playerName": "",
@@ -21,22 +12,6 @@ const currentChar = {
     "charLanguages": [],
     "raceProfs":[],
     "raceTraits":[]
-}
-
-
-
-
-const  clearSelected = () => {
-    let selectedPanel = document.querySelector('.selected');
-    let descBox = document.getElementById('descriptionBox');
-    let specsTraits = document.getElementById('specsTraits')
-    specsTraits.innerHTML = '';
-    if(selectedPanel) {
-        selectedPanel.classList.remove('selected');
-    }
-    if(descBox.innerHTML) {
-        descBox.innerHTML = '';
-    }
 }
 
 const refreshSpecs = () => {
@@ -71,26 +46,31 @@ const refreshSpecs = () => {
     });
 }
 
-
+const clearSelected = () => {
+    let selectedPanel = document.querySelector('.selected');
+    let specsTraits = document.getElementById('specsTraits');
+    specsTraits.innerHTML = '';
+    if (selectedPanel) {
+        selectedPanel.classList.remove('selected');
+    }
+    if(descContent.innerHTML) {
+        descContent.innerHTML = '';
+    }
+}
 
 window.onload = () => {
     refreshSpecs();
-    // chooseRaceTab = document.getElementById('chooseRaceTab');
-    // chooseRaceTab.classList.remove('hidden');
-    // chooseRaceTab.classList.add('visibleGrid');
 
     let tab = document.querySelectorAll('.tab');
     let currentTab = 0;
     let btnNext = document.getElementById('btnNext');
     let btnBack = document.getElementById('btnBack');
+    let descModal = document.getElementById('descModal');
 
     const showTab = (n) => {
-        // let tab = document.querySelectorAll('.tab');
         tab[n].style.display = "inline-grid";
     }
     showTab(currentTab);
-
-
 
     btnNext.onclick = () => {
         tab[currentTab].style.display = "none";
@@ -102,6 +82,9 @@ window.onload = () => {
         tab[currentTab].style.display = "none";
         currentTab--
         showTab(currentTab);
-}
+
+
+    }
+
 }
 

@@ -3,6 +3,8 @@ let humanPanel = document.getElementById('charRaceHuman');
 let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let halflingPanel = document.getElementById('charRaceHalfling');
+let descModal = document.getElementById('descModal');
+let descContent = document.getElementById('descContent');
 
 const grabApiInfo = (num) => {
     fetch(`http://www.dnd5eapi.co/api/races/${num}/`)
@@ -20,14 +22,15 @@ const grabApiInfo = (num) => {
             currentChar.raceTraits = charRace.traits;
 
             //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
-            let descBox = document.getElementById('descriptionBox');
+            descModal.style.display = "block";
+        //     let descBox = document.getElementById('descriptionBox');
             let charRaceName = document.createElement('div');
             charRaceName.setAttribute('id','descTitle')
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
             let descSpeed = document.createElement('div');
             charRaceName.innerHTML = `${charRace.name}`;
-            descBox.appendChild(charRaceName);
+            descContent.appendChild(charRaceName);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
                 console.log(currentChar.charRace);
@@ -36,16 +39,16 @@ const grabApiInfo = (num) => {
                 let bonusAbIndex= charRace.ability_bonuses.findIndex(element => {return element != 0});
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+${charRace.ability_bonuses[bonusAbIndex]} ${abilityLabels[bonusAbIndex]}`
             }
-            descBox.appendChild(descAbilities);
+            descContent.appendChild(descAbilities);
             descTraits.innerHTML = `<strong>Traits:</strong>`;
             charRace.traits.forEach(trait => {
                 traitTag = document.createElement('div');
                 traitTag.innerHTML = trait.name;
                 descTraits.appendChild(traitTag);
             });
-            descBox.appendChild(descTraits);
+            descContent.appendChild(descTraits);
             descSpeed.innerHTML = `<strong>Speed:</strong><br>${charRace.speed} feet/round<br>(6 seconds)`
-            descBox.appendChild(descSpeed);
+            descContent.appendChild(descSpeed);
         })
         .then( () => {
             refreshSpecs();
@@ -70,23 +73,29 @@ const selectHuman = () => {
 
 const selectElf = () => {
     clearSelected();
-    grabApiInfo(2);
     elfPanel.classList.add('selected');
+    grabApiInfo(2);
     refreshSpecs();
 }
 
 const selectDwarf = () => {
     clearSelected();
-    grabApiInfo(1);
     dwarfPanel.classList.add('selected');
+    grabApiInfo(1);
     refreshSpecs();
 }
 
 const selectHalfling = () => {
     clearSelected();
-    grabApiInfo(3);
     halflingPanel.classList.add('selected');
+    grabApiInfo(3);
     refreshSpecs();
+}
+
+window.onclick = () => {
+    if (event.target == descModal){
+    descModal.style.display = "none";
+    }
 }
 
 humanPanel.addEventListener("click", selectHuman);
@@ -94,13 +103,4 @@ elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
 halflingPanel.addEventListener("click", selectHalfling);
 
-// btnSubmitRace.onclick = () => {
-//     //Submit Race data to database?
-//     changeTab('chooseRaceTab','chooseClassTab');
-
-// }
-
-// btnUndoRace.onclick = () => {
-//     //Wipe all Race data from current character object
-//     changeTab('chooseRaceTab','???')
-// }
+// descModal.addEvent.addEventListener("click",closeModal);
