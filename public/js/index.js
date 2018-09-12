@@ -68,7 +68,7 @@ window.onload = () => {
     let descModal = document.getElementById('descModal');
 
     const showTab = (n) => {
-        tab[n].style.display = "inline-grid";
+        tab[n].style.display = "grid";
     }
     showTab(currentTab);
 
