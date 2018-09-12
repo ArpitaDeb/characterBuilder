@@ -21,12 +21,12 @@ function printSkillDescription(num) {
 }
 
 
-btnSubmitProfs.onclick = () => {
-    //Submit Profs data to database?
-    changeTab('chooseProfsTab','???')
-}
+// btnSubmitProfs.onclick = () => {
+//     //Submit Profs data to database?
+//     changeTab('chooseProfsTab','???')
+// }
 
-btnUndoProfs.onclick = () => {
-    //Wipe all Profs data from current character object
-    changeTab('chooseProfsTab','chooseClassTab');
-}
+// btnUndoProfs.onclick = () => {
+//     //Wipe all Profs data from current character object
+//     changeTab('chooseProfsTab','chooseClassTab');
+// }

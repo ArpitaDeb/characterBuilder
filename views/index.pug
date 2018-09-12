@@ -18,14 +18,15 @@ html
     include description-mixin
   body
     #pageContainer
-      #headerBlock
-        +header
-      #formBlock
-        form#optionsForm(action='', method='post', enctype='application/x-www-form-urlencoded')
-          +chooseRace
-          +chooseClass
-          +chooseProfs
-          +description
+      +header
+      +chooseRace
+      +chooseClass
+      +chooseProfs
+      +description
+      #footer
+        button#btnBack(type='button') Back
+        button#btnNext(type='button') Next
+      
 
 
 

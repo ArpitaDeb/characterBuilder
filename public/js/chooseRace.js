@@ -1,4 +1,4 @@
-let btnSubmitRace = document.getElementById('btnSubmitRace');
+// let btnSubmitRace = document.getElementById('btnSubmitRace');
 let humanPanel = document.getElementById('charRaceHuman');
 let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
@@ -19,7 +19,7 @@ const grabApiInfo = (num) => {
             currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
 
-            //Update Description Box
+            //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
             let descBox = document.getElementById('descriptionBox');
             let charRaceName = document.createElement('div');
             charRaceName.setAttribute('id','descTitle')
@@ -94,13 +94,13 @@ elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
 halflingPanel.addEventListener("click", selectHalfling);
 
-btnSubmitRace.onclick = () => {
-    //Submit Race data to database?
-    changeTab('chooseRaceTab','chooseClassTab');
+// btnSubmitRace.onclick = () => {
+//     //Submit Race data to database?
+//     changeTab('chooseRaceTab','chooseClassTab');
 
-}
+// }
 
-btnUndoRace.onclick = () => {
-    //Wipe all Race data from current character object
-    changeTab('chooseRaceTab','???')
-}
+// btnUndoRace.onclick = () => {
+//     //Wipe all Race data from current character object
+//     changeTab('chooseRaceTab','???')
+// }

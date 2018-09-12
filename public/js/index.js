@@ -1,11 +1,11 @@
-const changeTab = (toHide,toShow) => {
-    let tabToHide = document.getElementById(toHide);
-    let tabToShow = document.getElementById(toShow);
-    tabToHide.classList.remove('visibleGrid');
-    tabToHide.classList.add('hidden');
-    tabToShow.classList.remove('hidden');
-    tabToShow.classList.add('visibleGrid');
-}
+// const changeTab = (toHide,toShow) => {
+//     let tabToHide = document.getElementById(toHide);
+//     let tabToShow = document.getElementById(toShow);
+//     tabToHide.classList.remove('visibleGrid');
+//     tabToHide.classList.add('hidden');
+//     tabToShow.classList.remove('hidden');
+//     tabToShow.classList.add('visibleGrid');
+// }
 
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
 const currentChar = {
@@ -75,8 +75,33 @@ const refreshSpecs = () => {
 
 window.onload = () => {
     refreshSpecs();
-    chooseRaceTab = document.getElementById('chooseRaceTab');
-    chooseRaceTab.classList.remove('hidden');
-    chooseRaceTab.classList.add('visibleGrid');
+    // chooseRaceTab = document.getElementById('chooseRaceTab');
+    // chooseRaceTab.classList.remove('hidden');
+    // chooseRaceTab.classList.add('visibleGrid');
+
+    let tab = document.querySelectorAll('.tab');
+    let currentTab = 0;
+    let btnNext = document.getElementById('btnNext');
+    let btnBack = document.getElementById('btnBack');
+
+    const showTab = (n) => {
+        // let tab = document.querySelectorAll('.tab');
+        tab[n].style.display = "inline-grid";
+    }
+    showTab(currentTab);
+
+
+
+    btnNext.onclick = () => {
+        tab[currentTab].style.display = "none";
+        currentTab++
+        showTab(currentTab);
+    }
+    
+    btnBack.onclick = () => {
+        tab[currentTab].style.display = "none";
+        currentTab--
+        showTab(currentTab);
+}
 }
 

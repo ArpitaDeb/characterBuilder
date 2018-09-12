@@ -66,12 +66,12 @@ clericPanel.addEventListener("click", selectCleric);
 roguePanel.addEventListener("click", selectRogue);
 wizardPanel.addEventListener("click", selectWizard);
 
-btnSubmitClass.onclick = () => {
-    //Submit Class data to database?
-    changeTab('chooseClassTab','chooseProfsTab');
-}
+// btnSubmitClass.onclick = () => {
+//     //Submit Class data to database?
+//     changeTab('chooseClassTab','chooseProfsTab');
+// }
 
-btnUndoClass.onclick = () => {
-    //Wipe all Class data from current character object
-    changeTab('chooseClassTab','chooseRaceTab');
-}
+// btnUndoClass.onclick = () => {
+//     //Wipe all Class data from current character object
+//     changeTab('chooseClassTab','chooseRaceTab');
+// }

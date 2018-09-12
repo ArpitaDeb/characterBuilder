@@ -1,48 +1,62 @@
+* {
+        background-color: #262626;
+        color: #c3c7cc;
+        border-color: #c3c7cc;
+}
+
 img {
         max-width: 100%;
         max-height:100%;
 }
 
+.red {
+        color: #ba0000;
+        border-color: #ba0000;
+}
+
+.purple {
+        color: #563191;
+        border-color: #563191;
+}
+
+.blue {
+        color: #2564db;
+        border-color: #2564db;
+}
+
+.green {
+        color: #007c08;
+        border-color: #007c08;
+}
+
+.gold {
+        color: #e8b80b;
+        border-color: #e8b80b;
+}
+
 #pageContainer {
         display: grid;
-        grid: 10% 90% / 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
 }
 
-#headerBlock {
-        display: block;
-        grid-column: 1;
-        grid-row: 1;
-        height: 100%;
-}
 
-#formBlock {
-        display: block;
-        grid-column: 1;
-        grid-row: 2;
-        height: 100%;
-}
 #specsContainer {
         display:grid;
-        grid: repeat(5) / repeat(6);
-        background-color: lightskyblue;
+        grid: repeat(5, 1fr) / repeat(3, 1fr);
+        grid-gap: 10px;
 }
 
 
 
 .tab {
         display:none;
-        background-color:grey;
+        grid: repeat(3,1fr) / repeat(4,1fr);
 }
 .optionsHeader {
         grid-column: 1 / span 4;
         grid-row: 1;
-        background-color: green;
         text-align: center;
-}
-
-.optionsFooter {
-        grid-column: 1 / span 4;
-        grid-row: 3;
 }
 
 .charClass, .charRace {
@@ -54,29 +68,23 @@ img {
 }
 #charClassCleric {
         font-family: 'Cinzel', serif;
-        background-color: yellow;
 }
     
 #charClassFighter {
         font-family: 'Permanent Marker', cursive;
-        background-color: red;
 }
 
 #charClassRogue {
         font-family: 'Merienda', cursive;
-        background-color: purple;
 }
 #charClassWizard {
         font-family: 'Calligraffitti', cursive;
-        background-color: blue;
 }
 
+/* MAKE DESCRIPTION BOX A MODAL */
 #descriptionBox {
-        grid-column: 1 / span 4;
-        grid-row: 3;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        background-color: orange;
 }
 
 input[type="button"] {
@@ -86,14 +94,20 @@ input[type="button"] {
         padding: 0.5em;
 }
 
-.btnUndo {
-        grid-column: 1;
-        grid-row: 3;
+#btnbtnBack {
+        float: left;
+
 }
 
-.btnSubmit {
-        grid-column: 4;
-        grid-row: 3;
+#btnNext {
+        float: right;
+}
+
+#btnNext, #btnBack, .selected {
+        border-style: solid;
+        border-radius: 10px;
+        border-width: thick;
+        font-size: 1.5em;
 }
 
 .hidden {
@@ -106,17 +120,8 @@ input[type="button"] {
         grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.selected {
-        border-style: solid;
-        border-color: #19ff2d;
-        border-width: 10px;
-}
-
 #specsAbilities {
-        grid-column: 1;
-        grid-row: 2 / span 4;
-        display: block;
-        font-size: 1.5em;
+        grid-row: span 4;
         margin: 1%;
         padding: 1%
 }
@@ -126,43 +131,13 @@ input[type="button"] {
 }
 
 #specsName {
-        grid-column: 1 / span 6;
-        grid-row:1;
+        grid-column:span 3;
         font-size: 2em;
         text-align: center;
 }
-#specsRace {
-        grid-column: 2;
-        grid-row: 2;
-        font-size: 1.5em;
-}
-
-#specsClass {
-        grid-column: 2;
-        grid-row: 3;
-        font-size: 1.5em;
-}
-
-#specsProfs {
-        grid-column: 4;
-        grid-row: 2 / span 3;
-}
 
 #specsTraits {
-        grid-column: 3;
-        grid-row: 2 / span 3;
-}
-
-#specsSpeed {
-        grid-column: 2;
-        grid-row: 4;
-        font-size: 1.5em;
-}
-
-#specsSize {
-        grid-column: 2;
-        grid-row: 5;
-        font-size: 1.5em;
+        grid-row: span 3;
 }
 
 #descTitle {
