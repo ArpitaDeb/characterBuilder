@@ -4,9 +4,146 @@
         border-color: #c3c7cc;
 }
 
+div {
+        padding: 0.2em;
+}
+
+#pageContainer {
+        display: grid;
+        grid: repeat(3, 1fr) / 1fr;
+        max-width: 75%;
+        margin: auto;
+}
+
+        #specsContainer {
+                display:grid;
+                grid: repeat(5, 1fr) / repeat(3, 1fr);
+                grid-gap: 10px;
+                max-width: 100%;
+        }
+                #specsName {
+                        grid-column:span 3;
+                        font-size: 2em;
+                        text-align: center;
+                }
+
+                #specsAbilities {
+                        grid-row: span 2;
+                        margin: 1%;
+                        padding: 1%
+                }
+
+
+                
+                #specsTraits {
+                        grid-row: 4 / span 2;
+                }
+
+        .tab {
+                display:none;
+        }
+                #chooseRaceTab {
+                        grid: 5em 1fr / 1fr 1fr 1fr 1fr;
+                        grid-gap: 25px;
+                        overflow: hidden;
+                }
+
+                .optionsHeader {
+                        grid-column: span 4;
+                        text-align: center;
+                        display: block;
+                        overflow: hidden;
+                }
+                
+                .optionsHeader h1 {
+
+                }
+                .optionsHeader
+                
+                .charClass, .charRace {
+                        text-align: center;
+                        display: block;
+                }
+
+                        #charClassCleric {
+                                font-family: 'Cinzel', serif;
+                        }
+                        
+                        #charClassFighter {
+                                font-family: 'Permanent Marker', cursive;
+                        }
+                        
+                        #charClassRogue {
+                                font-family: 'Merienda', cursive;
+                        }
+                        #charClassWizard {
+                                font-family: 'Calligraffitti', cursive;
+                        }
+
+                .selected {
+                        border-style: solid;
+                        border-radius: 10px;
+                        border-width: thick;
+                }
+
+        #btnbtnBack {
+                float: left;
+        
+        }
+        
+        #btnNext {
+                float: right;
+        }
+        
+        #btnNext, #btnBack, {
+                border-style: solid;
+                border-radius: 10px;
+                border-width: thick;
+                font-size: 1.5em;
+                text-align: center;
+                vertical-align: middle;
+                margin: 0.5em;
+                padding: 0.5em;
+        }
+
+
+.modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+}
+        .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+        }
+
+                #descTitle {
+                        grid-column: 1 / span 6;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        text-align: center;
+                }
+                
+                .descPara {
+                        grid-column: 1 / span 6;
+                        grid-row: 3;
+                }
+        
+
+                
 img {
-        max-width: 100%;
-        max-height:100%;
+        width: 100%;
+        height: auto;
 }
 
 .red {
@@ -33,151 +170,3 @@ img {
         color: #e8b80b;
         border-color: #e8b80b;
 }
-
-#pageContainer {
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr;
-}
-
-
-#specsContainer {
-        display:grid;
-        grid: repeat(5, 1fr) / repeat(3, 1fr);
-        grid-gap: 10px;
-}
-
-
-
-.tab {
-        display:none;
-        grid: repeat(3,1fr) / repeat(4,1fr);
-}
-.optionsHeader {
-        grid-column: 1 / span 4;
-        grid-row: 1;
-        text-align: center;
-}
-
-.charClass, .charRace {
-        margin: 0.5em;
-        padding: 0.5em;
-        text-align: center;
-        max-height: 100%;
-        display: block;
-}
-#charClassCleric {
-        font-family: 'Cinzel', serif;
-}
-    
-#charClassFighter {
-        font-family: 'Permanent Marker', cursive;
-}
-
-#charClassRogue {
-        font-family: 'Merienda', cursive;
-}
-#charClassWizard {
-        font-family: 'Calligraffitti', cursive;
-}
-
-
-
-input[type="button"] {
-        text-align: center;
-        vertical-align: middle;
-        margin: 0.5em;
-        padding: 0.5em;
-}
-
-#btnbtnBack {
-        float: left;
-
-}
-
-#btnNext {
-        float: right;
-}
-
-#btnNext, #btnBack, .selected {
-        border-style: solid;
-        border-radius: 10px;
-        border-width: thick;
-        font-size: 1.5em;
-}
-
-.hidden {
-        display: none;
-}
-
-.visibleGrid {
-        display: grid;
-        grid-template-rows: 1fr 8fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-#specsAbilities {
-        grid-row: span 4;
-        margin: 1%;
-        padding: 1%
-}
-
-#specsAbilities div {
-        padding: 0.1em;
-}
-
-#specsName {
-        grid-column:span 3;
-        font-size: 2em;
-        text-align: center;
-}
-
-#specsTraits {
-        grid-row: span 3;
-}
-
-#descTitle {
-        grid-column: 1 / span 6;
-        font-size: 1.5em;
-        font-weight: bold;
-        text-align: center;
-}
-
-.descPara {
-        grid-column: 1 / span 6;
-        grid-row: 3;
-}
-
-.modal {
-        display: none;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-}
-
-#closeModalBtn {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-}
-
-/* MAKE DESCRIPTION BOX A MODAL */
-/* #descModal {
-        display: none;
-        /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
-} */
