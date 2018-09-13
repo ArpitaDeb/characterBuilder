@@ -1,96 +1,212 @@
-img {
-        max-width: 100%;
-        max-height: auto;
+
+
+* {
+        background-color: #262626;
+        color: #c3c7cc;
+        border-color: #c3c7cc;
+        font-size: 1.04em;
 }
 
-#headerContainer {
+@media only screen and (max-width: 550px) {
+        * {
+                font-size: 1em;
+        }
+}
+
+.modal-content * {
+        background-color: rgb(0,0,0,0);
+}
+#specsAbilities div {
+        padding-bottom: 5px;
+}
+
+h1 {
+        font-size: 2.2vmax;
+        color: #e8b80b;
+}
+
+
+
+#pageContainer {
         display: grid;
-        grid-template-columns: 25% 75%;
+        grid: repeat(3,max-content) / 1fr;
+        max-width: 90%;
+        margin: auto;
 }
 
-#portraitContainer {
-        grid-column: 1;
-        background-color: brown;
-}
-    
-#specsContainer {
-        grid-column: 2;
-        background-color: blue;
-}
+        #specsContainer {
+                display:grid;
+                grid:  repeat(4, max-content) / repeat(3, 1fr);
+                grid-gap: 10px;
+                max-width: 100%;
+        }
+                #specsName {
+                        grid-column:span 3;
+                        text-align: center;
+                }
 
-#charName {
-        text-align: center;
-}
-.tab {
-        grid-column: 1 / span 4;
-        grid-row: 2;
-        display:none;
-        grid: 5em 32em 3em / repeat(4,1fr);
-        background-color:grey;
-}
-.optionsHeader {
-        grid-column: 1 / span 4;
-        grid-row: 1;
-        background-color: green;
-        text-align: center;
-}
-.optionsFooter {
-        grid-column: 1 / span 4;
-        grid-row: 3;
-}
+                #specsAbilities {
+                        grid-row: span 2;
+                }
 
-.charClass, .charRace {
-        margin: 1em;
-        text-align: center;
-}
-#charClassCleric {
-        font-family: 'Cinzel', serif;
-        background-color: yellow;
-}
-    
-#charClassFighter {
-        font-family: 'Permanent Marker', cursive;
-        background-color: red;
-}
 
-#charClassRogue {
-        font-family: 'Merienda', cursive;
-        background-color: purple;
-}
-#charClassWizard {
-        font-family: 'Calligraffitti', cursive;
-        background-color: blue;
-}
+                
+                #specsTraits {
+                        grid-row: 4 / span 2;
+                }
 
-#btnBack {
-        grid-column: 1;
-        float:left;
-}
+        .tab {
+                display:none;
+                overflow:hidden;
+                max-height: 100%;
+                width: 100%;
+        }
+                #chooseRaceTab,#chooseClassTab {
+                        grid: repeat(2, max-content) / 22% 4% 22% 4% 22% 4% 22%;
+                        overflow: hidden;
 
-#btnNxt {
-        grid-column: 4;
-        float:right;
-}
+                }
 
-#descriptionBox {
-        grid-column: 1 / span 4;
-        grid-row: 3;
-        display: grid;
-        background-color: orange;
-}
+                .optionsHeader {
+                        grid-column: span 7;
+                        text-align: center;
+                        display: block;
+                        overflow: hidden;
+                }
 
-input[type="button"],input[type="submit"] {
-        text-align: center;
-        vertical-align: middle;
-        margin: 1em;
-}
+                .charClass, .charRace {
+                        text-align: center;
+                        display: block;
+                        max-height: 100%;
+                        max-width: 100%;
+                }
 
-.hidden {
+                        #charClassCleric {
+                                font-family: 'Cinzel', cursive;     
+                        }
+                        
+                        #charClassFighter {
+                                font-family: 'Permanent Marker', cursive;
+                        }
+                        
+                        #charClassRogue {
+                                font-family: 'Merienda', cursive;
+                        }
+                        #charClassWizard {
+                                font-family: 'Calligraffitti', cursive;
+                        }
+
+                .selected {
+                        border-style: solid;
+                        border-radius: 10px;
+                        border-width: thick;
+                }
+
+        #btnBack {
+                float: left;
+        
+        }
+        
+        #btnNext {
+                float: right;
+        }
+        
+        button {
+                border-style: solid;
+                border-radius: 10px;
+                font-size: 2.2vmax;
+                text-align: center;
+                vertical-align: middle;
+                margin: 0.5em;
+                padding: 0.5em;
+                text-decoration: none;
+                color: #e8b80b;
+                border-color: #e8b80b;
+        }
+
+        button:hover {
+                color: #262626;
+                background-color: #e8b80b;
+        }
+
+        button:focus {
+                outline: 0;
+        }
+
+
+.modal {
         display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.5);
+}
+        .modal-content {
+                display: grid;
+                grid: repeat(5,max-content) / repeat(3,1fr);
+                background-color: rgba(0,0,0,0.7);
+                border-radius: 10px;
+                margin: 15% auto;
+                border: 1px solid;
+                width: 80%;
+        }
+
+                #descTitle {
+                        grid-column: 1 / span 3;
+                        max-height: 2em;
+                        text-align: center;
+                        height: 100%;
+                        
+
+                }
+                
+                .descPara {
+                        grid-column: 1 / span 6;
+                        grid-row: 3;
+                }
+        
+
+  
+img {
+        max-height: auto;
+        max-width: 90%;
+        margin-top:1em;
 }
 
-.selected {
-        border-style: solid;
-        border-color: #19ff2d;
-        border-width: 10px;
+.red {
+        color: #ba0000;
+        border-color: #ba0000;
+}
+
+.purple {
+        color: #563191;
+        border-color: #563191;
+}
+
+.blue {
+        color: #2564db;
+        border-color: #2564db;
+}
+
+.green {
+        color: #007c08;
+        border-color: #007c08;
+}
+
+.orange {
+        color: #e08200;
+        border-color: #e08200;
+}
+.gold {
+        color: #e8b80b;
+        border-color: #e8b80b;
+}
+
+strong {
+        color: #e8b80b;
 }

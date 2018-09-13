@@ -1,19 +1,24 @@
 mixin chooseRace
+    include description-mixin
 
-    .tab
+    #chooseRaceTab.tab
         #charRaceHeader.optionsHeader
             h1 Character Race
-        #charRaceHuman.charRace
-            img(src='img/placeholder.png')
-            h1 Human
-        #charRaceElf.charRace
-            img(src='img/placeholder.png')
-            h1 Elf
-        #charRaceDwarf.charRace
-            img(src='img/placeholder.png')
-            h1 Dwarf
-        #charRaceHalfling.charRace
-            img(src='img/placeholder.png')
-            h1 Halfling
-        button#btnUndoRace(type='button') Back
-        button#btnSubmitClass(type='button') Next
+        #charRaceHuman.charRace.blue
+            img(src='img/human-ear-blue.png')
+            h1.blue Human
+        .spacer
+        #charRaceElf.charRace.purple
+            img(src='img/elf-ear-purple.png')
+            h1.purple Elf
+        .spacer
+        #charRaceDwarf.charRace.orange
+            img(src='img/beard-orange.png')
+            h1.orange Dwarf
+        .spacer
+        #charRaceDragonborn.charRace.red
+            img(src='img/bat-wing-red.png')
+            h1.red Dragonborn
+        +description
+
+    script(src='/js/chooseRace.js', type="text/javascript")

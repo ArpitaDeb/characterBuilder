@@ -1,21 +1,20 @@
 mixin chooseClass
-    
-    .tab
+    include description-mixin
+
+    #chooseClassTab.tab
         #charClassHeader.optionsHeader
             h1 Character Class
-        #charClassFighter.charClass
+        #charClassFighter.charClass.red
             img(src='img/placeholder.png')
-            h1 Fighter
-        #charClassCleric.charClass
+            h1.red Fighter
+        #charClassRogue.charClass.purple
             img(src='img/placeholder.png')
-            h1 Cleric
-        #charClassRogue.charClass
+            h1.purple Rogue
+        #charClassWizard.charClass.blue
             img(src='img/placeholder.png')
-            h1 Rogue
-        #charClassWizard.charClass
+            h1.blue Wizard
+        #charClassCleric.charClass.gold
             img(src='img/placeholder.png')
-            h1 Wizard
-        button#btnUndoClass(type='button') Back
-        button#btnSubmitClass(type='button') Next
-
+            h1.gold Cleric
+        +description
         script(src='/js/chooseClass.js', type="text/javascript")
