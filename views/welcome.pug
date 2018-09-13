@@ -1,0 +1,13 @@
+mixin welcome
+    #welcomePageContainer
+        #welcomeTitle
+            h1 Welcome!
+        #welcomeMessage
+            p This is a simple tool to help you build a character for Dungeons & Dragons 5th Edition.
+            p It pulls data from #[a.gold(href='http://www.dnd5eapi.co') www.dnd6eapi.co] and lays it out for easy viewing, doing calculations for stats automatically.
+        #getStarted
+            h2 Let's get started! What would you like your character to be named?
+        input#nameInput(type='text')
+        button#btnStart(type='button') Start!
+    
+    script(src='/js/welcome.js', type="text/javascript")

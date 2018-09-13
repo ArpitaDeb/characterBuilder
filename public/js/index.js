@@ -1,7 +1,7 @@
-const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
+const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
 const currentChar = {
     "playerName": "",
-    "charName": "Robin Banks",
+    "charName": "Mysterious Person",
     "charRace": "",
     "charClass": "",
     "charProfs": [],
@@ -62,34 +62,35 @@ const clearSelected = () => {
         descContent.classList.remove(selectedColor);
     }
 }
+let currentTab;
+let tab;
+
+const showTab = (n) => {
+    tab[n].style.display = "grid";
+}
+const tabNext = () => {
+    tab[currentTab].style.display = "none";
+    currentTab++
+    showTab(currentTab);
+}
+
+const tabBack = () => {
+    tab[currentTab].style.display = "none";
+    currentTab--
+    showTab(currentTab);
+}
 
 window.onload = () => {
-    refreshSpecs();
-
-    let tab = document.querySelectorAll('.tab');
-    let currentTab = 0;
-    let btnNext = document.getElementById('btnNext');
-    let btnBack = document.getElementById('btnBack');
-    let descModal = document.getElementById('descModal');
-
-    const showTab = (n) => {
-        tab[n].style.display = "grid";
-    }
-    showTab(currentTab);
-
-    btnNext.onclick = () => {
-        tab[currentTab].style.display = "none";
-        currentTab++
-        showTab(currentTab);
-    }
-    
-    btnBack.onclick = () => {
-        tab[currentTab].style.display = "none";
-        currentTab--
-        showTab(currentTab);
-
-
-    }
-
+    document.getElementById('pageContainer').display = 'none';
+    document.getElementById('btnNext').addEventListener("click",tabNext);
+    document.getElementById('btnBack').addEventListener("click",tabBack);
+    tab = document.querySelectorAll('.tab');
+    welcomePageContainer.classList.add('visibleGrid');
 }
+
+    
+
+
+
+// }
 
