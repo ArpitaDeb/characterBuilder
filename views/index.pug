@@ -12,15 +12,11 @@ html
       @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Cinzel|Merienda|Permanent+Marker');
     link(href='https://fonts.googleapis.com/css?family=Calligraffitti|Nothing+You+Could+Do|Permanent+Marker|Shadows+Into+Light', rel='stylesheet')
     include header-mixin
-    include chooseClass-mixin
     include chooseRace-mixin
-    include chooseProfs-mixin
   body
     #pageContainer
       +header
       +chooseRace
-      +chooseClass
-      +chooseProfs
       #footer
         button#btnBack(type='button') Back
         button#btnNext(type='button') Next
