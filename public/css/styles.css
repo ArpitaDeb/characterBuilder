@@ -17,14 +17,14 @@ h1 {
 
 #pageContainer {
         display: grid;
-        grid: repeat(3, 1fr) / 1fr;
-        max-width: 75%;
+        grid: repeat(3,max-content) / 1fr;
+        max-width: 90%;
         margin: auto;
 }
 
         #specsContainer {
                 display:grid;
-                grid: repeat(4, 1fr) / repeat(3, 1fr);
+                grid:  repeat(4, max-content) / repeat(3, 1fr);
                 grid-gap: 10px;
                 max-width: 100%;
         }
@@ -35,8 +35,6 @@ h1 {
 
                 #specsAbilities {
                         grid-row: span 2;
-                        margin: 1%;
-                        padding: 1%
                 }
 
 
@@ -49,17 +47,16 @@ h1 {
                 display:none;
                 overflow:hidden;
                 max-height: 100%;
+                width: 100%;
         }
                 #chooseRaceTab,#chooseClassTab {
-                        grid: 5em 15em / 1fr 1fr 1fr 1fr;
-                        grid-gap: 25px;
+                        grid: repeat(2, max-content) / 22% 4% 22% 4% 22% 4% 22%;
                         overflow: hidden;
-                        height: 100%;
 
                 }
 
                 .optionsHeader {
-                        grid-column: span 4;
+                        grid-column: span 7;
                         text-align: center;
                         display: block;
                         overflow: hidden;
@@ -68,12 +65,12 @@ h1 {
                 .charClass, .charRace {
                         text-align: center;
                         display: block;
-                        height: 100%;
+                        max-height: 100%;
+                        max-width: 100%;
                 }
 
                         #charClassCleric {
-                                font-family: 'Cinzel', serif;
-                                
+                                font-family: 'Cinzel', cursive;     
                         }
                         
                         #charClassFighter {
@@ -140,7 +137,7 @@ h1 {
 }
         .modal-content {
                 display: grid;
-                grid: 5em 1fr 1fr 1fr 1fr / repeat(3,1fr);
+                grid: repeat(5,max-content) / repeat(3,1fr);
                 background-color: rgba(0,0,0,0.7);
                 border-radius: 10px;
                 margin: 15% auto;
@@ -165,8 +162,9 @@ h1 {
 
   
 img {
-        max-height: 100%;
-        max-width: 100%;
+        max-height: auto;
+        max-width: 90%;
+        margin-top:1em;
 }
 
 .red {
