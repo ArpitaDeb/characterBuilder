@@ -56,6 +56,11 @@ const clearSelected = () => {
     if(descContent.innerHTML) {
         descContent.innerHTML = '';
     }
+    if(selectedColor) {
+        charRaceName.classList.remove(selectedColor);
+        descModal.classList.remove(selectedColor);
+        descContent.classList.remove(selectedColor);
+    }
 }
 
 window.onload = () => {

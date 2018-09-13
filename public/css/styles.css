@@ -1,7 +1,16 @@
+
+
 * {
         background-color: #262626;
         color: #c3c7cc;
         border-color: #c3c7cc;
+        font-size: 1.04em;
+}
+
+@media only screen and (max-width: 550px) {
+        * {
+                font-size: 1em;
+        }
 }
 
 .modal-content * {
@@ -15,6 +24,8 @@ h1 {
         font-size: 2.2vmax;
         color: #e8b80b;
 }
+
+
 
 #pageContainer {
         display: grid;
@@ -103,8 +114,7 @@ h1 {
         button {
                 border-style: solid;
                 border-radius: 10px;
-                border-width: thick;
-                font-size: 1.5em;
+                font-size: 2.2vmax;
                 text-align: center;
                 vertical-align: middle;
                 margin: 0.5em;
@@ -142,7 +152,7 @@ h1 {
                 background-color: rgba(0,0,0,0.7);
                 border-radius: 10px;
                 margin: 15% auto;
-                border: 1px solid #e8b80b;
+                border: 1px solid;
                 width: 80%;
         }
 
@@ -151,7 +161,7 @@ h1 {
                         max-height: 2em;
                         text-align: center;
                         height: 100%;
-                        color: #e8b80b;
+                        
 
                 }
                 
@@ -191,4 +201,8 @@ img {
 .gold {
         color: #e8b80b;
         border-color: #e8b80b;
+}
+
+strong {
+        color: #e8b80b;
 }

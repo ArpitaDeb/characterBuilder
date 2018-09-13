@@ -5,6 +5,8 @@ let dwarfPanel = document.getElementById('charRaceDwarf');
 let halflingPanel = document.getElementById('charRaceHalfling');
 let descModal = document.getElementById('descModal');
 let descContent = document.getElementById('descContent');
+let charRaceName = document.createElement('h1');
+let selectedColor = null;
 
 const grabApiInfo = (num) => {
     fetch(`http://www.dnd5eapi.co/api/races/${num}/`)
@@ -23,8 +25,10 @@ const grabApiInfo = (num) => {
 
             //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
             descModal.style.display = "block";
-            let charRaceName = document.createElement('h1');
+            descModal.classList.add(selectedColor);
+            descContent.classList.add(selectedColor);
             charRaceName.setAttribute('id','descTitle')
+            charRaceName.classList.add(selectedColor);
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
             let descSpeed = document.createElement('div');
@@ -32,7 +36,6 @@ const grabApiInfo = (num) => {
             descContent.appendChild(charRaceName);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
-                console.log(currentChar.charRace);
             }
             else {
                 let bonusAbIndex= charRace.ability_bonuses.findIndex(element => {return element != 0});
@@ -66,6 +69,7 @@ const resetRacialAbilities = () => {
 const selectHuman = () => {
     clearSelected();
     humanPanel.classList.add('selected');
+    selectedColor = "blue"
     grabApiInfo(4);
     refreshSpecs();
 }
@@ -73,6 +77,7 @@ const selectHuman = () => {
 const selectElf = () => {
     clearSelected();
     elfPanel.classList.add('selected');
+    selectedColor = "green"
     grabApiInfo(2);
     refreshSpecs();
 }
@@ -80,6 +85,7 @@ const selectElf = () => {
 const selectDwarf = () => {
     clearSelected();
     dwarfPanel.classList.add('selected');
+    selectedColor = "red"
     grabApiInfo(1);
     refreshSpecs();
 }
@@ -87,6 +93,7 @@ const selectDwarf = () => {
 const selectHalfling = () => {
     clearSelected();
     halflingPanel.classList.add('selected');
+    selectedColor = "purple"
     grabApiInfo(3);
     refreshSpecs();
 }
