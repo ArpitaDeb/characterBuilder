@@ -4,8 +4,15 @@
         border-color: #c3c7cc;
 }
 
-div {
-        padding: 0.2em;
+.modal-content * {
+        background-color: rgb(0,0,0,0);
+}
+#specsAbilities div {
+        padding-bottom: 5px;
+}
+
+h1 {
+        color: #e8b80b;
 }
 
 #pageContainer {
@@ -17,13 +24,12 @@ div {
 
         #specsContainer {
                 display:grid;
-                grid: repeat(5, 1fr) / repeat(3, 1fr);
+                grid: repeat(4, 1fr) / repeat(3, 1fr);
                 grid-gap: 10px;
                 max-width: 100%;
         }
                 #specsName {
                         grid-column:span 3;
-                        font-size: 2em;
                         text-align: center;
                 }
 
@@ -41,11 +47,15 @@ div {
 
         .tab {
                 display:none;
+                overflow:hidden;
+                max-height: 100%;
         }
-                #chooseRaceTab {
-                        grid: 5em 1fr / 1fr 1fr 1fr 1fr;
+                #chooseRaceTab,#chooseClassTab {
+                        grid: 5em 15em / 1fr 1fr 1fr 1fr;
                         grid-gap: 25px;
                         overflow: hidden;
+                        height: 100%;
+
                 }
 
                 .optionsHeader {
@@ -54,19 +64,16 @@ div {
                         display: block;
                         overflow: hidden;
                 }
-                
-                .optionsHeader h1 {
 
-                }
-                .optionsHeader
-                
                 .charClass, .charRace {
                         text-align: center;
                         display: block;
+                        height: 100%;
                 }
 
                         #charClassCleric {
                                 font-family: 'Cinzel', serif;
+                                
                         }
                         
                         #charClassFighter {
@@ -86,7 +93,7 @@ div {
                         border-width: thick;
                 }
 
-        #btnbtnBack {
+        #btnBack {
                 float: left;
         
         }
@@ -95,7 +102,7 @@ div {
                 float: right;
         }
         
-        #btnNext, #btnBack, {
+        button {
                 border-style: solid;
                 border-radius: 10px;
                 border-width: thick;
@@ -104,6 +111,18 @@ div {
                 vertical-align: middle;
                 margin: 0.5em;
                 padding: 0.5em;
+                text-decoration: none;
+                color: #e8b80b;
+                border-color: #e8b80b;
+        }
+
+        button:hover {
+                color: #262626;
+                background-color: #e8b80b;
+        }
+
+        button:focus {
+                outline: 0;
         }
 
 
@@ -117,21 +136,25 @@ div {
         height: 100%;
         overflow: auto;
         background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(0,0,0,0.5);
 }
         .modal-content {
-                background-color: #fefefe;
+                display: grid;
+                grid: 5em 1fr 1fr 1fr 1fr / repeat(3,1fr);
+                background-color: rgba(0,0,0,0.7);
+                border-radius: 10px;
                 margin: 15% auto;
-                padding: 20px;
-                border: 1px solid #888;
+                border: 1px solid #e8b80b;
                 width: 80%;
         }
 
                 #descTitle {
-                        grid-column: 1 / span 6;
-                        font-size: 1.5em;
-                        font-weight: bold;
+                        grid-column: 1 / span 3;
+                        max-height: 2em;
                         text-align: center;
+                        height: 100%;
+                        color: #e8b80b;
+
                 }
                 
                 .descPara {
@@ -140,10 +163,10 @@ div {
                 }
         
 
-                
+  
 img {
-        width: 100%;
-        height: auto;
+        max-height: 100%;
+        max-width: 100%;
 }
 
 .red {

@@ -23,7 +23,7 @@ const grabApiInfo = (num) => {
 
             //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
             descModal.style.display = "block";
-            let charRaceName = document.createElement('div');
+            let charRaceName = document.createElement('h1');
             charRaceName.setAttribute('id','descTitle')
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');

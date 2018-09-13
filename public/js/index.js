@@ -1,7 +1,7 @@
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma']
 const currentChar = {
     "playerName": "",
-    "charName": "Character Name",
+    "charName": "Robin Banks",
     "charRace": "",
     "charClass": "",
     "charProfs": [],
@@ -25,7 +25,7 @@ const refreshSpecs = () => {
     currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {
         return num + currentChar.charRaceAbs[idx];
     });
-    specsName.innerHTML = 'Hmm?'
+    specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;
     specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;
     specsClass.innerHTML = `<div><strong>Class:</strong> ${currentChar.charClass}`;
     specsAbilities.innerHTML = ``;

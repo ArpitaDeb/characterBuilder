@@ -4,18 +4,18 @@ mixin chooseRace
     #chooseRaceTab.tab
         #charRaceHeader.optionsHeader
             h1 Character Race
-        #charRaceHuman.charRace
+        #charRaceHuman.charRace.blue
             img(src='img/placeholder.png')
-            h1 Human
-        #charRaceElf.charRace
+            h1.blue Human
+        #charRaceElf.charRace.green
             img(src='img/placeholder.png')
-            h1 Elf
-        #charRaceDwarf.charRace
+            h1.green Elf
+        #charRaceDwarf.charRace.red
             img(src='img/placeholder.png')
-            h1 Dwarf
-        #charRaceHalfling.charRace
+            h1.red Dwarf
+        #charRaceHalfling.charRace.purple
             img(src='img/placeholder.png')
-            h1 Halfling
+            h1.purple Halfling
         +description
 
     script(src='/js/chooseRace.js', type="text/javascript")
