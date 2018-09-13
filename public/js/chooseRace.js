@@ -2,7 +2,7 @@
 let humanPanel = document.getElementById('charRaceHuman');
 let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
-let halflingPanel = document.getElementById('charRaceHalfling');
+let dragonbornPanel = document.getElementById('charRaceDragonborn');
 let descModal = document.getElementById('descModal');
 let descContent = document.getElementById('descContent');
 let charRaceName = document.createElement('h1');
@@ -77,7 +77,7 @@ const selectHuman = () => {
 const selectElf = () => {
     clearSelected();
     elfPanel.classList.add('selected');
-    selectedColor = "green"
+    selectedColor = "purple"
     grabApiInfo(2);
     refreshSpecs();
 }
@@ -85,16 +85,16 @@ const selectElf = () => {
 const selectDwarf = () => {
     clearSelected();
     dwarfPanel.classList.add('selected');
-    selectedColor = "red"
+    selectedColor = "orange"
     grabApiInfo(1);
     refreshSpecs();
 }
 
-const selectHalfling = () => {
+const selectDragonborn = () => {
     clearSelected();
-    halflingPanel.classList.add('selected');
-    selectedColor = "purple"
-    grabApiInfo(3);
+    dragonbornPanel.classList.add('selected');
+    selectedColor = "red"
+    grabApiInfo(5);
     refreshSpecs();
 }
 
@@ -107,6 +107,6 @@ window.onclick = () => {
 humanPanel.addEventListener("click", selectHuman);
 elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
-halflingPanel.addEventListener("click", selectHalfling);
+dragonbornPanel.addEventListener("click", selectDragonborn);
 
 // descModal.addEvent.addEventListener("click",closeModal);
