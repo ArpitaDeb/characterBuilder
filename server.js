@@ -9,9 +9,10 @@ app.use(express.static('public'));
 
 app.set('view engine', 'pug');
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server running on port ${port}`);
 });
+
 
 
 app.get('/', (req, res) => {
