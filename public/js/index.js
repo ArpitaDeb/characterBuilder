@@ -1,3 +1,13 @@
+let specsContainer;
+let tab;
+let descModal;
+let descContent;
+let currentTab;
+let pageContainer;
+let btnNext;
+let btnBack;
+
+
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
 const currentChar = {
     "playerName": "",
@@ -62,30 +72,54 @@ const clearSelected = () => {
         descContent.classList.remove(selectedColor);
     }
 }
-let currentTab;
-let tab;
 
-const showTab = (n) => {
-    tab[n].style.display = "grid";
+const show = (element) => {
+    if (element.classList.contains('hidden')) {
+        element.classList.remove('hidden');
+    }
+    element.classList.add('visibleGrid');
+}
+
+const hide = (element) => {
+    if (element.classList.contains('visibleGrid')) {
+        element.classList.remove('visibleGrid');
+    }
+    element.classList.add('hidden');
 }
 const tabNext = () => {
-    tab[currentTab].style.display = "none";
+    hide(tab[currentTab]);
     currentTab++
-    showTab(currentTab);
+    show(tab[currentTab]);
 }
 
 const tabBack = () => {
-    tab[currentTab].style.display = "none";
-    currentTab--
-    showTab(currentTab);
+    if (currentTab > 0) {
+        hide(tab[currentTab]);
+        currentTab--
+        show(tab[currentTab]);
+    }
+    else {
+        window.location.replace('/')
+    }
+
 }
 
 window.onload = () => {
-    document.getElementById('pageContainer').display = 'none';
-    document.getElementById('btnNext').addEventListener("click",tabNext);
-    document.getElementById('btnBack').addEventListener("click",tabBack);
+    pageContainer = document.getElementById('pageContainer');
+    descModal = document.getElementById('descModal');
+    descContent = document.getElementById('descContent');
+    specsContainer = document.getElementById('specsContainer');
     tab = document.querySelectorAll('.tab');
-    welcomePageContainer.classList.add('visibleGrid');
+    btnNext = document.getElementById('btnNext')
+    btnBack = document.getElementById('btnBack')
+    btnNext.addEventListener("click",tabNext);
+    btnBack.addEventListener("click",tabBack);
+    hide(btnNext);
+    hide(btnBack);
+    show(welcomePageContainer);
+    
+    
+    currentTab = 0;
 }
 
     

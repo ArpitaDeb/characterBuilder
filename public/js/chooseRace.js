@@ -4,7 +4,6 @@ let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let dragonbornPanel = document.getElementById('charRaceDragonborn');
 // let descModal = document.getElementById('descModal');
-let descContent = document.getElementById('descContent');
 let charRaceName = document.createElement('h1');
 let selectedColor = null;
 
@@ -23,8 +22,8 @@ const grabApiInfo = (num) => {
             currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
 
-            //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
-            descModal.style.display = "block";
+            show(descModal);
+            show(descContent);
             descModal.classList.add(selectedColor);
             descContent.classList.add(selectedColor);
             charRaceName.setAttribute('id','descTitle')

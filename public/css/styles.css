@@ -60,14 +60,12 @@ h1 {
 }
 
 #pageContainer {
-        display: grid;
         grid: repeat(3,max-content) / 1fr;
         max-width: 90%;
         margin: auto;
 }
 
         #specsContainer {
-                display:grid;
                 grid:  repeat(4, max-content) / repeat(3, 1fr);
                 grid-gap: 10px;
                 max-width: 100%;
@@ -88,7 +86,6 @@ h1 {
                 }
 
         .tab {
-                display:none;
                 overflow:hidden;
                 max-height: 100%;
                 width: 100%;
@@ -178,7 +175,6 @@ h1 {
 
 
 .modal {
-        display: none;
         position: fixed;
         z-index: 999;
         left: 0;
@@ -190,7 +186,6 @@ h1 {
         background-color: rgba(0,0,0,0.5);
 }
         .modal-content {
-                display: grid;
                 grid: repeat(5,max-content) / repeat(3,1fr);
                 background-color: rgba(0,0,0,0.7);
                 border-radius: 10px;
