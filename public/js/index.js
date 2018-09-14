@@ -13,6 +13,18 @@ let descTitle = document.createElement('h1');
 
 
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
+const classDesc = [
+    {"name": "Fighter", "description": "A master of martial combat, skilled with a variety of weapons and armor."},
+    {"name": "Rogue", "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies."},
+    {"name": "Cleric", "description": "A priestly champion who wields divine magic in service of a higher power."},
+    {"name": "Wizard", "description": "A scholarly magic-user capable of manipulating the structures of reality."}
+]
+const raceDesc = [
+    {"name": "Human", "description": "Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds."},
+    {"name": "Elf", "description": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it."},
+    {"name": "Dwarf", "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal."},
+    {"name": "Dragonborn", "description": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail."},
+]
 const currentChar = {
     "playerName": "",
     "charName": "Mysterious Person",
@@ -71,7 +83,6 @@ const currentChar = {
 
 
 const refreshSpecs = () => {
-    console.log('refreshSpecs called');
     let specsName = document.getElementById('specsName');
     let specsRace = document.getElementById('specsRace');
     let specsClass = document.getElementById('specsClass');
@@ -111,30 +122,29 @@ const refreshSpecs = () => {
     });
 
     currentChar.charSkills.forEach((skill) => {
-        console.log(`charTotalMods: ${currentChar.charTotalMods[skill.abMod]}`);
         skill.value = currentChar.charTotalMods[skill.abMod] + 1;
     })
 
     specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;
-    specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;
-    specsClass.innerHTML = `<div><strong>Class:</strong> ${currentChar.charClass}`;
+    specsRace.innerHTML = `<span class='gold'>Race:</span> ${currentChar.charRace}`;
+    specsClass.innerHTML = `<span class='gold'>Class:</span> ${currentChar.charClass}`;
     specsAbilities.innerHTML = ``;
     let i = -1;
     abilityLabels.forEach(ability => {
         i++
         abilityLabel = document.createElement('div');
-        abilityLabel.innerHTML = `<strong>${ability}:</strong> ${currentChar.charTotalAbs[i]} [${currentChar.charTotalMods[i]}]`;
+        abilityLabel.innerHTML = `<span class='gold'>${ability}:</span> ${currentChar.charTotalAbs[i]} [${currentChar.charTotalMods[i]}]`;
         specsAbilities.appendChild(abilityLabel);
     });
-    specsSpeed.innerHTML = `<div><strong>Speed:</strong> ${currentChar.charSpeed} ft./round</div>`;
-    specsSize.innerHTML = `<div><strong>Size:</strong> ${currentChar.charSize}</div>`;
-    specsTraits.innerHTML = '<div><strong>Racial Traits:</strong></div>';
+    specsSpeed.innerHTML = `<span class='gold'>Speed:</span> ${currentChar.charSpeed} ft./round`;
+    specsSize.innerHTML = `<span class='gold'>Size:</span> ${currentChar.charSize}`;
+    specsTraits.innerHTML = `<span class='gold'>Racial Traits:</span>`;
     currentChar.raceTraits.forEach(trait => {
         traitTag = document.createElement('div');
         traitTag.innerHTML = trait.name;
         specsTraits.appendChild(traitTag)
     });
-    specsProfs.innerHTML = '<strong>Proficiencies:</strong>';
+    specsProfs.innerHTML = `<span class='gold'>Proficiencies:</span>`;
     currentChar.charProfs.forEach(prof => {
         profTag = document.createElement('div');
         profTag.innerHTML = prof;
