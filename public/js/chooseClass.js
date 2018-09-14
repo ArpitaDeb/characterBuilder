@@ -3,6 +3,7 @@ let roguePanel = document.getElementById('charClassRogue');
 let clericPanel = document.getElementById('charClassCleric');
 let fighterPanel = document.getElementById('charClassFighter');
 let charClassName = document.createElement('h1');
+let btnRandomClass = document.getElementById('btnRandomClass');
 let classIndex;
 
 const grabApiClass = (num) => {
@@ -93,6 +94,25 @@ const selectFighter = () => {
     refreshSpecs();
 }
 
+const randomClass = () => {
+    let rnd = Math.floor((Math.random()*4)+1);
+    switch (rnd) {
+        case 1:
+            selectWizard();
+            break;
+        case 2:
+            selectRogue();
+            break;
+        case 3:
+            selectFighter();
+            break;
+        case 4:
+            selectCleric();
+            break;
+    }
+}
+
+
 window.onclick = (event) => {
     if (event.target == descModal){
     $(descModal).fadeOut(350);
@@ -103,3 +123,4 @@ wizardPanel.addEventListener("click", selectWizard);
 roguePanel.addEventListener("click", selectRogue);
 clericPanel.addEventListener("click", selectCleric);
 fighterPanel.addEventListener("click", selectFighter);
+btnRandomClass.addEventListener("click", randomClass);

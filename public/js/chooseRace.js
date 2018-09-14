@@ -3,6 +3,7 @@ let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let dragonbornPanel = document.getElementById('charRaceDragonborn');
 let charRaceName = document.createElement('h1');
+let btnRandomRace = document.getElementById('btnRandomRace');
 let selectedColor = null;
 let raceIndex;
 
@@ -132,6 +133,24 @@ const selectDragonborn = () => {
     // refreshSpecs();
 }
 
+const randomRace = () => {
+    let rnd = Math.floor((Math.random()*4)+1);
+    switch (rnd) {
+        case 1:
+            selectHuman();
+            break;
+        case 2:
+            selectElf();
+            break;
+        case 3:
+            selectDwarf();
+            break;
+        case 4:
+            selectDragonborn();
+            break;
+    }
+}
+
 window.onclick = (event) => {
     if (event.target == descModal){
     $(descModal).fadeOut(350);
@@ -142,3 +161,4 @@ humanPanel.addEventListener("click", selectHuman);
 elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
 dragonbornPanel.addEventListener("click", selectDragonborn);
+btnRandomRace.addEventListener("click", randomRace);

@@ -209,7 +209,7 @@ margin: auto;
         }
                 #chooseRaceTab,#chooseClassTab {
                 display: grid;
-                grid: repeat(2,max-content) / 22% 4% 22% 4% 22% 4% 22%;
+                grid: repeat(3,max-content) / 22% 4% 22% 4% 22% 4% 22%;
                 overflow: hidden;
                 }
 
@@ -243,6 +243,32 @@ margin: auto;
                         #charClassWizard {
                         font-family: 'Calligraffitti', cursive;
                         font-weight: normal;
+                        }
+
+                        #btnRandomRace {
+                                grid-column: 2 / span 5;
+                                font-size: 1.5vmax;
+                                max-width: 10em;
+                                margin: 2% auto auto auto;
+                        }
+
+                        #btnRandomRace:hover, #btnRandomRace:hover i {
+                                color: #007c08;
+                                background-color: #262626;
+                                border-color: #007c08;
+                        }
+
+                        #btnRandomClass {
+                                grid-column: 2 / span 5;
+                                font-size: 1.5vmax;
+                                max-width: 10em;
+                                margin: 2% auto auto auto;
+                        }
+
+                        #btnRandomClass:hover, #btnRandomClass:hover i {
+                                color: #007c08;
+                                background-color: #262626;
+                                border-color: #007c08;
                         }
 
                 .selected {
