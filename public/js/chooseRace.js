@@ -103,7 +103,7 @@ const selectDragonborn = () => {
     refreshSpecs();
 }
 
-window.onclick = () => {
+window.onclick = (event) => {
     if (event.target == descModal){
     $(descModal).hide();
     }
