@@ -6,6 +6,10 @@ let currentTab;
 let pageContainer;
 let btnNext;
 let btnBack;
+let chooseRaceTab;
+let chooseClassTab;
+let descTitle = document.createElement('h1');
+
 
 
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
@@ -70,20 +74,25 @@ const clearSelected = () => {
         charRaceName.classList.remove(selectedColor);
         descModal.classList.remove(selectedColor);
         descContent.classList.remove(selectedColor);
+        descTitle.classList.remove(selectedColor);
     }
 }
 
 const tabNext = () => {
     $(tab[currentTab]).fadeOut(350);
     currentTab++
-    $(tab[currentTab]).fadeIn(700);
+    setTimeout(() => {
+        $(tab[currentTab]).fadeIn(700);
+    },350);
 }
 
 const tabBack = () => {
     if (currentTab > 0) {
         $(tab[currentTab]).fadeOut(350);
         currentTab--
-        $(tab[currentTab]).fadeIn(700);
+        setTimeout(() => {
+            $(tab[currentTab]).fadeIn(700);
+        }, 350);
     }
     else {
         const backToStart = () => {
@@ -97,10 +106,14 @@ const tabBack = () => {
 window.onload = () => {
     pageContainer = document.getElementById('pageContainer');
     $(pageContainer).hide();
+    chooseRaceTab = document.getElementById('chooseRaceTab');
+    chooseClassTab = document.getElementById('chooseClassTab');
+    $(chooseClassTab).hide();
     descModal = document.getElementById('descModal');
     $(descModal).hide();
     descContent = document.getElementById('descContent');
     specsContainer = document.getElementById('specsContainer');
+    descTitle.setAttribute('id','descTitle');
     $(specsContainer).hide();
     tab = document.querySelectorAll('.tab');
     btnNext = document.getElementById('btnNext')
@@ -110,7 +123,11 @@ window.onload = () => {
     $(btnNext).hide();
     $(btnBack).hide();
     $(welcomePageContainer).show();
-    
+    let blanket = document.getElementById('blanket');
+    $(blanket).fadeOut(350);
+    setTimeout(() => {
+        blanket.parentNode.removeChild(blanket);
+    },400);
     
     currentTab = 0;
 }

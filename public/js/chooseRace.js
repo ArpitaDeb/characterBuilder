@@ -5,7 +5,7 @@ let dragonbornPanel = document.getElementById('charRaceDragonborn');
 let charRaceName = document.createElement('h1');
 let selectedColor = null;
 
-const grabApiInfo = (num) => {
+const grabApiRace = (num) => {
     fetch(`http://www.dnd5eapi.co/api/races/${num}/`)
         .then(res => {
             return res.json();
@@ -23,13 +23,12 @@ const grabApiInfo = (num) => {
             //display modal
             $(descModal).fadeIn(350);
             descModal.classList.add(selectedColor);
+            descTitle.classList.add(selectedColor);
             descContent.classList.add(selectedColor);
-            charRaceName.setAttribute('id','descTitle')
-            charRaceName.classList.add(selectedColor);
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
             let descSpeed = document.createElement('div');
-            charRaceName.innerHTML = `${charRace.name}`;
+            descTitle.innerHTML = `${charRace.name}`;
             descContent.appendChild(charRaceName);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
@@ -92,7 +91,7 @@ const selectHuman = () => {
     clearSelected();
     humanPanel.classList.add('selected');
     selectedColor = "blue"
-    grabApiInfo(4);
+    grabApiRace(4);
     refreshSpecs();
 }
 
@@ -100,7 +99,7 @@ const selectElf = () => {
     clearSelected();
     elfPanel.classList.add('selected');
     selectedColor = "purple"
-    grabApiInfo(2);
+    grabApiRace(2);
     refreshSpecs();
 }
 
@@ -108,7 +107,7 @@ const selectDwarf = () => {
     clearSelected();
     dwarfPanel.classList.add('selected');
     selectedColor = "orange"
-    grabApiInfo(1);
+    grabApiRace(1);
     refreshSpecs();
 }
 
@@ -116,7 +115,7 @@ const selectDragonborn = () => {
     clearSelected();
     dragonbornPanel.classList.add('selected');
     selectedColor = "red"
-    grabApiInfo(5);
+    grabApiRace(5);
     refreshSpecs();
 }
 

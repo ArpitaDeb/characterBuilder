@@ -1,149 +1,186 @@
 
 
 * {
-        background-color: #262626;
-        color: #c3c7cc;
-        border-color: #c3c7cc;
-        font-size: 1.04em;
-}
-
-@media only screen and (max-width: 550px) {
-        * {
-                font-size: 1em;
-        }
-}
-
-.modal-content * {
-        background-color: rgb(0,0,0,0);
-}
-#specsAbilities div {
-        padding-bottom: 5px;
+background-color: #262626;
+color: #c3c7cc;
+border-color: #c3c7cc;
+font-size: 1.04em;
 }
 
 h1 {
-        font-size: 2.2vmax;
-        color: #e8b80b;
+font-size: 2vmax;
+color: #e8b80b;
 }
 
-#welcomePageContainer h2 {
-        font-size: 1.2em;
+button {
+        border-style: solid;
+        border-radius: 10px;
+        font-size: 2.2vmax;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0.5em;
+        padding: 0.5em;
+        text-decoration: none;
         color: #e8b80b;
+        border-color: #e8b80b;
+        }
+
+@media only screen and (max-width: 550px) {
+* {
+font-size: 0.96em;
+}
+
+h1 {
+font-size: 0.94em;
+}
+
+button {
+font-size: 0.94em;
+}
+}
+
+@media only screen and (min-width: 551px) and (max-width: 800px) {
+        * {
+        font-size: 1em;
+        }
+        
+        h1 {
+        font-size: 1.4vmax;
+        }
+        button {
+                font-size: 1.4vmax;
+        }
+        }
+
+.modal-content * {
+background-color: rgb(0,0,0,0);
+}
+#specsAbilities div {
+padding-bottom: 5px;
+}
+
+
+
+#welcomePageContainer h2 {
+font-size: 1.2em;
+color: #e8b80b;
 }
 
 #welcomePageContainer h1 {
-        font-size: 2em;
-        color: #e8b80b;
+font-size: 2em;
+color: #e8b80b;
 }
 #welcomePageContainer {
-        display: grid;
-        /* grid: repeat(5,max-content) / auto auto auto; */
-        grid:
-                'welcomeTitle welcomeTitle welcomeTitle'
-                'welcomeMsg welcomeMsg welcomeMsg'
-                'getStarted getStarted getStarted'
-                'nameInput nameInput nameInput'
-                'startButton startButton startButton';
-        max-width: 90%;
-        margin: auto;
+display: grid;
+/* grid: repeat(5,max-content) / auto auto auto; */
+grid:
+        'welcomeTitle welcomeTitle welcomeTitle'
+        'welcomeMsg welcomeMsg welcomeMsg'
+        'getStarted getStarted getStarted'
+        'nameInput nameInput nameInput'
+        'startButton startButton startButton';
+max-width: 90%;
+margin: auto;
 }
 
 #welcomeTitle {
-        grid-area: welcomeTitle;
+grid-area: welcomeTitle;
 }
 
 #welcomeMessage {
-        grid-area: welcomeMsg;
+grid-area: welcomeMsg;
 }
 
 #getStarted {
-        grid-area: getStarted;
+grid-area: getStarted;
 }
 
 #welcomeTitle, #welcomeMessage, #getStarted, #nameInput, #btnStart {
-        grid-column: 2;
-        text-align: center;     
+grid-column: 2;
+text-align: center;     
 }
 
 #welcomeTitle, #welcomeMessage, #getStarted {
-        grid-column: span 3;
+grid-column: span 3;
 }
 
 #nameInput {
-        min-width: 30%;
-        max-width: 100px;
-        grid-area: nameInput;
-        margin: auto;
+min-width: 20em;
+max-width: 50%;
+grid-area: nameInput;
+margin: auto;
 }
 
 #btnStart {
-        max-width: 30%;
-        margin-left: auto;
-        margin-right: auto;
-        grid-area: startButton;
+max-width: 30%;
+min-width: 4em;
+margin-left: auto;
+margin-right: auto;
+grid-area: startButton;
 }
 
 #pageContainer {
-        display: grid;
-        /* grid: repeat(3,max-content) / 1fr; */
-        grid:
-                'indexHeader'
-                'indexTab'
-                'indexFooter';
-        max-width: 90%;
-        margin: auto;
+display: grid;
+/* grid: repeat(3,max-content) / 1fr; */
+grid:
+        'indexHeader'
+        'indexTab'
+        'indexFooter';
+max-width: 90%;
+margin: auto;
 }
 
         #specsContainer {
-                display: grid;
-                margin-left: 5%;
-                margin-right: 5%;
-                text-align: center;
-                /* grid:  repeat(4,max-content) / repeat(3, 1fr); */
-                grid:
-                        'name name name'
-                        'abs race class'
-                        'abs size speed'
-                        'traits 42 43'
-                        'traits 52 53'
-                        '61 62 63'
-                        '71 72 73';
+        display: grid;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+        /* grid:  repeat(4,max-content) / repeat(3, 1fr); */
+        grid:
+                'name name name'
+                'abs race class'
+                'abs size speed'
+                'traits 42 43'
+                'traits 52 53'
+                '61 62 63'
+                '71 72 73';
 
-                grid-gap: 10px;
-                max-width: 100%;
-                grid-area: indexHeader;
+        grid-gap: 10px;
+        max-width: 100%;
+        grid-area: indexHeader;
         }
                 #specsName {
-                        /* grid-column:span 3; */
-                        grid-area: name;
-                        text-align: center;
+                /* grid-column:span 3; */
+                grid-area: name;
+                text-align: center;
                 }
 
                 #specsAbilities {
-                        /* grid-row: span 2; */
-                        grid-area: abs;
+                /* grid-row: span 2; */
+                grid-area: abs;
                 }
 
 
                 
                 #specsTraits {
-                        /* grid-row: 4 / span 2; */
-                        grid-area: traits;
+                /* grid-row: 4 / span 2; */
+                grid-area: traits;
                 }
 
                 #specsRace {
-                        grid-area: race;
+                grid-area: race;
                 }
 
                 #specsClass {
-                        grid-area: class;
+                grid-area: class;
                 }
 
                 #specsSize {
-                        grid-area: size;
+                grid-area: size;
                 }
 
                 #specsSpeed {
-                        grid-area: speed;
+                grid-area: speed;
                 }
 
         /* .tab {
@@ -154,186 +191,176 @@ h1 {
         } */
 
         #tab {
-                display: block;
-                overflow: hidden;
-                grid-area: indexTab;
+        display: block;
+        overflow: hidden;
+        grid-area: indexTab;
         }
                 #chooseRaceTab,#chooseClassTab {
-                        display: grid;
-                        grid: repeat(2,max-content) / 22% 4% 22% 4% 22% 4% 22%;
-                        overflow: hidden;
+                display: grid;
+                grid: repeat(2,max-content) / 22% 4% 22% 4% 22% 4% 22%;
+                overflow: hidden;
                 }
 
                 .optionsHeader {
-                        grid-column: span 7;
-                        text-align: center;
-                        display: block;
-                        overflow: hidden;
+                grid-column: span 7;
+                text-align: center;
+                display: block;
+                overflow: hidden;
                 }
 
                 .charClass, .charRace {
-                        text-align: center;
-                        display: block;
-                        max-width: 100%;
+                text-align: center;
+                display: block;
+                max-width: 100%;
                 }
 
                         #charClassCleric {
-                                font-family: 'Cinzel', cursive;     
+                        font-family: 'Cinzel', cursive;     
                         }
                         
                         #charClassFighter {
-                                font-family: 'Permanent Marker', cursive;
+                        font-family: 'Permanent Marker', cursive;
                         }
                         
                         #charClassRogue {
-                                font-family: 'Merienda', cursive;
+                        font-family: 'Merienda', cursive;
                         }
                         #charClassWizard {
-                                font-family: 'Calligraffitti', cursive;
+                        font-family: 'Calligraffitti', cursive;
                         }
 
                 .selected {
-                        border-style: solid;
-                        border-radius: 10px;
-                        border-width: thick;
+                border-style: solid;
+                border-radius: 10px;
+                border-width: thick;
                 }
         
         #footer {
-                grid-area:indexFooter;
+        grid-area:indexFooter;
         }
         #btnBack {
-                float: left;
+        float: left;
         
         }
         
         #btnNext {
-                float: right;
+        float: right;
         }
         
         input[type='text'] {
-                border-color: #c3c7cc;
-                border-style: solid;
-                border-radius: 10px;
-                text-align: center;
-                vertical-align: middle;
-                margin: 0.5em;
-                padding: 0.5em;
-                color: #e8b80b;
-        }
-        button {
-                border-style: solid;
-                border-radius: 10px;
-                font-size: 2.2vmax;
-                text-align: center;
-                vertical-align: middle;
-                margin: 0.5em;
-                padding: 0.5em;
-                text-decoration: none;
-                color: #e8b80b;
-                border-color: #e8b80b;
+        border-color: #c3c7cc;
+        border-style: solid;
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0.5em;
+        padding: 0.5em;
+        color: #e8b80b;
         }
 
+
         button:hover {
-                color: #262626;
-                background-color: #e8b80b;
+        color: #262626;
+        background-color: #e8b80b;
         }
 
         button:focus {
-                outline: 0;
+        outline: 0;
         }
 
 
 .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.5);
+display: none;
+position: fixed;
+z-index: 999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.5);
 }
         .modal-content {
-                display: grid;
-                grid: repeat(6,max-content) / 1fr 1fr 1fr 1fr;
-                background-color: rgba(0,0,0,0.7);
-                border-radius: 10px;
-                margin: 15% auto;
-                padding: 1% 2% 2% 2%;
-                border: 1px solid;
-                width: 80%;
-                text-align: center;
+        display: grid;
+        grid: repeat(6,max-content) / 1fr 1fr 1fr 1fr;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 10px;
+        margin: 15% auto;
+        padding: 1% 2% 2% 2%;
+        border: 1px solid;
+        width: 80%;
+        text-align: center;
         }
 
                 #descTitle {
-                        grid-column: 1 / span 4;
-                        text-align: center;
-                        margin-top: 0;
+                grid-column: 1 / span 4;
+                text-align: center;
+                margin-top: 0;
                         
 
                 }
                 
                 .descPara {
-                        grid-column: 1 / span 4;
-                        margin:1% 0 0 0;
-                        text-align: left;
+                grid-column: 1 / span 4;
+                margin:1% 0 0 0;
+                text-align: left;
                 }
 
                 #descSize {
-                        margin-top: 2%;
+                margin-top: 2%;
                 }
         
-
+#blanket {
+position: fixed;
+z-index: 9999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color:#262626
+}
   
 img {
-        /* max-height: 90%; */
-        max-width: 90%;
-        margin-top:1em;
+/* max-height: 90%; */
+max-width: 90%;
+margin-top:1em;
 }
 
 .red {
-        color: #ba0000;
-        border-color: #ba0000;
+color: #ba0000;
+border-color: #ba0000;
 }
 
 .purple {
-        color: #563191;
-        border-color: #563191;
+color: #563191;
+border-color: #563191;
 }
 
 .blue {
-        color: #2564db;
-        border-color: #2564db;
+color: #2564db;
+border-color: #2564db;
 }
 
 .green {
-        color: #007c08;
-        border-color: #007c08;
+color: #007c08;
+border-color: #007c08;
 }
 
 .orange {
-        color: #e08200;
-        border-color: #e08200;
+color: #e08200;
+border-color: #e08200;
 }
 .gold {
-        color: #e8b80b;
-        border-color: #e8b80b;
+color: #e8b80b;
+border-color: #e8b80b;
 }
 
 strong {
-        color: #e8b80b;
+color: #e8b80b;
 }
 
 #descContent {
-        display:grid;
-}
-
-.hidden {
-        display: none;
-}
-
-.visibleGrid {
-        display: grid;
+display:grid;
 }

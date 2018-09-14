@@ -1,0 +1,23 @@
+mixin chooseClass
+
+    #chooseClassTab.tab
+        #charClassHeader.optionsHeader
+            h1 Character Class
+        #charClassWizard.charClass.blue
+            img(src='img/pointy-hat-blue.png')
+            h1.blue Wizard
+        .spacer
+        #charClassRogue.charClass.purple
+            img(src='img/cowled-purple.png')
+            h1.purple Rogue
+        .spacer
+        #charClassCleric.charClass.orange
+            img(src='img/pope-crown-orange.png')
+            h1.orange Cleric
+        .spacer
+        #charClassFighter.charClass.red
+            img(src='img/heavy-helm-red.png')
+            h1.red Fighter
+        
+
+    script(src='/js/chooseClass.js' type="text/javascript" defer)
