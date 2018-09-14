@@ -137,13 +137,13 @@ margin: auto;
         text-align: center;
         /* grid:  repeat(4,max-content) / repeat(3, 1fr); */
         grid:
-                'name name name'
-                'abs race class'
-                'abs size speed'
-                'traits 42 43'
-                'traits 52 53'
-                '61 62 63'
-                '71 72 73';
+                'name name name name'
+                'abs race class skills'
+                'abs size speed skills'
+                'traits profs 43 skills'
+                'traits profs 53 skills'
+                '61 62 63 skills'
+                '71 72 73 skills';
 
         grid-gap: 10px;
         max-width: 100%;
@@ -160,11 +160,18 @@ margin: auto;
                 grid-area: abs;
                 }
 
-
+                #specsSkills {
+                        grid-area: skills;
+                        text-align: left;
+                }
                 
                 #specsTraits {
                 /* grid-row: 4 / span 2; */
                 grid-area: traits;
+                }
+
+                #specsProfs {
+                        grid-area: profs;
                 }
 
                 #specsRace {
@@ -216,17 +223,21 @@ margin: auto;
 
                         #charClassCleric {
                         font-family: 'Cinzel', cursive;     
+                        font-weight: normal;
                         }
                         
                         #charClassFighter {
                         font-family: 'Permanent Marker', cursive;
+                        font-weight: normal;
                         }
                         
                         #charClassRogue {
                         font-family: 'Merienda', cursive;
+                        font-weight: normal;
                         }
                         #charClassWizard {
                         font-family: 'Calligraffitti', cursive;
+                        font-weight: normal;
                         }
 
                 .selected {

@@ -12,17 +12,41 @@ const grabApiClass = (num) => {
         .then(charClass => {
             //Update currentChar object
             currentChar.charClass = charClass.name;
+            currentChar.classProfs = [];
+            charClass.proficiencies.forEach((i) => {
+                currentChar.classProfs.push(i.name);
+            });
+            currentChar.charProfs = currentChar.raceProfs.concat(currentChar.classProfs);
 
             //display modal
             $(descModal).fadeIn(350);
             descModal.classList.add(selectedColor);
             descTitle.classList.add(selectedColor);
             descContent.classList.add(selectedColor);
-            let descAbilities = document.createElement('div');
-            let descTraits = document.createElement('div');
-            let descSpeed = document.createElement('div');
             descTitle.innerHTML = `${charClass.name}`;
             descContent.appendChild(descTitle);
+            let descClassProfs = document.createElement('div');
+            descClassProfs.innerHTML = `<strong>Automatic<br>Proficiencies:</strong>`;
+            charClass.proficiencies.forEach(prof => {
+                profTag = document.createElement('div');
+                profTag.innerHTML = prof.name;
+                descClassProfs.appendChild(profTag);
+            });
+            descContent.appendChild(descClassProfs);
+            let descClassProfChoices = document.createElement('div');
+            descClassProfChoices.innerHTML = `<strong>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</strong>`;
+            let profPool = charClass.proficiency_choices[0].from;
+            profPool.forEach(prof => {
+                profTag = document.createElement('div');
+                profTag.innerHTML = prof.name;
+                descClassProfChoices.appendChild(profTag);
+            });
+            descContent.appendChild(descClassProfChoices);
+            let descHitDie = document.createElement('div');
+            descHitDie.innerHTML = `<strong>Hit Die:</strong> ${charClass.hit_die}`;
+            descContent.appendChild(descHitDie);
+
+
         })
         .then( () => {
             refreshSpecs();

@@ -17,8 +17,13 @@ const grabApiRace = (num) => {
             currentChar.charSpeed = charRace.speed;
             currentChar.charSize = charRace.size;
             currentChar.charLanguages = charRace.languages;
-            currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
+            currentChar.raceProfs = [];
+            charRace.starting_proficiencies.forEach((i) => {
+                currentChar.raceProfs.push(i.name);
+            });
+            currentChar.charProfs = currentChar.raceProfs.concat(currentChar.classProfs);
+            console.log(currentChar.charProfs);
 
             //display modal
             $(descModal).fadeIn(350);
@@ -29,7 +34,8 @@ const grabApiRace = (num) => {
             let descTraits = document.createElement('div');
             let descSpeed = document.createElement('div');
             descTitle.innerHTML = `${charRace.name}`;
-            descContent.appendChild(charRaceName);
+            console.log(descTitle);
+            descContent.appendChild(descTitle);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
             }

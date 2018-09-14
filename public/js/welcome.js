@@ -10,7 +10,6 @@ const goToIndex = () => {
     setTimeout(() => {
         $(pageContainer).fadeIn(700);
         currentChar.charName = nameInput.value;
-        console.log(tab);
         $(specsContainer).fadeIn(700);
         $(tab[currentTab]).fadeIn(700);
         $(btnNext).fadeIn(700);
