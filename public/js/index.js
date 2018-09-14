@@ -74,19 +74,22 @@ const clearSelected = () => {
 }
 
 const tabNext = () => {
-    $(tab[currentTab]).hide();
+    $(tab[currentTab]).fadeOut(350);
     currentTab++
-    $(tab[currentTab]).show();
+    $(tab[currentTab]).fadeIn(700);
 }
 
 const tabBack = () => {
     if (currentTab > 0) {
-        $(tab[currentTab]).hide();
+        $(tab[currentTab]).fadeOut(350);
         currentTab--
-        $(tab[currentTab]).show();
+        $(tab[currentTab]).fadeIn(700);
     }
     else {
-        window.location.replace('/')
+        const backToStart = () => {
+            window.location.replace('/');
+        }
+        $(pageContainer).fadeOut(350,backToStart);
     }
 
 }

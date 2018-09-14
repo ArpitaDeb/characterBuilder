@@ -21,18 +21,10 @@ const grabApiInfo = (num) => {
             currentChar.raceTraits = charRace.traits;
 
             //display modal
-            $(descModal).show();
-            console.log('Showed descModal');
-            console.log(`descModal classList: ${descModal.classList}`);
-            console.log(`descContent classList: ${descContent.classList}`);
+            $(descModal).fadeIn(350);
             descModal.classList.add(selectedColor);
-            console.log('added color to descModal Classlist');
-            console.log(`descModal classList: ${descModal.classList}`);
             descContent.classList.add(selectedColor);
-            console.log('added color to descContent classLists');
-            console.log(`descContent classList: ${descContent.classList}`);
             charRaceName.setAttribute('id','descTitle')
-            console.log('set race name id');
             charRaceName.classList.add(selectedColor);
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
@@ -56,6 +48,31 @@ const grabApiInfo = (num) => {
             descContent.appendChild(descTraits);
             descSpeed.innerHTML = `<strong>Speed:</strong><br>${charRace.speed} feet/round<br>(6 seconds)`
             descContent.appendChild(descSpeed);
+            let descRaceProfs = document.createElement('div');
+            descRaceProfs.innerHTML = `<strong>Starting<br>Proficiencies:</strong>`;
+            charRace.starting_proficiencies.forEach(prof => {
+                profTag = document.createElement('div');
+                profTag.innerHTML = prof.name;
+                descRaceProfs.appendChild(profTag);
+            });
+            descContent.appendChild(descRaceProfs);
+            let descSize = document.createElement('div');
+            descSize.setAttribute('id','descSize');
+            descSize.classList.add('descPara');
+            descSize.innerHTML = `<strong>Size: </strong> ${charRace.size_description}`;
+            descContent.appendChild(descSize);
+            let descAge = document.createElement('div');
+            descAge.classList.add('descPara');
+            descAge.innerHTML = `<strong>Age: </strong> ${charRace.age}`;
+            descContent.appendChild(descAge);
+            let descAlign = document.createElement('div');
+            descAlign.classList.add('descPara');
+            descAlign.innerHTML = `<strong>Alignment: </strong> ${charRace.alignment}`;
+            descContent.appendChild(descAlign);
+            let descLang = document.createElement('div');
+            descLang.classList.add('descPara');
+            descLang.innerHTML = `<strong>Languages: </strong> ${charRace.language_desc}`;
+            descContent.appendChild(descLang);
         })
         .then( () => {
             refreshSpecs();
@@ -105,7 +122,7 @@ const selectDragonborn = () => {
 
 window.onclick = (event) => {
     if (event.target == descModal){
-    $(descModal).hide();
+    $(descModal).fadeOut(350);
     }
 }
 

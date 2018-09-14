@@ -14,12 +14,14 @@ html
     include welcome
     include header-mixin
     include chooseRace-mixin
+    include description-mixin
   body
     +welcome
     #pageContainer
       #header
         +header
       #tab
+        +description
         +chooseRace
       #footer
         button#btnBack(type='button') Back

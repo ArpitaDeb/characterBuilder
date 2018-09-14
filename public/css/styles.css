@@ -244,6 +244,7 @@ h1 {
 
 
 .modal {
+        display: none;
         position: fixed;
         z-index: 9999;
         left: 0;
@@ -256,26 +257,32 @@ h1 {
 }
         .modal-content {
                 display: grid;
-                grid: repeat(5,max-content) / repeat(3,1fr);
+                grid: repeat(6,max-content) / 1fr 1fr 1fr 1fr;
                 background-color: rgba(0,0,0,0.7);
                 border-radius: 10px;
                 margin: 15% auto;
+                padding: 1% 2% 2% 2%;
                 border: 1px solid;
                 width: 80%;
+                text-align: center;
         }
 
                 #descTitle {
-                        grid-column: 1 / span 3;
-                        max-height: 2em;
+                        grid-column: 1 / span 4;
                         text-align: center;
-                        height: 100%;
+                        margin-top: 0;
                         
 
                 }
                 
                 .descPara {
-                        grid-column: 1 / span 6;
-                        grid-row: 3;
+                        grid-column: 1 / span 4;
+                        margin:1% 0 0 0;
+                        text-align: left;
+                }
+
+                #descSize {
+                        margin-top: 2%;
                 }
         
 
