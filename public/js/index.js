@@ -1,3 +1,13 @@
+let specsContainer;
+let tab;
+let descModal;
+let descContent;
+let currentTab;
+let pageContainer;
+let btnNext;
+let btnBack;
+
+
 const abilityLabels = ['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
 const currentChar = {
     "playerName": "",
@@ -62,35 +72,43 @@ const clearSelected = () => {
         descContent.classList.remove(selectedColor);
     }
 }
-let currentTab;
-let tab;
 
-const showTab = (n) => {
-    tab[n].style.display = "grid";
-}
 const tabNext = () => {
-    tab[currentTab].style.display = "none";
+    $(tab[currentTab]).hide();
     currentTab++
-    showTab(currentTab);
+    $(tab[currentTab]).show();
 }
 
 const tabBack = () => {
-    tab[currentTab].style.display = "none";
-    currentTab--
-    showTab(currentTab);
+    if (currentTab > 0) {
+        $(tab[currentTab]).hide();
+        currentTab--
+        $(tab[currentTab]).show();
+    }
+    else {
+        window.location.replace('/')
+    }
+
 }
 
 window.onload = () => {
-    document.getElementById('pageContainer').display = 'none';
-    document.getElementById('btnNext').addEventListener("click",tabNext);
-    document.getElementById('btnBack').addEventListener("click",tabBack);
+    pageContainer = document.getElementById('pageContainer');
+    $(pageContainer).hide();
+    descModal = document.getElementById('descModal');
+    $(descModal).hide();
+    descContent = document.getElementById('descContent');
+    specsContainer = document.getElementById('specsContainer');
+    $(specsContainer).hide();
     tab = document.querySelectorAll('.tab');
-    welcomePageContainer.classList.add('visibleGrid');
-}
-
+    btnNext = document.getElementById('btnNext')
+    btnBack = document.getElementById('btnBack')
+    btnNext.addEventListener("click",tabNext);
+    btnBack.addEventListener("click",tabBack);
+    $(btnNext).hide();
+    $(btnBack).hide();
+    $(welcomePageContainer).show();
     
-
-
-
-// }
+    
+    currentTab = 0;
+}
 

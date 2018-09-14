@@ -1,14 +1,19 @@
 let btnStart = document.getElementById('btnStart');
-let welcomePageContainer = document.getElementById('welcomePageContainer')
+let welcomePageContainer = document.getElementById('welcomePageContainer');
 let nameInput = document.getElementById('nameInput');
+
+
+
+
 const goToIndex = () => {
-    welcomePageContainer.classList.remove('visibleGrid');
-    welcomePageContainer.classList.add('hidden');
-    console.log(`Class List: ${document.getElementById('welcomePageContainer').classList}`)
-    document.getElementById('pageContainer').display = 'grid';
+    $(welcomePageContainer).hide();
+    $(pageContainer).show();
     currentChar.charName = nameInput.value;
-    currentTab = 0;
-    showTab(currentTab);
+    console.log(tab);
+    $(specsContainer).show();
+    $(tab[currentTab]).show();
+    $(btnNext).show();
+    $(btnBack).show();
     refreshSpecs();
 }
 

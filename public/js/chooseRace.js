@@ -1,10 +1,7 @@
-// let btnSubmitRace = document.getElementById('btnSubmitRace');
 let humanPanel = document.getElementById('charRaceHuman');
 let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let dragonbornPanel = document.getElementById('charRaceDragonborn');
-// let descModal = document.getElementById('descModal');
-let descContent = document.getElementById('descContent');
 let charRaceName = document.createElement('h1');
 let selectedColor = null;
 
@@ -23,11 +20,19 @@ const grabApiInfo = (num) => {
             currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
 
-            //Update Description Box ---> MAKE DESCRIPTIOPN BOX A MODAL
-            descModal.style.display = "block";
+            //display modal
+            $(descModal).show();
+            console.log('Showed descModal');
+            console.log(`descModal classList: ${descModal.classList}`);
+            console.log(`descContent classList: ${descContent.classList}`);
             descModal.classList.add(selectedColor);
+            console.log('added color to descModal Classlist');
+            console.log(`descModal classList: ${descModal.classList}`);
             descContent.classList.add(selectedColor);
+            console.log('added color to descContent classLists');
+            console.log(`descContent classList: ${descContent.classList}`);
             charRaceName.setAttribute('id','descTitle')
+            console.log('set race name id');
             charRaceName.classList.add(selectedColor);
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
@@ -100,7 +105,7 @@ const selectDragonborn = () => {
 
 window.onclick = () => {
     if (event.target == descModal){
-    descModal.style.display = "none";
+    $(descModal).hide();
     }
 }
 
@@ -108,5 +113,3 @@ humanPanel.addEventListener("click", selectHuman);
 elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
 dragonbornPanel.addEventListener("click", selectDragonborn);
-
-// descModal.addEvent.addEventListener("click",closeModal);

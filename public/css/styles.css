@@ -35,6 +35,7 @@ h1 {
         color: #e8b80b;
 }
 #welcomePageContainer {
+        display: grid;
         grid: repeat(5,max-content) / auto auto auto;
         max-width: 90%;
         margin: auto;
@@ -67,7 +68,7 @@ h1 {
 }
 
         #specsContainer {
-                display:grid;
+                display: grid;
                 grid:  repeat(4, max-content) / repeat(3, 1fr);
                 grid-gap: 10px;
                 max-width: 100%;
@@ -88,7 +89,7 @@ h1 {
                 }
 
         .tab {
-                display:none;
+                display:grid;
                 overflow:hidden;
                 max-height: 100%;
                 width: 100%;
@@ -178,9 +179,8 @@ h1 {
 
 
 .modal {
-        display: none;
         position: fixed;
-        z-index: 999;
+        z-index: 9999;
         left: 0;
         top: 0;
         width: 100%;
@@ -252,6 +252,10 @@ img {
 
 strong {
         color: #e8b80b;
+}
+
+#descContent {
+        display:grid;
 }
 
 .hidden {
