@@ -6,14 +6,14 @@ let nameInput = document.getElementById('nameInput');
 
 
 const goToIndex = () => {
-    $(welcomePageContainer).hide();
-    $(pageContainer).show();
+    $(welcomePageContainer).fadeOut(350);
+    $(pageContainer).fadeIn(700);
     currentChar.charName = nameInput.value;
     console.log(tab);
-    $(specsContainer).show();
-    $(tab[currentTab]).show();
-    $(btnNext).show();
-    $(btnBack).show();
+    $(specsContainer).fadeIn(700);
+    $(tab[currentTab]).fadeIn(700);
+    $(btnNext).fadeIn(700);
+    $(btnBack).fadeIn(700);
     refreshSpecs();
 }
 
