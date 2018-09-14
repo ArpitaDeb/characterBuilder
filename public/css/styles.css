@@ -36,9 +36,27 @@ h1 {
 }
 #welcomePageContainer {
         display: grid;
-        grid: repeat(5,max-content) / auto auto auto;
+        /* grid: repeat(5,max-content) / auto auto auto; */
+        grid:
+                'welcomeTitle welcomeTitle welcomeTitle'
+                'welcomeMsg welcomeMsg welcomeMsg'
+                'getStarted getStarted getStarted'
+                'nameInput nameInput nameInput'
+                'startButton startButton startButton';
         max-width: 90%;
         margin: auto;
+}
+
+#welcomeTitle {
+        grid-area: welcomeTitle;
+}
+
+#welcomeMessage {
+        grid-area: welcomeMsg;
+}
+
+#getStarted {
+        grid-area: getStarted;
 }
 
 #welcomeTitle, #welcomeMessage, #getStarted, #nameInput, #btnStart {
@@ -51,53 +69,99 @@ h1 {
 }
 
 #nameInput {
-        min-width: 50%;
+        min-width: 30%;
+        max-width: 100px;
+        grid-area: nameInput;
+        margin: auto;
 }
 
 #btnStart {
         max-width: 30%;
         margin-left: auto;
         margin-right: auto;
+        grid-area: startButton;
 }
 
 #pageContainer {
         display: grid;
-        grid: repeat(3,max-content) / 1fr;
+        /* grid: repeat(3,max-content) / 1fr; */
+        grid:
+                'indexHeader'
+                'indexTab'
+                'indexFooter';
         max-width: 90%;
         margin: auto;
 }
 
         #specsContainer {
                 display: grid;
-                grid:  repeat(4, max-content) / repeat(3, 1fr);
+                margin-left: 5%;
+                margin-right: 5%;
+                text-align: center;
+                /* grid:  repeat(4,max-content) / repeat(3, 1fr); */
+                grid:
+                        'name name name'
+                        'abs race class'
+                        'abs size speed'
+                        'traits 42 43'
+                        'traits 52 53'
+                        '61 62 63'
+                        '71 72 73';
+
                 grid-gap: 10px;
                 max-width: 100%;
+                grid-area: indexHeader;
         }
                 #specsName {
-                        grid-column:span 3;
+                        /* grid-column:span 3; */
+                        grid-area: name;
                         text-align: center;
                 }
 
                 #specsAbilities {
-                        grid-row: span 2;
+                        /* grid-row: span 2; */
+                        grid-area: abs;
                 }
 
 
                 
                 #specsTraits {
-                        grid-row: 4 / span 2;
+                        /* grid-row: 4 / span 2; */
+                        grid-area: traits;
                 }
 
-        .tab {
+                #specsRace {
+                        grid-area: race;
+                }
+
+                #specsClass {
+                        grid-area: class;
+                }
+
+                #specsSize {
+                        grid-area: size;
+                }
+
+                #specsSpeed {
+                        grid-area: speed;
+                }
+
+        /* .tab {
                 display:grid;
                 overflow:hidden;
                 max-height: 100%;
                 width: 100%;
+        } */
+
+        #tab {
+                display: block;
+                overflow: hidden;
+                grid-area: indexTab;
         }
                 #chooseRaceTab,#chooseClassTab {
-                        grid: repeat(2, max-content) / 22% 4% 22% 4% 22% 4% 22%;
+                        display: grid;
+                        grid: repeat(2,max-content) / 22% 4% 22% 4% 22% 4% 22%;
                         overflow: hidden;
-
                 }
 
                 .optionsHeader {
@@ -110,7 +174,6 @@ h1 {
                 .charClass, .charRace {
                         text-align: center;
                         display: block;
-                        max-height: 100%;
                         max-width: 100%;
                 }
 
@@ -134,7 +197,10 @@ h1 {
                         border-radius: 10px;
                         border-width: thick;
                 }
-
+        
+        #footer {
+                grid-area:indexFooter;
+        }
         #btnBack {
                 float: left;
         
@@ -165,7 +231,6 @@ h1 {
                 text-decoration: none;
                 color: #e8b80b;
                 border-color: #e8b80b;
-                max-width: 100px;
         }
 
         button:hover {
@@ -216,7 +281,7 @@ h1 {
 
   
 img {
-        max-height: auto;
+        /* max-height: 90%; */
         max-width: 90%;
         margin-top:1em;
 }
