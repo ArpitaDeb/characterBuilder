@@ -19,7 +19,7 @@ const currentChar = {
     "charRace": "",
     "charClass": "",
     "charProfs": [],
-    "charBaseAbs": [8,8,8,8,8,8],
+    "charBaseAbs": [12,14,17,8,10,13],
     "charRaceAbs": [0,0,0,0,0,0],
     "charTotalMods": [0,0,0,0,0,0],
     "charSpeed": 0,
@@ -29,41 +29,41 @@ const currentChar = {
     "classProfs":[],
     "raceTraits":[],
     "charSkills": [
-        {"name": "Acrobatics", "AbMod": 1,
+        {"name": "Acrobatics", "abMod": 1,
         "value": 0},
-        {"name": "Animal Handling", "AbMod": 4,
+        {"name": "Animal Handling", "abMod": 4,
         "value": 0},
-        {"name": "Arcana", "AbMod": 3,
+        {"name": "Arcana", "abMod": 3,
         "value": 0},
-        {"name": "Athletics", "AbMod": 0,
+        {"name": "Athletics", "abMod": 0,
         "value": 0},
-        {"name": "Deception", "AbMod": 5,
+        {"name": "Deception", "abMod": 5,
         "value": 0},
-        {"name": "History", "AbMod": 3,
+        {"name": "History", "abMod": 3,
         "value": 0},
-        {"name": "Insight", "AbMod": 4,
+        {"name": "Insight", "abMod": 4,
         "value": 0},
-        {"name": "Intimidation", "AbMod": 5,
+        {"name": "Intimidation", "abMod": 5,
         "value": 0},
-        {"name": "Investigation", "AbMod": 3,
+        {"name": "Investigation", "abMod": 3,
         "value": 0},
-        {"name": "Medicine", "AbMod": 4,
+        {"name": "Medicine", "abMod": 4,
         "value": 0},
-        {"name": "Nature", "AbMod": 3,
+        {"name": "Nature", "abMod": 3,
         "value": 0},
-        {"name": "Perception", "AbMod": 4,
+        {"name": "Perception", "abMod": 4,
         "value": 0},
-        {"name": "Performance", "AbMod": 5,
+        {"name": "Performance", "abMod": 5,
         "value": 0},
-        {"name": "Persuasion", "AbMod": 5,
+        {"name": "Persuasion", "abMod": 5,
         "value": 0},
-        {"name": "Religion", "AbMod": 3,
+        {"name": "Religion", "abMod": 3,
         "value": 0},
-        {"name": "Sleight of Hand", "AbMod": 1,
+        {"name": "Sleight of Hand", "abMod": 1,
         "value": 0},
-        {"name": "Stealth", "AbMod": 1,
+        {"name": "Stealth", "abMod": 1,
         "value": 0},
-        {"name": "Survival", "AbMod": 4,
+        {"name": "Survival", "abMod": 4,
         "value": 0},
     ]
 }
@@ -71,6 +71,7 @@ const currentChar = {
 
 
 const refreshSpecs = () => {
+    console.log('refreshSpecs called');
     let specsName = document.getElementById('specsName');
     let specsRace = document.getElementById('specsRace');
     let specsClass = document.getElementById('specsClass');
@@ -108,6 +109,11 @@ const refreshSpecs = () => {
                 currentChar.charTotalMods[i] = 0;
         }
     });
+
+    currentChar.charSkills.forEach((skill) => {
+        console.log(`charTotalMods: ${currentChar.charTotalMods[skill.abMod]}`);
+        skill.value = currentChar.charTotalMods[skill.abMod] + 1;
+    })
 
     specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;
     specsRace.innerHTML = `<div><strong>Race:</strong> ${currentChar.charRace}`;

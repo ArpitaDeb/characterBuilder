@@ -163,6 +163,11 @@ margin: auto;
                 #specsSkills {
                         grid-area: skills;
                         text-align: left;
+                        font-size: 1em;
+                }
+
+                #specsSkills div {
+                        margin-bottom: 0.2em;
                 }
                 
                 #specsTraits {

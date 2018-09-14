@@ -23,7 +23,6 @@ const grabApiRace = (num) => {
                 currentChar.raceProfs.push(i.name);
             });
             currentChar.charProfs = currentChar.raceProfs.concat(currentChar.classProfs);
-            console.log(currentChar.charProfs);
 
             //display modal
             $(descModal).fadeIn(350);
@@ -34,7 +33,6 @@ const grabApiRace = (num) => {
             let descTraits = document.createElement('div');
             let descSpeed = document.createElement('div');
             descTitle.innerHTML = `${charRace.name}`;
-            console.log(descTitle);
             descContent.appendChild(descTitle);
             if (charRace.name == "Human") {
                 descAbilities.innerHTML = `<strong>Ability Score Bonuses:</strong><br>+1 to all abilities`
@@ -98,7 +96,7 @@ const selectHuman = () => {
     humanPanel.classList.add('selected');
     selectedColor = "blue"
     grabApiRace(4);
-    refreshSpecs();
+    // refreshSpecs();
 }
 
 const selectElf = () => {
@@ -106,7 +104,7 @@ const selectElf = () => {
     elfPanel.classList.add('selected');
     selectedColor = "purple"
     grabApiRace(2);
-    refreshSpecs();
+    // refreshSpecs();
 }
 
 const selectDwarf = () => {
@@ -114,7 +112,7 @@ const selectDwarf = () => {
     dwarfPanel.classList.add('selected');
     selectedColor = "orange"
     grabApiRace(1);
-    refreshSpecs();
+    // refreshSpecs();
 }
 
 const selectDragonborn = () => {
@@ -122,7 +120,7 @@ const selectDragonborn = () => {
     dragonbornPanel.classList.add('selected');
     selectedColor = "red"
     grabApiRace(5);
-    refreshSpecs();
+    // refreshSpecs();
 }
 
 window.onclick = (event) => {
