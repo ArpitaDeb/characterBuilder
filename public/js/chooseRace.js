@@ -22,11 +22,21 @@ const grabApiInfo = (num) => {
             currentChar.raceProfs = charRace.starting_proficiencies;
             currentChar.raceTraits = charRace.traits;
 
+            //display modal
             show(descModal);
+            console.log('Showed descModal');
+            console.log(`descModal classList: ${descModal.classList}`);
             show(descContent);
+            console.log('Showed descContent');
+            console.log(`descContent classList: ${descContent.classList}`);
             descModal.classList.add(selectedColor);
+            console.log('added color to descModal Classlist');
+            console.log(`descModal classList: ${descModal.classList}`);
             descContent.classList.add(selectedColor);
+            console.log('added color to descContent classLists');
+            console.log(`descContent classList: ${descContent.classList}`);
             charRaceName.setAttribute('id','descTitle')
+            console.log('set race name id');
             charRaceName.classList.add(selectedColor);
             let descAbilities = document.createElement('div');
             let descTraits = document.createElement('div');
@@ -99,7 +109,7 @@ const selectDragonborn = () => {
 
 window.onclick = () => {
     if (event.target == descModal){
-    descModal.style.display = "none";
+    hide(descModal);
     }
 }
 

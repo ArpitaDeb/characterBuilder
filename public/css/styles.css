@@ -176,7 +176,7 @@ h1 {
 
 .modal {
         position: fixed;
-        z-index: 999;
+        z-index: 9999;
         left: 0;
         top: 0;
         width: 100%;
@@ -247,6 +247,10 @@ img {
 
 strong {
         color: #e8b80b;
+}
+
+#descContent {
+        display:grid;
 }
 
 .hidden {
