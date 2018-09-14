@@ -1,9 +1,7 @@
-// let btnSubmitRace = document.getElementById('btnSubmitRace');
 let humanPanel = document.getElementById('charRaceHuman');
 let elfPanel = document.getElementById('charRaceElf');
 let dwarfPanel = document.getElementById('charRaceDwarf');
 let dragonbornPanel = document.getElementById('charRaceDragonborn');
-// let descModal = document.getElementById('descModal');
 let charRaceName = document.createElement('h1');
 let selectedColor = null;
 
@@ -23,11 +21,9 @@ const grabApiInfo = (num) => {
             currentChar.raceTraits = charRace.traits;
 
             //display modal
-            show(descModal);
+            $(descModal).show();
             console.log('Showed descModal');
             console.log(`descModal classList: ${descModal.classList}`);
-            show(descContent);
-            console.log('Showed descContent');
             console.log(`descContent classList: ${descContent.classList}`);
             descModal.classList.add(selectedColor);
             console.log('added color to descModal Classlist');
@@ -109,7 +105,7 @@ const selectDragonborn = () => {
 
 window.onclick = () => {
     if (event.target == descModal){
-    hide(descModal);
+    $(descModal).hide();
     }
 }
 
@@ -117,5 +113,3 @@ humanPanel.addEventListener("click", selectHuman);
 elfPanel.addEventListener("click", selectElf);
 dwarfPanel.addEventListener("click", selectDwarf);
 dragonbornPanel.addEventListener("click", selectDragonborn);
-
-// descModal.addEvent.addEventListener("click",closeModal);

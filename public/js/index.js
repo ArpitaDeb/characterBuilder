@@ -73,30 +73,17 @@ const clearSelected = () => {
     }
 }
 
-const show = (element) => {
-    if (element.classList.contains('hidden')) {
-        element.classList.remove('hidden');
-    }
-    element.classList.add('visibleGrid');
-}
-
-const hide = (element) => {
-    if (element.classList.contains('visibleGrid')) {
-        element.classList.remove('visibleGrid');
-    }
-    element.classList.add('hidden');
-}
 const tabNext = () => {
-    hide(tab[currentTab]);
+    $(tab[currentTab]).hide();
     currentTab++
-    show(tab[currentTab]);
+    $(tab[currentTab]).show();
 }
 
 const tabBack = () => {
     if (currentTab > 0) {
-        hide(tab[currentTab]);
+        $(tab[currentTab]).hide();
         currentTab--
-        show(tab[currentTab]);
+        $(tab[currentTab]).show();
     }
     else {
         window.location.replace('/')
@@ -106,25 +93,22 @@ const tabBack = () => {
 
 window.onload = () => {
     pageContainer = document.getElementById('pageContainer');
+    $(pageContainer).hide();
     descModal = document.getElementById('descModal');
+    $(descModal).hide();
     descContent = document.getElementById('descContent');
     specsContainer = document.getElementById('specsContainer');
+    $(specsContainer).hide();
     tab = document.querySelectorAll('.tab');
     btnNext = document.getElementById('btnNext')
     btnBack = document.getElementById('btnBack')
     btnNext.addEventListener("click",tabNext);
     btnBack.addEventListener("click",tabBack);
-    hide(btnNext);
-    hide(btnBack);
-    show(welcomePageContainer);
+    $(btnNext).hide();
+    $(btnBack).hide();
+    $(welcomePageContainer).show();
     
     
     currentTab = 0;
 }
-
-    
-
-
-
-// }
 
