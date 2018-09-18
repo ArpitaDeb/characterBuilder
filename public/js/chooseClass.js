@@ -15,6 +15,7 @@ const grabApiClass = (num) => {
             //Update currentChar object
             currentChar.charClass = charClass.name;
             currentChar.classProfs = [];
+            currentChar.classProfNumChoices = charClass.proficiency_choices[0].choose
             charClass.proficiencies.forEach((i) => {
                 currentChar.classProfs.push(i.name);
             });
@@ -36,11 +37,18 @@ const grabApiClass = (num) => {
             });
             descContent.appendChild(descClassProfs);
             let descClassProfChoices = document.createElement('div');
+            descClassProfChoices.setAttribute('id','descClassProfChoices');
             descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
+            // TODO: Add click events so that user can select X choices from the list
+            //       Figure out how to best implement this so that the choices are reflected on the character (object is updated, skills go up, etc.), even though the choices themselves are dynamic, pulled from the API...
+            //              Maybe: IF (Selected Prof has word 'skill') THEN (SkillName = slice of selected prof name after 'skill: '), and (currentChar.skillName += 2);
             let profPool = charClass.proficiency_choices[0].from;
+            let i = 0;
             profPool.forEach(prof => {
                 profTag = document.createElement('div');
                 profTag.innerHTML = prof.name;
+                profTag.setAttribute('id',`optionalProf${i}`);
+                i++;
                 descClassProfChoices.appendChild(profTag);
             });
             descContent.appendChild(descClassProfChoices);
@@ -64,7 +72,6 @@ const selectWizard = () => {
     selectedColor = "blue"
     classIndex = 3;
     grabApiClass(12);
-    refreshSpecs();
 }
 
 const selectRogue = () => {
@@ -73,7 +80,6 @@ const selectRogue = () => {
     selectedColor = "purple"
     classIndex = 1;
     grabApiClass(9);
-    refreshSpecs();
 }
 
 const selectCleric = () => {
@@ -82,7 +88,6 @@ const selectCleric = () => {
     selectedColor = "orange"
     classIndex = 2;
     grabApiClass(3);
-    refreshSpecs();
 }
 
 const selectFighter = () => {
@@ -91,7 +96,6 @@ const selectFighter = () => {
     selectedColor = "red"
     classIndex = 0;
     grabApiClass(5);
-    refreshSpecs();
 }
 
 const randomClass = () => {
@@ -117,7 +121,41 @@ window.onclick = (event) => {
     if (event.target == descModal){
     $(descModal).fadeOut(350);
     }
+    refreshSpecs();
 }
+
+$(function() {
+    $(document.body).on("click", '[id^=optionalProf]', function(event){
+        let thisSkillName;
+        let thisSkillIndex;
+        let thisProfName = this.innerHTML;
+
+        if (this.classList.contains('classProfSelected')) {
+            let thisProfIndex = currentChar.charProfs.findIndex(element => {return element.name == thisProfName});
+            currentChar.charProfs.splice(thisProfIndex,1);
+            this.classList.remove('classProfSelected');
+            if (this.innerHTML.includes('Skill:')) {
+                thisSkillName = thisProfName.slice(7);
+                thisSkillIndex = currentChar.charSkills.findIndex(element => {return element.name == thisSkillName});
+                currentChar.charSkills[thisSkillIndex].proficient = false;
+            }
+        }
+
+        else if(document.querySelectorAll('.classProfSelected').length >= currentChar.classProfNumChoices) {
+            alert(`Sorry, you can only select ${currentChar.classProfNumChoices} proficiencies with this class. You can de-select a proficiency by clicking it again.`)
+        }
+        else {
+            this.classList.add('classProfSelected');
+            currentChar.charProfs.push(this.innerHTML);
+            if (this.innerHTML.includes('Skill:')) {
+                thisSkillName = thisProfName.slice(7);
+                thisSkillIndex = currentChar.charSkills.findIndex(element => {return element.name == thisSkillName});
+                currentChar.charSkills[thisSkillIndex].proficient = true;
+            }
+
+        }
+    });
+});
 
 wizardPanel.addEventListener("click", selectWizard);
 roguePanel.addEventListener("click", selectRogue);

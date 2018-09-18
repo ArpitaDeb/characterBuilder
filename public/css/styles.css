@@ -271,10 +271,15 @@ margin: auto;
                                 border-color: #007c08;
                         }
 
-                .selected {
+                .selected, .classProfSelected {
                 border-style: solid;
                 border-radius: 10px;
                 border-width: thick;
+                }
+
+                .classProfSelected {
+                        border-color: #e8b80b;
+                        border-width: medium;
                 }
         
         #footer {
@@ -309,6 +314,7 @@ margin: auto;
         button:focus {
         outline: 0;
         }
+
 
 
 .modal {
@@ -360,6 +366,11 @@ background-color: rgba(0,0,0,0.5);
                         color:#e8b80b;
                         grid-column: 1 / span 4;
                         grid-row: 2;
+                }
+
+                #descClassProfChoices div {
+                        cursor: pointer;
+                        margin-top: 2%;
                 }
         
 #blanket {
