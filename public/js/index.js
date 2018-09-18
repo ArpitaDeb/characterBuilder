@@ -30,6 +30,7 @@ const currentChar = {
     "charName": "Mysterious Person",
     "charRace": "",
     "charClass": "",
+    "profBonus": 2,
     "charProfs": [],
     "charBaseAbs": [12,14,17,8,10,13],
     "charRaceAbs": [0,0,0,0,0,0],
@@ -42,41 +43,41 @@ const currentChar = {
     "classProfNumChoices":0,
     "raceTraits":[],
     "charSkills": [
-        {"name": "Acrobatics", "abMod": 1,
+        {"name": "Acrobatics", "abMod": 1, "proficient": false,
         "value": 0},
-        {"name": "Animal Handling", "abMod": 4,
+        {"name": "Animal Handling", "abMod": 4, "proficient": false,
         "value": 0},
-        {"name": "Arcana", "abMod": 3,
+        {"name": "Arcana", "abMod": 3, "proficient": false,
         "value": 0},
-        {"name": "Athletics", "abMod": 0,
+        {"name": "Athletics", "abMod": 0, "proficient": false,
         "value": 0},
-        {"name": "Deception", "abMod": 5,
+        {"name": "Deception", "abMod": 5, "proficient": false,
         "value": 0},
-        {"name": "History", "abMod": 3,
+        {"name": "History", "abMod": 3, "proficient": false,
         "value": 0},
-        {"name": "Insight", "abMod": 4,
+        {"name": "Insight", "abMod": 4, "proficient": false,
         "value": 0},
-        {"name": "Intimidation", "abMod": 5,
+        {"name": "Intimidation", "abMod": 5, "proficient": false,
         "value": 0},
-        {"name": "Investigation", "abMod": 3,
+        {"name": "Investigation", "abMod": 3, "proficient": false,
         "value": 0},
-        {"name": "Medicine", "abMod": 4,
+        {"name": "Medicine", "abMod": 4, "proficient": false,
         "value": 0},
-        {"name": "Nature", "abMod": 3,
+        {"name": "Nature", "abMod": 3, "proficient": false,
         "value": 0},
-        {"name": "Perception", "abMod": 4,
+        {"name": "Perception", "abMod": 4, "proficient": false,
         "value": 0},
-        {"name": "Performance", "abMod": 5,
+        {"name": "Performance", "abMod": 5, "proficient": false,
         "value": 0},
-        {"name": "Persuasion", "abMod": 5,
+        {"name": "Persuasion", "abMod": 5, "proficient": false,
         "value": 0},
-        {"name": "Religion", "abMod": 3,
+        {"name": "Religion", "abMod": 3, "proficient": false,
         "value": 0},
-        {"name": "Sleight of Hand", "abMod": 1,
+        {"name": "Sleight of Hand", "abMod": 1, "proficient": false,
         "value": 0},
-        {"name": "Stealth", "abMod": 1,
+        {"name": "Stealth", "abMod": 1, "proficient": false,
         "value": 0},
-        {"name": "Survival", "abMod": 4,
+        {"name": "Survival", "abMod": 4, "proficient": false,
         "value": 0},
     ]
 }
@@ -123,7 +124,12 @@ const refreshSpecs = () => {
     });
 
     currentChar.charSkills.forEach((skill) => {
-        skill.value = currentChar.charTotalMods[skill.abMod] + 1;
+        if (skill.proficient == true) {
+        skill.value = currentChar.charTotalMods[skill.abMod] + currentChar.profBonus;
+        }
+        else {
+            skill.value = currentChar.charTotalMods[skill.abMod];
+        }
     })
 
     specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;

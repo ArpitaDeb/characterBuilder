@@ -72,7 +72,6 @@ const selectWizard = () => {
     selectedColor = "blue"
     classIndex = 3;
     grabApiClass(12);
-    refreshSpecs();
 }
 
 const selectRogue = () => {
@@ -81,7 +80,6 @@ const selectRogue = () => {
     selectedColor = "purple"
     classIndex = 1;
     grabApiClass(9);
-    refreshSpecs();
 }
 
 const selectCleric = () => {
@@ -90,7 +88,6 @@ const selectCleric = () => {
     selectedColor = "orange"
     classIndex = 2;
     grabApiClass(3);
-    refreshSpecs();
 }
 
 const selectFighter = () => {
@@ -99,7 +96,6 @@ const selectFighter = () => {
     selectedColor = "red"
     classIndex = 0;
     grabApiClass(5);
-    refreshSpecs();
 }
 
 const randomClass = () => {
@@ -125,19 +121,38 @@ window.onclick = (event) => {
     if (event.target == descModal){
     $(descModal).fadeOut(350);
     }
+    refreshSpecs();
 }
 
 $(function() {
     $(document.body).on("click", '[id^=optionalProf]', function(event){
+        let thisSkillName;
+        let thisSkillIndex;
+        let thisProfName = this.innerHTML;
+
         if (this.classList.contains('classProfSelected')) {
+            let thisProfIndex = currentChar.charProfs.findIndex(element => {return element.name == thisProfName});
+            currentChar.charProfs.splice(thisProfIndex,1);
             this.classList.remove('classProfSelected');
+            if (this.innerHTML.includes('Skill:')) {
+                thisSkillName = thisProfName.slice(7);
+                thisSkillIndex = currentChar.charSkills.findIndex(element => {return element.name == thisSkillName});
+                currentChar.charSkills[thisSkillIndex].proficient = false;
+            }
         }
+
         else if(document.querySelectorAll('.classProfSelected').length >= currentChar.classProfNumChoices) {
             alert(`Sorry, you can only select ${currentChar.classProfNumChoices} proficiencies with this class. You can de-select a proficiency by clicking it again.`)
         }
         else {
-            console.log(`Selected: ${this.innerHTML}`);
             this.classList.add('classProfSelected');
+            currentChar.charProfs.push(this.innerHTML);
+            if (this.innerHTML.includes('Skill:')) {
+                thisSkillName = thisProfName.slice(7);
+                thisSkillIndex = currentChar.charSkills.findIndex(element => {return element.name == thisSkillName});
+                currentChar.charSkills[thisSkillIndex].proficient = true;
+            }
+
         }
     });
 });

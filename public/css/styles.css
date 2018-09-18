@@ -276,6 +276,11 @@ margin: auto;
                 border-radius: 10px;
                 border-width: thick;
                 }
+
+                .classProfSelected {
+                        border-color: #e8b80b;
+                        border-width: medium;
+                }
         
         #footer {
         grid-area:indexFooter;
