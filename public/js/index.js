@@ -39,6 +39,7 @@ const currentChar = {
     "charLanguages": [],
     "raceProfs":[],
     "classProfs":[],
+    "classProfNumChoices":0,
     "raceTraits":[],
     "charSkills": [
         {"name": "Acrobatics", "abMod": 1,

@@ -15,6 +15,7 @@ const grabApiClass = (num) => {
             //Update currentChar object
             currentChar.charClass = charClass.name;
             currentChar.classProfs = [];
+            currentChar.classProfNumChoices = charClass.proficiency_choices[0].choose
             charClass.proficiencies.forEach((i) => {
                 currentChar.classProfs.push(i.name);
             });
@@ -36,11 +37,18 @@ const grabApiClass = (num) => {
             });
             descContent.appendChild(descClassProfs);
             let descClassProfChoices = document.createElement('div');
+            descClassProfChoices.setAttribute('id','descClassProfChoices');
             descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
+            // TODO: Add click events so that user can select X choices from the list
+            //       Figure out how to best implement this so that the choices are reflected on the character (object is updated, skills go up, etc.), even though the choices themselves are dynamic, pulled from the API...
+            //              Maybe: IF (Selected Prof has word 'skill') THEN (SkillName = slice of selected prof name after 'skill: '), and (currentChar.skillName += 2);
             let profPool = charClass.proficiency_choices[0].from;
+            let i = 0;
             profPool.forEach(prof => {
                 profTag = document.createElement('div');
                 profTag.innerHTML = prof.name;
+                profTag.setAttribute('id',`optionalProf${i}`);
+                i++;
                 descClassProfChoices.appendChild(profTag);
             });
             descContent.appendChild(descClassProfChoices);
@@ -118,6 +126,21 @@ window.onclick = (event) => {
     $(descModal).fadeOut(350);
     }
 }
+
+$(function() {
+    $(document.body).on("click", '[id^=optionalProf]', function(event){
+        if (this.classList.contains('classProfSelected')) {
+            this.classList.remove('classProfSelected');
+        }
+        else if(document.querySelectorAll('.classProfSelected').length >= currentChar.classProfNumChoices) {
+            alert(`Sorry, you can only select ${currentChar.classProfNumChoices} proficiencies with this class. You can de-select a proficiency by clicking it again.`)
+        }
+        else {
+            console.log(`Selected: ${this.innerHTML}`);
+            this.classList.add('classProfSelected');
+        }
+    });
+});
 
 wizardPanel.addEventListener("click", selectWizard);
 roguePanel.addEventListener("click", selectRogue);
