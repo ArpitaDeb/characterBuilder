@@ -191,6 +191,9 @@ const tabNext = () => {
     setTimeout(() => {
         $(tab[currentTab]).fadeIn(700);
     },350);
+    if (currentTab => 1) {
+        $(btnNext).hide();
+    }
 }
 
 const tabBack = () => {
