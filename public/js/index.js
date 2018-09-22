@@ -26,39 +26,41 @@ const raceDesc = [
     {"name": "Dragonborn", "description": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail."},
 ]
 
-const refreshSpecs = () => {
-    let specsName = document.getElementById('specsName');
-    let specsRace = document.getElementById('specsRace');
-    let specsClass = document.getElementById('specsClass');
-    let specsAbilities = document.getElementById('specsAbilities');
-    let specsSpeed = document.getElementById('specsSpeed');
-    let specsSize = document.getElementById('specsSize');
-    let specsTraits = document.getElementById('specsTraits');
-    let specsSkills = document.getElementById('specsSkills');
-
+const calcChar = () => {
     currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {
         return num + currentChar.charRaceAbs[idx];
     });
+
     abilityLabels.forEach((ab) => {
         let i = abilityLabels.indexOf(ab);
         switch (currentChar.charTotalAbs[i]) {
-            case (8 || 9):
+            case 8:
+            case 9:
                 currentChar.charTotalMods[i] = -1;
                 break;
-            case (10 || 11):
+            case 10:
+            case 11:
                 currentChar.charTotalMods[i] = 0;
                 break;
-            case (12 || 13):
+            case 12:
+            case 13:
                 currentChar.charTotalMods[i] = 1;
                 break;
-            case (14 || 15):
+            case 14:
+            case 15:
                 currentChar.charTotalMods[i] = 2;
                 break;
-            case (16 || 17):
+            case 16:
+            case 17:
                 currentChar.charTotalMods[i] = 3;
                 break;
-            case (18 || 19):
+            case 18:
+            case 19:
                 currentChar.charTotalMods[i] = 4;
+                break;
+            case 20:
+            case 21:
+                currentChar.charTotalMods[i] = 5;
                 break;
             default:
                 currentChar.charTotalMods[i] = 0;
@@ -73,6 +75,19 @@ const refreshSpecs = () => {
             skill.value = currentChar.charTotalMods[skill.abMod];
         }
     })
+}
+
+const refreshSpecs = () => {
+    let specsName = document.getElementById('specsName');
+    let specsRace = document.getElementById('specsRace');
+    let specsClass = document.getElementById('specsClass');
+    let specsAbilities = document.getElementById('specsAbilities');
+    let specsSpeed = document.getElementById('specsSpeed');
+    let specsSize = document.getElementById('specsSize');
+    let specsTraits = document.getElementById('specsTraits');
+    let specsSkills = document.getElementById('specsSkills');
+
+    calcChar();
 
     specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;
     specsRace.innerHTML = `<span class='gold'>Race:</span> ${currentChar.charRace}`;

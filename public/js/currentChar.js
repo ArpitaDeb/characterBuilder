@@ -1,11 +1,10 @@
 const currentChar = {
-    "playerName": "",
     "charName": "Mysterious Person",
     "charRace": "",
     "charClass": "",
     "profBonus": 2,
     "charProfs": [],
-    "charBaseAbs": [12,14,17,8,10,13],
+    "charBaseAbs": [8,11,12,15,16,19],
     "charRaceAbs": [0,0,0,0,0,0],
     "charTotalMods": [0,0,0,0,0,0],
     "charSpeed": 0,
@@ -52,5 +51,16 @@ const currentChar = {
         "value": 0},
         {"name": "Survival", "abMod": 4, "proficient": false,
         "value": 0}
-    ]
+    ],
+    "charHP": 0,
+    "charHD": 0,
+    "charAlignment": '',
+    "charAC": 0,
+    "charInit": 0,
+    "charPersonalityTraits":[],
+    "charIdeals":[],
+    "charBonds":[],
+    "charFlaws":[],
+    "charLanguages":[],
+
 };

@@ -13,6 +13,7 @@ font-size: 2vmax;
 
 h1, h2, h3 {
 color: #e8b80b;
+margin-top: 3%;
 }
 
 button {
@@ -434,6 +435,7 @@ display:grid;
         'finalSpecs finalAttacks finalFeatures'
         'finalOtherSpecs finalEquip finalFeatures'
         'finalFooter finalFooter finalFooter';
+        grid-gap: 3%;
         max-width: 90%;
         margin: auto;
 }
@@ -441,15 +443,13 @@ display:grid;
 .finalBox {
         border: 1px solid white;
         border-radius: 10px;
-        margin: 3%;
-        padding-left: 3%;
-        padding-right: 3%;
 }
 
 #finalHeader {
         grid-area: finalHeader;
         display: grid;
         grid: repeat(2,max-content) / repeat(3,1fr);
+        grid-gap: 3%;
 }
 
 #finalName {
@@ -459,19 +459,23 @@ display:grid;
 #finalSpecs {
         grid-area: finalSpecs;
         display: grid;
-        grid: max-content / 1fr 1fr;
+        grid: max-content max-content/ 10em auto;
+        grid-gap: 3%;
 }
 
 #finalAbs {
+        grid-row: span 2;
         display: grid;
         grid: repeat(6,max-content) / 1fr;
-        grid-row: span 2;
+        padding: 0 3% 6% 3%;
+
 }
 
 #finalNums {
         grid-area: finalNums;
         display: grid;
         grid: repeat(3,max-content) / repeat(3,1fr);
+        grid-gap: 3%;
 }
 
 #finalHP {
@@ -486,6 +490,7 @@ display:grid;
         grid-area: finalDetails;
         display: grid;
         grid: repeat(4, max-content) / 1fr;
+        grid-gap: 3%;
 }
 
 #finalAttacks {

@@ -7,6 +7,8 @@ html
     link(rel='stylesheet', type='text/css', media='screen', href='/css/styles.css')
     script(src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js')
     script(src='/js/index.js' type='text/javascript' defer)
+    script(src='/js/currentChar.js' type='text/javascript' defer)
+    script(src='/js/finalSummary.js' type='text/javascript' defer)
 
   body
     #finalPageContainer
@@ -18,12 +20,18 @@ html
             h2#finalAlign Alignment:
         #finalSpecs
             #finalAbs.finalBox
-                h3#finalStr Strength:
-                h3#finalDex Dexterity:
-                h3#finalCon Constitution:
-                h3#finalInt Intelligence:
-                h3#finalWis Wisdom:
-                h3#finalCha Charisma:
+                #finalStr.finalAb
+                    h3(style='margin-bottom: 0;') Strength:
+                #finalDex.finalAb
+                    h3(style='margin-bottom: 0;') Dexterity:
+                #finalCon.finalAb
+                    h3(style='margin-bottom: 0;') Constitution:
+                #finalInt.finalAb
+                    h3(style='margin-bottom: 0;') Intelligence:
+                #finalWis.finalAb
+                    h3(style='margin-bottom: 0;') Wisdom:
+                #finalCha.finalAb
+                    h3(style='margin-bottom: 0;') Charisma:
             #finalSaves.finalBox
                 h3 Saving Throws:
             #finalSkills.finalBox
