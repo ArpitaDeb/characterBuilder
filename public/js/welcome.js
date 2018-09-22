@@ -5,6 +5,7 @@ let nameInput = document.getElementById('nameInput');
 
 
 
+
 const goToIndex = () => {
     $(welcomePageContainer).fadeOut(350);
     setTimeout(() => {

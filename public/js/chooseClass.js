@@ -6,6 +6,7 @@ let charClassName = document.createElement('h1');
 let btnRandomClass = document.getElementById('btnRandomClass');
 let classIndex;
 
+
 const grabApiClass = (num) => {
     fetch(`http://www.dnd5eapi.co/api/classes/${num}/`)
         .then(res => {

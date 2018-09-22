@@ -7,6 +7,7 @@ let btnRandomRace = document.getElementById('btnRandomRace');
 let selectedColor = null;
 let raceIndex;
 
+
 const grabApiRace = (num) => {
     fetch(`http://www.dnd5eapi.co/api/races/${num}/`)
         .then(res => {
