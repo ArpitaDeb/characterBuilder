@@ -169,21 +169,24 @@ const clearSelected = () => {
 }
 
 const tabNext = () => {
-    $(tab[currentTab]).fadeOut(350);
-    currentTab++
-    setTimeout(() => {
-        $(tab[currentTab]).fadeIn(700);
-    },350);
-    if (currentTab => 1) { //CHANGE WITH FINAL PAGE VALUE
-        $(btnNext).hide();
+
+    if (currentTab < 1) {   //CHANGE WITH FINAL PAGE VALUE
+        $(tab[currentTab]).fadeOut(350);
+        currentTab++
+        setTimeout(() => {
+            $(tab[currentTab]).fadeIn(700);
+        }, 350);
+    }
+    else {
+        const toFinalPage = () => {
+            window.location.replace('/final');
+        }
+        $(pageContainer).fadeOut(350,toFinalPage);
     }
 }
 
 const tabBack = () => {
-    if (currentTab => 1) {  //CHANGE WITH FINAL PAGE VALUE
-        $(btnNext).show();
-    }
-    if (currentTab > 0) {
+    if (currentTab > 0) {  //CHANGE WITH FINAL PAGE VALUE
         $(tab[currentTab]).fadeOut(350);
         currentTab--
         setTimeout(() => {
@@ -221,10 +224,6 @@ window.onload = () => {
     $(welcomePageContainer).show();
     let blanket = document.getElementById('blanket');
     $(blanket).fadeOut(350);
-    setTimeout(() => {
-        blanket.parentNode.removeChild(blanket);
-    },400);
-    
     currentTab = 0;
 }
 

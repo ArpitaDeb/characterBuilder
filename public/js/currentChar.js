@@ -54,15 +54,16 @@ const currentChar = {
     ],
     "charHP": 0,
     "charHD": 0,
-    "charAlignment": '',
+    "charAlignment": '???',
     "charAC": 0,
     "charInit": 0,
-    "charPersonalityTraits":[],
-    "charIdeals":[],
-    "charBonds":[],
-    "charFlaws":[],
-    "charLanguages":[],
+    "charPersonalityTraits":['???','???','???'],
+    "charIdeals":['???','???','???'],
+    "charBonds":['???','???','???'],
+    "charFlaws":['???','???','???'],
+    "charLanguages":['???','???','???'],
     "classSaves":[],
     "classSavesArr":[0,0,0,0,0,0],
-    "charSavesArr": [0,0,0,0,0,0]
+    "charSavesArr": [0,0,0,0,0,0],
+    "charBackgroundName": "???"
 };

@@ -9,10 +9,10 @@ font-size: 1.04em;
 
 h1 {
 font-size: 2vmax;
+color: #e8b80b;
 }
 
 h1, h2, h3 {
-color: #e8b80b;
 margin-top: 3%;
 }
 
@@ -373,7 +373,7 @@ background-color: rgba(0,0,0,0.5);
                         margin-top: 2%;
                 }
         
-#blanket {
+#blanket, #finalBlanket {
 position: fixed;
 z-index: 9999;
 left: 0;
