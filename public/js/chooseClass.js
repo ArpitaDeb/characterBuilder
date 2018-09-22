@@ -39,9 +39,6 @@ const grabApiClass = (num) => {
             let descClassProfChoices = document.createElement('div');
             descClassProfChoices.setAttribute('id','descClassProfChoices');
             descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
-            // TODO: Add click events so that user can select X choices from the list
-            //       Figure out how to best implement this so that the choices are reflected on the character (object is updated, skills go up, etc.), even though the choices themselves are dynamic, pulled from the API...
-            //              Maybe: IF (Selected Prof has word 'skill') THEN (SkillName = slice of selected prof name after 'skill: '), and (currentChar.skillName += 2);
             let profPool = charClass.proficiency_choices[0].from;
             let i = 0;
             profPool.forEach(prof => {

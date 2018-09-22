@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title D&D 5e Character Creator
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', media='screen', href='/css/styles.css')
+    script(src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js')
+    script(src='/js/index.js' type='text/javascript' defer)
+
+  body
+    #finalPageContainer
+        #finalHeader
+            h1#finalName Character Name:
+            h2#finalClass Class:
+            h2#finalBackground Backgound:
+            h2#finalRace Race:
+            h2#finalAlign Alignment:
+        #finalSpecs
+            #finalAbs.finalBox
+                h3#finalStr Strength:
+                h3#finalDex Dexterity:
+                h3#finalCon Constitution:
+                h3#finalInt Intelligence:
+                h3#finalWis Wisdom:
+                h3#finalCha Charisma:
+            #finalSaves.finalBox
+                h3 Saving Throws:
+            #finalSkills.finalBox
+                h3 Skills:
+        #finalNums
+            #finalAC.finalBox
+                h3 Armor Class:
+            #finalInit.finalBox
+                h3 Initiatve:
+            #finalSpeed.finalBox
+                h3 Speed:
+            #finalHP.finalBox
+                h3 Hit Points:
+            #finalHD.finalBox
+                h3 Hit Dice:
+        #finalDetails
+            #finalPersonTraits.finalBox
+                h3 Personality Traits:
+            #finalIdeals.finalBox
+                h3 Ideals:
+            #finalBonds.finalBox
+                h3 Bonds:
+            #finalFlaws.finalBox
+                h3 Flaws:
+        #finalAttacks.finalBox
+            h3 Attacks:
+        #finalFeatures.finalBox
+            h3 Features and Traits:
+        #finalOtherSpecs.finalBox
+            h3 Other Proficiencies and Languages:
+        #finalEquip.finalBox
+            h3 Equipment:
+        #finalFooter
+            button#btnFinalBack(type='button') Back

@@ -9,6 +9,9 @@ font-size: 1.04em;
 
 h1 {
 font-size: 2vmax;
+}
+
+h1, h2, h3 {
 color: #e8b80b;
 }
 
@@ -28,10 +31,6 @@ button {
 @media only screen and (max-width: 550px) {
 * {
 font-size: 0.96em;
-}
-
-h1 {
-font-size: 0.94em;
 }
 
 button {
@@ -425,4 +424,86 @@ color: #e8b80b;
 
 #descContent {
 display:grid;
+}
+
+#finalPageContainer {
+        display: grid;
+        grid:
+        'finalHeader finalHeader finalHeader'
+        'finalSpecs finalNums finalDetails'
+        'finalSpecs finalAttacks finalFeatures'
+        'finalOtherSpecs finalEquip finalFeatures'
+        'finalFooter finalFooter finalFooter';
+        max-width: 90%;
+        margin: auto;
+}
+
+.finalBox {
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 3%;
+        padding-left: 3%;
+        padding-right: 3%;
+}
+
+#finalHeader {
+        grid-area: finalHeader;
+        display: grid;
+        grid: repeat(2,max-content) / repeat(3,1fr);
+}
+
+#finalName {
+        grid-row: span 2;
+}
+
+#finalSpecs {
+        grid-area: finalSpecs;
+        display: grid;
+        grid: max-content / 1fr 1fr;
+}
+
+#finalAbs {
+        display: grid;
+        grid: repeat(6,max-content) / 1fr;
+        grid-row: span 2;
+}
+
+#finalNums {
+        grid-area: finalNums;
+        display: grid;
+        grid: repeat(3,max-content) / repeat(3,1fr);
+}
+
+#finalHP {
+        grid-column: span 3;
+}
+
+#finalHD {
+        grid-column: span 3;
+}
+
+#finalDetails {
+        grid-area: finalDetails;
+        display: grid;
+        grid: repeat(4, max-content) / 1fr;
+}
+
+#finalAttacks {
+        grid-area: finalAttacks;
+}
+
+#finalFeatures {
+        grid-area: finalFeatures;
+}
+
+#finalOtherSpecs {
+        grid-area: finalOtherSpecs;
+}
+
+#finalEquip {
+        grid-area: finalEquip;
+}
+
+#finalFooter {
+        grid-area: finalFooter;
 }
