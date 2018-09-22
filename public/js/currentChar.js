@@ -62,5 +62,7 @@ const currentChar = {
     "charBonds":[],
     "charFlaws":[],
     "charLanguages":[],
-
+    "classSaves":[],
+    "classSavesArr":[0,0,0,0,0,0],
+    "charSavesArr": [0,0,0,0,0,0]
 };

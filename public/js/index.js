@@ -75,6 +75,32 @@ const calcChar = () => {
             skill.value = currentChar.charTotalMods[skill.abMod];
         }
     })
+    currentChar.classSavesArr = [0,0,0,0,0,0];
+    currentChar.classSaves.forEach(save => {
+        switch (save) {
+            case 'STR':
+                currentChar.classSavesArr[0] = currentChar.profBonus;
+                break;
+            case 'DEX':
+                currentChar.classSavesArr[1] = currentChar.profBonus;
+                break;
+            case 'CON':
+                currentChar.classSavesArr[2] = currentChar.profBonus;
+                break;
+            case 'INT':
+                currentChar.classSavesArr[3] = currentChar.profBonus;
+                break;
+            case 'WIS':
+                currentChar.classSavesArr[4] = currentChar.profBonus;
+                break;
+            case 'CHA':
+                currentChar.classSavesArr[5] = currentChar.profBonus;
+                break;
+        }
+    })
+    currentChar.charSavesArr = currentChar.charTotalMods.map(function (num, idx) {
+        return num + currentChar.classSavesArr[idx];
+    });
 }
 
 const refreshSpecs = () => {
@@ -148,12 +174,15 @@ const tabNext = () => {
     setTimeout(() => {
         $(tab[currentTab]).fadeIn(700);
     },350);
-    if (currentTab => 1) {
+    if (currentTab => 1) { //CHANGE WITH FINAL PAGE VALUE
         $(btnNext).hide();
     }
 }
 
 const tabBack = () => {
+    if (currentTab => 1) {  //CHANGE WITH FINAL PAGE VALUE
+        $(btnNext).show();
+    }
     if (currentTab > 0) {
         $(tab[currentTab]).fadeOut(350);
         currentTab--

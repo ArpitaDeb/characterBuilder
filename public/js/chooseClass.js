@@ -21,6 +21,11 @@ const grabApiClass = (num) => {
                 currentChar.classProfs.push(i.name);
             });
             currentChar.charProfs = currentChar.raceProfs.concat(currentChar.classProfs);
+            currentChar.classSaves = [];
+            charClass.saving_throws.forEach((save) => {
+                currentChar.classSaves.push(save.name);
+
+            });
 
             //display modal
             $(descModal).fadeIn(350);
@@ -57,10 +62,43 @@ const grabApiClass = (num) => {
             classDescDiv.classList.add('oneLinerDesc');
             classDescDiv.innerHTML = classDesc[classIndex].description;
             descContent.appendChild(classDescDiv);
+            let descClassSavesDiv = document.createElement('div');
+            descClassSavesDiv.innerHTML = `<span class='gold'>Saving<br>Throws:</span>`;
+            charClass.saving_throws.forEach(save => {
+                saveTag = document.createElement('div');
+                switch (save.name) {
+                    case 'STR':
+                        saveTag.innerHTML = 'Strength';
+                        break;
+                    case 'DEX':
+                        saveTag.innerHTML = 'Dexterity';
+                        break;
+                    case 'CON':
+                        saveTag.innerHTML = 'Constitution';
+                        break;
+                    case 'INT':
+                        saveTag.innerHTML = 'Intelligence';
+                        break;
+                    case 'WIS':
+                        saveTag.innerHTML = 'Wisom';
+                        break;
+                    case 'CHA':
+                        saveTag.innerHTML = 'Charisma';
+                        break;
+                    default:
+                        saveTag.innerHTML = 'ERROR';
+                }
+                descClassSavesDiv.appendChild(saveTag);
+            })
+            descContent.appendChild(descClassSavesDiv);
 
         })
         .then( () => {
             refreshSpecs();
+            console.log(`cl saves: ${currentChar.classSavesArr}`);
+            console.log(`abi mods: ${currentChar.charTotalMods}`);
+            console.log('----------------------');
+            console.log(`to saves: ${currentChar.charSavesArr}`);
         })
 }
 
