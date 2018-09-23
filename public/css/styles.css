@@ -16,6 +16,10 @@ h1, h2, h3 {
 margin-top: 3%;
 }
 
+h3 {
+        margin-bottom: 0.2em;
+}
+
 button {
         border-style: solid;
         border-radius: 10px;
@@ -281,6 +285,36 @@ margin: auto;
                         border-color: #e8b80b;
                         border-width: medium;
                 }
+
+                #assignAbilitiesTab {
+                        display: grid;
+                        grid: repeat(7, max-content) / 6.3em auto;
+                }
+
+                #abilityDescription {
+                        grid-row: 2 / span 6;
+                        grid-column: 2;
+                }
+
+                .assignBox {
+                        display: grid;
+                        grid: repeat(2, max-content) / 2em 1.5em;
+                        text-align: center;
+                        margin-bottom: 1em;
+                }
+
+                .currentAbBox {
+                        grid-row: 1 / span 2;
+                        font-size: 3vmax;
+                }
+
+                .clickUp, .clickDown {
+                        padding: 2px;
+                }
+        
+                
+
+
         
         #footer {
         grid-area:indexFooter;
