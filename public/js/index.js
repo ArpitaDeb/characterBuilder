@@ -9,6 +9,7 @@ let btnBack;
 let chooseRaceTab;
 let chooseClassTab;
 let descTitle = document.createElement('h1');
+let finalPageContainer
 
 
 
@@ -169,7 +170,7 @@ const clearSelected = () => {
 }
 
 const tabNext = () => {
-
+    calcChar();
     if (currentTab < 1) {   //CHANGE WITH FINAL PAGE VALUE
         $(tab[currentTab]).fadeOut(350);
         currentTab++
@@ -178,10 +179,11 @@ const tabNext = () => {
         }, 350);
     }
     else {
-        const toFinalPage = () => {
-            window.location.replace('/final');
-        }
-        $(pageContainer).fadeOut(350,toFinalPage);
+        refreshFinal();
+        $(pageContainer).fadeOut(350);
+        setTimeout(() => {
+            $(finalPageContainer).fadeIn(700);
+        },350);
     }
 }
 
@@ -205,6 +207,8 @@ const tabBack = () => {
 window.onload = () => {
     pageContainer = document.getElementById('pageContainer');
     $(pageContainer).hide();
+    finalPageContainer = document.getElementById('finalPageContainer');
+    $(finalPageContainer).hide();
     chooseRaceTab = document.getElementById('chooseRaceTab');
     chooseClassTab = document.getElementById('chooseClassTab');
     $(chooseClassTab).hide();
@@ -225,5 +229,6 @@ window.onload = () => {
     let blanket = document.getElementById('blanket');
     $(blanket).fadeOut(350);
     currentTab = 0;
+
 }
 

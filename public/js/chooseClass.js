@@ -95,10 +95,6 @@ const grabApiClass = (num) => {
         })
         .then( () => {
             refreshSpecs();
-            console.log(`cl saves: ${currentChar.classSavesArr}`);
-            console.log(`abi mods: ${currentChar.charTotalMods}`);
-            console.log('----------------------');
-            console.log(`to saves: ${currentChar.charSavesArr}`);
         })
 }
 

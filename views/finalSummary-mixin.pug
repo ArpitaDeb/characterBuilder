@@ -1,17 +1,4 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title D&D 5e Character Creator
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', type='text/css', media='screen', href='/css/styles.css')
-    script(src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js')
-    script(src='/js/index.js' type='text/javascript' defer)
-    script(src='/js/currentChar.js' type='text/javascript' defer)
-    script(src='/js/finalSummary.js' type='text/javascript' defer)
-
-  body
-    #finalBlanket
+mixin finalSummary
     #finalPageContainer
         #finalHeader
             h1#finalName Character Name:
@@ -67,3 +54,4 @@ html
             h3.gold Equipment:
         #finalFooter
             button#btnFinalBack(type='button') Back
+    script(src='/js/finalSummary.js', type="text/javascript")
