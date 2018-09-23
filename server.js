@@ -19,14 +19,7 @@ app.get('/', (req, res) => {
     res.render('index', {});
 });
 
-app.get('/race',(req,res) => {
-    res.render('chooseRace', {});
-});
 
-app.post('/', (req, res) => {
-    res.send('This is a POST');
+app.get('/final/', (req,res) => {
+    res.render('finalSummary',{});
 });
-
-app.post('/submitCharClass', (req, res) => {
-    console.log('Class Submitted')
-})

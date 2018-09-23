@@ -6,6 +6,7 @@ let charClassName = document.createElement('h1');
 let btnRandomClass = document.getElementById('btnRandomClass');
 let classIndex;
 
+
 const grabApiClass = (num) => {
     fetch(`http://www.dnd5eapi.co/api/classes/${num}/`)
         .then(res => {
@@ -20,6 +21,11 @@ const grabApiClass = (num) => {
                 currentChar.classProfs.push(i.name);
             });
             currentChar.charProfs = currentChar.raceProfs.concat(currentChar.classProfs);
+            currentChar.classSaves = [];
+            charClass.saving_throws.forEach((save) => {
+                currentChar.classSaves.push(save.name);
+
+            });
 
             //display modal
             $(descModal).fadeIn(350);
@@ -39,9 +45,6 @@ const grabApiClass = (num) => {
             let descClassProfChoices = document.createElement('div');
             descClassProfChoices.setAttribute('id','descClassProfChoices');
             descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
-            // TODO: Add click events so that user can select X choices from the list
-            //       Figure out how to best implement this so that the choices are reflected on the character (object is updated, skills go up, etc.), even though the choices themselves are dynamic, pulled from the API...
-            //              Maybe: IF (Selected Prof has word 'skill') THEN (SkillName = slice of selected prof name after 'skill: '), and (currentChar.skillName += 2);
             let profPool = charClass.proficiency_choices[0].from;
             let i = 0;
             profPool.forEach(prof => {
@@ -59,6 +62,35 @@ const grabApiClass = (num) => {
             classDescDiv.classList.add('oneLinerDesc');
             classDescDiv.innerHTML = classDesc[classIndex].description;
             descContent.appendChild(classDescDiv);
+            let descClassSavesDiv = document.createElement('div');
+            descClassSavesDiv.innerHTML = `<span class='gold'>Saving<br>Throws:</span>`;
+            charClass.saving_throws.forEach(save => {
+                saveTag = document.createElement('div');
+                switch (save.name) {
+                    case 'STR':
+                        saveTag.innerHTML = 'Strength';
+                        break;
+                    case 'DEX':
+                        saveTag.innerHTML = 'Dexterity';
+                        break;
+                    case 'CON':
+                        saveTag.innerHTML = 'Constitution';
+                        break;
+                    case 'INT':
+                        saveTag.innerHTML = 'Intelligence';
+                        break;
+                    case 'WIS':
+                        saveTag.innerHTML = 'Wisom';
+                        break;
+                    case 'CHA':
+                        saveTag.innerHTML = 'Charisma';
+                        break;
+                    default:
+                        saveTag.innerHTML = 'ERROR';
+                }
+                descClassSavesDiv.appendChild(saveTag);
+            })
+            descContent.appendChild(descClassSavesDiv);
 
         })
         .then( () => {

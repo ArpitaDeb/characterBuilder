@@ -9,6 +9,7 @@ let btnBack;
 let chooseRaceTab;
 let chooseClassTab;
 let descTitle = document.createElement('h1');
+let finalPageContainer
 
 
 
@@ -25,98 +26,42 @@ const raceDesc = [
     {"name": "Dwarf", "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal."},
     {"name": "Dragonborn", "description": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail."},
 ]
-const currentChar = {
-    "playerName": "",
-    "charName": "Mysterious Person",
-    "charRace": "",
-    "charClass": "",
-    "profBonus": 2,
-    "charProfs": [],
-    "charBaseAbs": [12,14,17,8,10,13],
-    "charRaceAbs": [0,0,0,0,0,0],
-    "charTotalMods": [0,0,0,0,0,0],
-    "charSpeed": 0,
-    "charSize": "",
-    "charLanguages": [],
-    "raceProfs":[],
-    "classProfs":[],
-    "classProfNumChoices":0,
-    "raceTraits":[],
-    "charSkills": [
-        {"name": "Acrobatics", "abMod": 1, "proficient": false,
-        "value": 0},
-        {"name": "Animal Handling", "abMod": 4, "proficient": false,
-        "value": 0},
-        {"name": "Arcana", "abMod": 3, "proficient": false,
-        "value": 0},
-        {"name": "Athletics", "abMod": 0, "proficient": false,
-        "value": 0},
-        {"name": "Deception", "abMod": 5, "proficient": false,
-        "value": 0},
-        {"name": "History", "abMod": 3, "proficient": false,
-        "value": 0},
-        {"name": "Insight", "abMod": 4, "proficient": false,
-        "value": 0},
-        {"name": "Intimidation", "abMod": 5, "proficient": false,
-        "value": 0},
-        {"name": "Investigation", "abMod": 3, "proficient": false,
-        "value": 0},
-        {"name": "Medicine", "abMod": 4, "proficient": false,
-        "value": 0},
-        {"name": "Nature", "abMod": 3, "proficient": false,
-        "value": 0},
-        {"name": "Perception", "abMod": 4, "proficient": false,
-        "value": 0},
-        {"name": "Performance", "abMod": 5, "proficient": false,
-        "value": 0},
-        {"name": "Persuasion", "abMod": 5, "proficient": false,
-        "value": 0},
-        {"name": "Religion", "abMod": 3, "proficient": false,
-        "value": 0},
-        {"name": "Sleight of Hand", "abMod": 1, "proficient": false,
-        "value": 0},
-        {"name": "Stealth", "abMod": 1, "proficient": false,
-        "value": 0},
-        {"name": "Survival", "abMod": 4, "proficient": false,
-        "value": 0},
-    ]
-}
 
-
-
-const refreshSpecs = () => {
-    let specsName = document.getElementById('specsName');
-    let specsRace = document.getElementById('specsRace');
-    let specsClass = document.getElementById('specsClass');
-    let specsAbilities = document.getElementById('specsAbilities');
-    let specsSpeed = document.getElementById('specsSpeed');
-    let specsSize = document.getElementById('specsSize');
-    let specsTraits = document.getElementById('specsTraits');
-    let specsSkills = document.getElementById('specsSkills');
-
+const calcChar = () => {
     currentChar.charTotalAbs = currentChar.charBaseAbs.map(function (num, idx) {
         return num + currentChar.charRaceAbs[idx];
     });
+
     abilityLabels.forEach((ab) => {
         let i = abilityLabels.indexOf(ab);
         switch (currentChar.charTotalAbs[i]) {
-            case (8 || 9):
+            case 8:
+            case 9:
                 currentChar.charTotalMods[i] = -1;
                 break;
-            case (10 || 11):
+            case 10:
+            case 11:
                 currentChar.charTotalMods[i] = 0;
                 break;
-            case (12 || 13):
+            case 12:
+            case 13:
                 currentChar.charTotalMods[i] = 1;
                 break;
-            case (14 || 15):
+            case 14:
+            case 15:
                 currentChar.charTotalMods[i] = 2;
                 break;
-            case (16 || 17):
+            case 16:
+            case 17:
                 currentChar.charTotalMods[i] = 3;
                 break;
-            case (18 || 19):
+            case 18:
+            case 19:
                 currentChar.charTotalMods[i] = 4;
+                break;
+            case 20:
+            case 21:
+                currentChar.charTotalMods[i] = 5;
                 break;
             default:
                 currentChar.charTotalMods[i] = 0;
@@ -131,6 +76,46 @@ const refreshSpecs = () => {
             skill.value = currentChar.charTotalMods[skill.abMod];
         }
     })
+    currentChar.classSavesArr = [0,0,0,0,0,0];
+    currentChar.classSaves.forEach(save => {
+        switch (save) {
+            case 'STR':
+                currentChar.classSavesArr[0] = currentChar.profBonus;
+                break;
+            case 'DEX':
+                currentChar.classSavesArr[1] = currentChar.profBonus;
+                break;
+            case 'CON':
+                currentChar.classSavesArr[2] = currentChar.profBonus;
+                break;
+            case 'INT':
+                currentChar.classSavesArr[3] = currentChar.profBonus;
+                break;
+            case 'WIS':
+                currentChar.classSavesArr[4] = currentChar.profBonus;
+                break;
+            case 'CHA':
+                currentChar.classSavesArr[5] = currentChar.profBonus;
+                break;
+        }
+    })
+    currentChar.charSavesArr = currentChar.charTotalMods.map(function (num, idx) {
+        return num + currentChar.classSavesArr[idx];
+    });
+    
+}
+
+const refreshSpecs = () => {
+    let specsName = document.getElementById('specsName');
+    let specsRace = document.getElementById('specsRace');
+    let specsClass = document.getElementById('specsClass');
+    let specsAbilities = document.getElementById('specsAbilities');
+    let specsSpeed = document.getElementById('specsSpeed');
+    let specsSize = document.getElementById('specsSize');
+    let specsTraits = document.getElementById('specsTraits');
+    let specsSkills = document.getElementById('specsSkills');
+
+    calcChar();
 
     specsName.innerHTML = `<h1>${currentChar.charName}</h1>`;
     specsRace.innerHTML = `<span class='gold'>Race:</span> ${currentChar.charRace}`;
@@ -186,18 +171,25 @@ const clearSelected = () => {
 }
 
 const tabNext = () => {
-    $(tab[currentTab]).fadeOut(350);
-    currentTab++
-    setTimeout(() => {
-        $(tab[currentTab]).fadeIn(700);
-    },350);
-    if (currentTab => 1) {
-        $(btnNext).hide();
+    calcChar();
+    if (currentTab < 1) {   //CHANGE WITH FINAL PAGE VALUE
+        $(tab[currentTab]).fadeOut(350);
+        currentTab++
+        setTimeout(() => {
+            $(tab[currentTab]).fadeIn(700);
+        }, 350);
+    }
+    else {
+        refreshFinal();
+        $(pageContainer).fadeOut(350);
+        setTimeout(() => {
+            $(finalPageContainer).fadeIn(700);
+        },350);
     }
 }
 
 const tabBack = () => {
-    if (currentTab > 0) {
+    if (currentTab > 0) {  //CHANGE WITH FINAL PAGE VALUE
         $(tab[currentTab]).fadeOut(350);
         currentTab--
         setTimeout(() => {
@@ -216,6 +208,8 @@ const tabBack = () => {
 window.onload = () => {
     pageContainer = document.getElementById('pageContainer');
     $(pageContainer).hide();
+    finalPageContainer = document.getElementById('finalPageContainer');
+    $(finalPageContainer).hide();
     chooseRaceTab = document.getElementById('chooseRaceTab');
     chooseClassTab = document.getElementById('chooseClassTab');
     $(chooseClassTab).hide();
@@ -235,10 +229,7 @@ window.onload = () => {
     $(welcomePageContainer).show();
     let blanket = document.getElementById('blanket');
     $(blanket).fadeOut(350);
-    setTimeout(() => {
-        blanket.parentNode.removeChild(blanket);
-    },400);
-    
     currentTab = 0;
+
 }
 

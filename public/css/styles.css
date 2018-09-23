@@ -12,6 +12,10 @@ font-size: 2vmax;
 color: #e8b80b;
 }
 
+h1, h2, h3 {
+margin-top: 3%;
+}
+
 button {
         border-style: solid;
         border-radius: 10px;
@@ -28,10 +32,6 @@ button {
 @media only screen and (max-width: 550px) {
 * {
 font-size: 0.96em;
-}
-
-h1 {
-font-size: 0.94em;
 }
 
 button {
@@ -373,7 +373,7 @@ background-color: rgba(0,0,0,0.5);
                         margin-top: 2%;
                 }
         
-#blanket {
+#blanket, #finalBlanket {
 position: fixed;
 z-index: 9999;
 left: 0;
@@ -426,3 +426,116 @@ color: #e8b80b;
 #descContent {
 display:grid;
 }
+
+#finalPageContainer {
+        display: grid;
+        grid:
+        'finalHeader finalHeader finalHeader'
+        'finalSpecs finalNums finalTraits'
+        'finalSpecs  finalProfs finalTraits'
+        'finalSpecs finalAttacks finalAttacks'
+        'finalEquip finalEquip finalEquip'
+        'finalDetails finalDetails finalDetails'
+        'finalFooter finalFooter finalFooter';
+        grid-gap: 3%;
+        max-width: 90%;
+        margin: auto;
+}
+
+.finalBox {
+        border: 1px solid white;
+        border-radius: 10px;
+        padding: 3%;
+}
+
+#finalHeader {
+        grid-area: finalHeader;
+        display: grid;
+        grid: repeat(3,max-content) / repeat(3,1fr);
+        grid-gap: 3%;
+}
+
+#finalName {
+        grid-row: span 2;
+}
+
+#finalSpecs {
+        grid-area: finalSpecs;
+        display: grid;
+        grid: repeat(3, max-content) / minmax(8em,auto) minmax(10.4em,auto);
+        grid-gap: 3%;
+}
+
+#finalAbs {
+        grid-row: 1;
+        grid-column: 1;
+        display: grid;
+        grid: repeat(6,max-content) / 1fr;
+        padding: 0 3% 6% 3%;
+
+}
+
+#finalProfs {
+        grid-area: finalProfs;
+}
+
+#finalSkills {
+        grid-row: 1 / span 3;
+        grid-column: 2;
+}
+
+#finalRaceTraits {
+        grid-row: span 2;
+}
+
+
+#finalNums {
+        grid-area: finalNums;
+        display: grid;
+        grid: repeat(2,max-content) / repeat(3,1fr);
+        grid-gap: 3%;
+}
+
+
+#finalDetails {
+        grid-area: finalDetails;
+        display: grid;
+        grid: repeat(4, max-content) / 1fr;
+        grid-gap: 3%;
+}
+
+
+#finalAttacks {
+        grid-area: finalAttacks;
+}
+
+#finalRaceTraits {
+        grid-area: finalTraits;
+}
+#finalOtherSpecs {
+        grid-area: finalOtherSpecs;
+}
+
+#finalEquip {
+        grid-area: finalEquip;
+}
+
+#finalFooter {
+        grid-area: finalFooter;
+}
+
+.big {
+        font-size: 2.5vmax;
+        text-align: center;
+        margin: 0 auto 0 auto;
+}
+
+#finalPageContainer h3 {
+        text-align: center;
+        margin: 0 auto 0.75em auto;
+}
+
+.bottomSpace {
+        margin-bottom:0.75em;
+}
+

@@ -1,0 +1,60 @@
+mixin finalSummary
+    #finalPageContainer
+        #finalHeader
+            h1#finalName Character Name:
+            h2#finalClass Class:
+            h2#finalBackground Backgound:
+            h2#finalRace Race:
+            h2#finalAlign Alignment:
+        #finalSpecs
+            #finalAbs.finalBox
+                #finalStr.finalAb
+                    h3.gold(style='margin-bottom: 0;') Strength:
+                #finalDex.finalAb
+                    h3.gold(style='margin-bottom: 0;') Dexterity:
+                #finalCon.finalAb
+                    h3.gold(style='margin-bottom: 0;') Constitution:
+                #finalInt.finalAb
+                    h3.gold(style='margin-bottom: 0;') Intelligence:
+                #finalWis.finalAb
+                    h3.gold(style='margin-bottom: 0;') Wisdom:
+                #finalCha.finalAb
+                    h3.gold(style='margin-bottom: 0;') Charisma:
+            #finalSaves.finalBox
+                h3.gold Saving Throws:
+            #finalSkills.finalBox
+                h3.gold Skills:
+        #finalProfs.finalBox
+            h3.gold Proficiencies:
+
+        #finalNums
+            #finalAC.finalBox
+                h3.gold Armor Class:
+            #finalInit.finalBox
+                h3.gold Initiative:
+            #finalSpeed.finalBox
+                h3.gold Speed:
+            #finalHP.finalBox
+                h3.gold Hit Points:
+            #finalHD.finalBox
+                h3.gold Hit Dice:
+            #finalProfBonus.finalBox
+                h3.gold Proficiency Bonus:
+        #finalRaceTraits.finalBox
+            h3.gold Racial Traits and Languages:
+        #finalDetails
+            #finalPersonTraits.finalBox
+                h3.gold Personality Traits:
+            #finalIdeals.finalBox
+                h3.gold Ideals:
+            #finalBonds.finalBox
+                h3.gold Bonds:
+            #finalFlaws.finalBox
+                h3.gold Flaws:
+        #finalAttacks.finalBox
+            h3.gold Attacks:
+        #finalEquip.finalBox
+            h3.gold Equipment:
+        #finalFooter
+            button#btnFinalBack(type='button') Back
+    script(src='/js/finalSummary.js', type="text/javascript")
