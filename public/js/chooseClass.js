@@ -91,39 +91,6 @@ const grabApiClass = (num) => {
                 descClassSavesDiv.appendChild(saveTag);
                 })
                 descContent.appendChild(descClassSavesDiv);
-            })
-            fetch(`http://www.dnd5eapi.co/api/startingequipment/${num}/`)
-            .then(res => {
-                return res.json();
-            })
-            .then(equip => {
-            let descEquipChoices = document.createElement('div');
-            descEquipChoices.setAttribute('id','descEquipChoices');
-            descEquipChoices.innerHTML = `<span class='gold'>Starting Equipment Choices:<br>(choose 1 option from each row3):</span>`;
-            let equipNumChoices = equip.choices_to_make;
-            console.log(`Choice 1`);
-            console.log(equip.choice_1[0].from[0].item.name);
-            console.log(equip.choice_1[1].from[0].item.name);
-            console.log(`Choice 2`);
-            console.log(equip.choice_2[0].from[0].item.name);
-            console.log(equip.choice_2[1].from[0].item.name);
-            console.log(`Choice 3`);
-            console.log(equip.choice_3[0].from[0].item.name);
-            console.log(equip.choice_3[1].from[0].item.name);
-            // for (i=0; i<equipNumChoices; i++) {
-            //     console.log(`Hello?`);
-            //     console.log(`Equip choice ${i+1}, option 1: ${equip.choice_&(i+1)}`);
-            // }
-            // console.log(`aFTER LOOP`)
-            // let i = 0;
-            // profPool.forEach(prof => {
-            //     profTag = document.createElement('div');
-            //     profTag.innerHTML = prof.name;
-            //     profTag.setAttribute('id',`optionalProf${i}`);
-            //     i++;
-            //     descClassProfChoices.appendChild(profTag);
-            // });
-            // descContent.appendChild(descClassProfChoices);
 
         })
         .then( () => {
