@@ -331,7 +331,7 @@ background-color: rgba(0,0,0,0.5);
 }
         .modal-content {
         display: grid;
-        grid: repeat(6,max-content) / auto auto auto auto;
+        grid: repeat(4,max-content) / repeat(4, auto);
         background-color: rgba(0,0,0,0.7);
         border-radius: 10px;
         margin: 15% auto;
@@ -371,6 +371,10 @@ background-color: rgba(0,0,0,0.5);
                 #descClassProfChoices div {
                         cursor: pointer;
                         margin-top: 2%;
+                }
+
+                #descEqiupChoices {
+                        grid-row: 4 / span 4;
                 }
         
 #blanket, #finalBlanket {
