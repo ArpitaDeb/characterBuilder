@@ -431,9 +431,11 @@ display:grid;
         display: grid;
         grid:
         'finalHeader finalHeader finalHeader'
-        'finalSpecs finalNums finalDetails'
-        'finalSpecs finalAttacks finalFeatures'
-        'finalOtherSpecs finalEquip finalFeatures'
+        'finalSpecs finalNums finalTraits'
+        'finalSpecs  finalProfs finalTraits'
+        'finalSpecs finalAttacks finalAttacks'
+        'finalEquip finalEquip finalEquip'
+        'finalDetails finalDetails finalDetails'
         'finalFooter finalFooter finalFooter';
         grid-gap: 3%;
         max-width: 90%;
@@ -449,7 +451,7 @@ display:grid;
 #finalHeader {
         grid-area: finalHeader;
         display: grid;
-        grid: repeat(2,max-content) / repeat(3,1fr);
+        grid: repeat(3,max-content) / repeat(3,1fr);
         grid-gap: 3%;
 }
 
@@ -460,32 +462,40 @@ display:grid;
 #finalSpecs {
         grid-area: finalSpecs;
         display: grid;
-        grid: max-content max-content/ 8em 8em;
+        grid: repeat(3, max-content) / minmax(8em,auto) minmax(10.4em,auto);
         grid-gap: 3%;
 }
 
 #finalAbs {
-        grid-row: span 2;
+        grid-row: 1;
+        grid-column: 1;
         display: grid;
         grid: repeat(6,max-content) / 1fr;
         padding: 0 3% 6% 3%;
 
 }
 
+#finalProfs {
+        grid-area: finalProfs;
+}
+
+#finalSkills {
+        grid-row: 1 / span 3;
+        grid-column: 2;
+}
+
+#finalRaceTraits {
+        grid-row: span 2;
+}
+
+
 #finalNums {
         grid-area: finalNums;
         display: grid;
-        grid: repeat(3,max-content) / repeat(3,1fr);
+        grid: repeat(2,max-content) / repeat(3,1fr);
         grid-gap: 3%;
 }
 
-#finalHP {
-        grid-column: span 3;
-}
-
-#finalHD {
-        grid-column: span 3;
-}
 
 #finalDetails {
         grid-area: finalDetails;
@@ -494,14 +504,14 @@ display:grid;
         grid-gap: 3%;
 }
 
+
 #finalAttacks {
         grid-area: finalAttacks;
 }
 
-#finalFeatures {
-        grid-area: finalFeatures;
+#finalRaceTraits {
+        grid-area: finalTraits;
 }
-
 #finalOtherSpecs {
         grid-area: finalOtherSpecs;
 }
@@ -513,3 +523,19 @@ display:grid;
 #finalFooter {
         grid-area: finalFooter;
 }
+
+.big {
+        font-size: 2.5vmax;
+        text-align: center;
+        margin: 0 auto 0 auto;
+}
+
+#finalPageContainer h3 {
+        text-align: center;
+        margin: 0 auto 0.75em auto;
+}
+
+.bottomSpace {
+        margin-bottom:0.75em;
+}
+

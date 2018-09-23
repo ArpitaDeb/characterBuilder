@@ -102,6 +102,7 @@ const calcChar = () => {
     currentChar.charSavesArr = currentChar.charTotalMods.map(function (num, idx) {
         return num + currentChar.classSavesArr[idx];
     });
+    
 }
 
 const refreshSpecs = () => {

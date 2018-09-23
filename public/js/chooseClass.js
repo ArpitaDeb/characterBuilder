@@ -28,69 +28,69 @@ const grabApiClass = (num) => {
             });
 
             //display modal
-            $(descModal).fadeIn(350);
-            descModal.classList.add(selectedColor);
-            descTitle.classList.add(selectedColor);
-            descContent.classList.add(selectedColor);
-            descTitle.innerHTML = `${charClass.name}`;
-            descContent.appendChild(descTitle);
-            let descClassProfs = document.createElement('div');
-            descClassProfs.innerHTML = `<span class='gold'>Automatic<br>Proficiencies:</span>`;
-            charClass.proficiencies.forEach(prof => {
-                profTag = document.createElement('div');
-                profTag.innerHTML = prof.name;
-                descClassProfs.appendChild(profTag);
-            });
-            descContent.appendChild(descClassProfs);
-            let descClassProfChoices = document.createElement('div');
-            descClassProfChoices.setAttribute('id','descClassProfChoices');
-            descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
-            let profPool = charClass.proficiency_choices[0].from;
-            let i = 0;
-            profPool.forEach(prof => {
-                profTag = document.createElement('div');
-                profTag.innerHTML = prof.name;
-                profTag.setAttribute('id',`optionalProf${i}`);
-                i++;
-                descClassProfChoices.appendChild(profTag);
-            });
-            descContent.appendChild(descClassProfChoices);
-            let descHitDie = document.createElement('div');
-            descHitDie.innerHTML = `<span class='gold'>Hit Die:</span> ${charClass.hit_die}`;
-            descContent.appendChild(descHitDie);
-            let classDescDiv = document.createElement('div');
-            classDescDiv.classList.add('oneLinerDesc');
-            classDescDiv.innerHTML = classDesc[classIndex].description;
-            descContent.appendChild(classDescDiv);
-            let descClassSavesDiv = document.createElement('div');
-            descClassSavesDiv.innerHTML = `<span class='gold'>Saving<br>Throws:</span>`;
-            charClass.saving_throws.forEach(save => {
-                saveTag = document.createElement('div');
-                switch (save.name) {
-                    case 'STR':
-                        saveTag.innerHTML = 'Strength';
-                        break;
-                    case 'DEX':
-                        saveTag.innerHTML = 'Dexterity';
-                        break;
-                    case 'CON':
-                        saveTag.innerHTML = 'Constitution';
-                        break;
-                    case 'INT':
-                        saveTag.innerHTML = 'Intelligence';
-                        break;
-                    case 'WIS':
-                        saveTag.innerHTML = 'Wisom';
-                        break;
-                    case 'CHA':
-                        saveTag.innerHTML = 'Charisma';
-                        break;
-                    default:
-                        saveTag.innerHTML = 'ERROR';
-                }
-                descClassSavesDiv.appendChild(saveTag);
-            })
-            descContent.appendChild(descClassSavesDiv);
+            // $(descModal).fadeIn(350);
+            // descModal.classList.add(selectedColor);
+            // descTitle.classList.add(selectedColor);
+            // descContent.classList.add(selectedColor);
+            // descTitle.innerHTML = `${charClass.name}`;
+            // descContent.appendChild(descTitle);
+            // let descClassProfs = document.createElement('div');
+            // descClassProfs.innerHTML = `<span class='gold'>Automatic<br>Proficiencies:</span>`;
+            // charClass.proficiencies.forEach(prof => {
+            //     profTag = document.createElement('div');
+            //     profTag.innerHTML = prof.name;
+            //     descClassProfs.appendChild(profTag);
+            // });
+            // descContent.appendChild(descClassProfs);
+            // let descClassProfChoices = document.createElement('div');
+            // descClassProfChoices.setAttribute('id','descClassProfChoices');
+            // descClassProfChoices.innerHTML = `<span class='gold'>Optional<br>Proficiencies<br>(choose ${charClass.proficiency_choices[0].choose}):</span>`;
+            // let profPool = charClass.proficiency_choices[0].from;
+            // let i = 0;
+            // profPool.forEach(prof => {
+            //     profTag = document.createElement('div');
+            //     profTag.innerHTML = prof.name;
+            //     profTag.setAttribute('id',`optionalProf${i}`);
+            //     i++;
+            //     descClassProfChoices.appendChild(profTag);
+            // });
+            // descContent.appendChild(descClassProfChoices);
+            // let descHitDie = document.createElement('div');
+            // descHitDie.innerHTML = `<span class='gold'>Hit Die:</span> ${charClass.hit_die}`;
+            // descContent.appendChild(descHitDie);
+            // let classDescDiv = document.createElement('div');
+            // classDescDiv.classList.add('oneLinerDesc');
+            // classDescDiv.innerHTML = classDesc[classIndex].description;
+            // descContent.appendChild(classDescDiv);
+            // let descClassSavesDiv = document.createElement('div');
+            // descClassSavesDiv.innerHTML = `<span class='gold'>Saving<br>Throws:</span>`;
+            // charClass.saving_throws.forEach(save => {
+            //     saveTag = document.createElement('div');
+            //     switch (save.name) {
+            //         case 'STR':
+            //             saveTag.innerHTML = 'Strength';
+            //             break;
+            //         case 'DEX':
+            //             saveTag.innerHTML = 'Dexterity';
+            //             break;
+            //         case 'CON':
+            //             saveTag.innerHTML = 'Constitution';
+            //             break;
+            //         case 'INT':
+            //             saveTag.innerHTML = 'Intelligence';
+            //             break;
+            //         case 'WIS':
+            //             saveTag.innerHTML = 'Wisom';
+            //             break;
+            //         case 'CHA':
+            //             saveTag.innerHTML = 'Charisma';
+            //             break;
+            //         default:
+            //             saveTag.innerHTML = 'ERROR';
+            //     }
+            //     descClassSavesDiv.appendChild(saveTag);
+            // })
+            // descContent.appendChild(descClassSavesDiv);
 
         })
         .then( () => {
