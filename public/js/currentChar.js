@@ -4,7 +4,7 @@ const currentChar = {
     "charClass": "",
     "profBonus": 2,
     "charProfs": [],
-    "charBaseAbs": [8,11,12,15,16,19],
+    "charBaseAbs": [8,8,8,8,8,8],
     "charRaceAbs": [0,0,0,0,0,0],
     "charTotalMods": [0,0,0,0,0,0],
     "charSpeed": 30,

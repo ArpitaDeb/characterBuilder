@@ -233,6 +233,5 @@ window.onload = () => {
     let blanket = document.getElementById('blanket');
     $(blanket).fadeOut(350);
     currentTab = 0;
-
 }
 
