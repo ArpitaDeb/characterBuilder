@@ -103,6 +103,10 @@ const calcChar = () => {
     currentChar.charSavesArr = currentChar.charTotalMods.map(function (num, idx) {
         return num + currentChar.classSavesArr[idx];
     });
+
+    currentChar.charHP = currentChar.charHD + currentChar.charTotalMods[2];
+
+    currentChar.charAC = currentChar.charTotalMods[1] + 10;
     
 }
 

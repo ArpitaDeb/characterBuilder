@@ -4,10 +4,7 @@ mixin finalSummary
     #finalPageContainer
         #finalHeader
             h1#finalName Character Name:
-            h2#finalClass Class:
-            h2#finalBackground Backgound:
-            h2#finalRace Race:
-            h2#finalAlign Alignment:
+            h2#finalSubtitle Race Class
         #finalSpecs
             #finalAbs.finalBox
                 #finalStr.finalAb
@@ -33,30 +30,29 @@ mixin finalSummary
             #finalAC.finalBox
                 h3.gold Armor Class:
             #finalInit.finalBox
-                h3.gold Initiative:
+                h3.gold 
+                    |Initiative:
+                    br
+                    br
             #finalSpeed.finalBox
-                h3.gold Speed:
+                h3.gold 
+                    |Speed:
+                    br
+                    br
             #finalHP.finalBox
-                h3.gold Hit Points:
+                h3.gold 
+                    |Hit
+                    br 
+                    |Points
             #finalHD.finalBox
-                h3.gold Hit Dice:
+                h3.gold
+                    |Hit
+                    br 
+                    |Dice:
             #finalProfBonus.finalBox
                 h3.gold Proficiency Bonus:
         #finalRaceTraits.finalBox
             h3.gold Racial Traits and Languages:
-        #finalDetails
-            #finalPersonTraits.finalBox
-                h3.gold Personality Traits:
-            #finalIdeals.finalBox
-                h3.gold Ideals:
-            #finalBonds.finalBox
-                h3.gold Bonds:
-            #finalFlaws.finalBox
-                h3.gold Flaws:
-        #finalAttacks.finalBox
-            h3.gold Attacks:
-        #finalEquip.finalBox
-            h3.gold Equipment:
         #finalFooter
             button#btnFinalBack(type='button') Back
     script(src='/js/finalSummary.js', type="text/javascript")

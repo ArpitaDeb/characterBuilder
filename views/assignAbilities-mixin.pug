@@ -58,6 +58,12 @@ mixin assignAbilities
 
         #abilityDescription
             h2.gold Ability Description
-            p#abDescP Click on one of the abilities on the left to see its description
+            p#abDescP Spend points to set your starting abilities here. Increasing an ability up to 13 costs one point each, but increasing to 14 and 15 costs 2 points each. You may not increase an ability beyond a base of 15, or decrease below a base of 8.
+                br 
+                br
+                |Click on one of the abilities on the left to see its description.
+        #pointsRemaining
+            h2.gold Points Remaining
+            #pointsLeft.currentAbBox
 
     script(src='/js/assignAbilities.js' type="text/javascript" defer)

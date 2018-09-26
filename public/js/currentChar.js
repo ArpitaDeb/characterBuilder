@@ -9,7 +9,6 @@ const currentChar = {
     "charTotalMods": [0,0,0,0,0,0],
     "charSpeed": 30,
     "charSize": "",
-    "charLanguages": [],
     "raceProfs":[],
     "classProfs":[],
     "classProfNumChoices":0,
@@ -52,18 +51,12 @@ const currentChar = {
         {"name": "Survival", "abMod": 4, "proficient": false,
         "value": 0}
     ],
-    "charHP": 45,
+    "charHP": 0,
     "charHD": 8,
-    "charAlignment": '???',
     "charAC": 10,
     "charInit": 3,
-    "charPersonalityTraits":['???','???','???'],
-    "charIdeals":['???','???','???'],
-    "charBonds":['???','???','???'],
-    "charFlaws":['???','???','???'],
-    "charLanguages":['???','???','???'],
+    "charLanguages":[],
     "classSaves":[],
     "classSavesArr":[0,0,0,0,0,0],
     "charSavesArr": [0,0,0,0,0,0],
-    "charBackgroundName": "???"
 };

@@ -1,4 +1,6 @@
 let availablePoints = 27;
+let pointsLeftDisplay = document.getElementById('pointsLeft');
+pointsLeftDisplay.innerHTML = availablePoints;
 
 const showAbDesc = (index) => {
     console.log(`Showing Description: ${index}`);
@@ -30,6 +32,7 @@ const increaseAb = (abIndex) => {
         case 12:
             if (availablePoints > 0) {
                 availablePoints--;
+                pointsLeftDisplay.innerHTML = availablePoints;
                 currentChar.charBaseAbs[abIndex]++;
             }
             else { alert(`Sorry, not enough points!`) };
@@ -38,6 +41,7 @@ const increaseAb = (abIndex) => {
         case 14:
             if (availablePoints > 1) {
                 availablePoints -= 2;
+                pointsLeftDisplay.innerHTML = availablePoints;
                 currentChar.charBaseAbs[abIndex]++;
             }
             else { 
@@ -68,6 +72,7 @@ const decreaseAb = (abIndex) => {
         case 14:
             availablePoints += 2;
             currentChar.charBaseAbs[abIndex]--;
+            pointsLeftDisplay.innerHTML = availablePoints;
             break;
         case 13:
         case 12:
@@ -76,6 +81,7 @@ const decreaseAb = (abIndex) => {
         case 9:
             availablePoints++;
             currentChar.charBaseAbs[abIndex]--;
+            pointsLeftDisplay.innerHTML = availablePoints;
             break;
     }
     let boxToChange;

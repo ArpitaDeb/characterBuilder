@@ -321,7 +321,13 @@ margin: auto;
                 }
 
                 #abilityDescription {
-                        grid-row: 2 / span 4;
+                        grid-row: 2 / span 3;
+                        grid-column: 3;
+                        margin-left: 2em;
+                }
+
+                #pointsRemaining {
+                        grid-row: 5;
                         grid-column: 3;
                         margin-left: 2em;
                 }
@@ -506,12 +512,17 @@ display:grid;
 #finalHeader {
         grid-area: finalHeader;
         display: grid;
-        grid: repeat(3,max-content) / repeat(3,1fr);
-        grid-gap: 3%;
+        grid: 1fr 1fr / auto;
+        text-align: center;
 }
 
 #finalName {
         grid-row: span 2;
+        margin-bottom: 0;
+}
+
+#finalSubtitle {
+        margin-top:0;
 }
 
 #finalSpecs {
@@ -528,6 +539,10 @@ display:grid;
         grid: repeat(6,max-content) / 1fr;
         padding: 0 3% 6% 3%;
 
+}
+
+.finalAb div {
+        text-align: center;
 }
 
 #finalProfs {
@@ -582,7 +597,9 @@ display:grid;
 .big {
         font-size: 2.5vmax;
         text-align: center;
+        vertical-align: bottom;
         margin: 0 auto 0 auto;
+
 }
 
 #finalPageContainer h3 {
