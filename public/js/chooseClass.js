@@ -56,7 +56,7 @@ const grabApiClass = (num) => {
             });
             descContent.appendChild(descClassProfChoices);
             let descHitDie = document.createElement('div');
-            descHitDie.innerHTML = `<span class='gold'>Hit Die:</span><br>${charClass.hit_die}<br>(1-${charClass.hit_die})`;
+            descHitDie.innerHTML = `<span class='gold'>Hit Die:</span><br>${charClass.hit_die}<br>(1-${charClass.hit_die} hit points/level)`;
             descContent.appendChild(descHitDie);
             let classDescDiv = document.createElement('div');
             classDescDiv.classList.add('oneLinerDesc');

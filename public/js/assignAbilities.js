@@ -3,7 +3,6 @@ let pointsLeftDisplay = document.getElementById('pointsLeft');
 pointsLeftDisplay.innerHTML = availablePoints;
 
 const showAbDesc = (index) => {
-    console.log(`Showing Description: ${index}`);
     let abDescP = document.getElementById('abDescP');
     
     fetch(`http://www.dnd5eapi.co/api/ability-scores/${index}/`)
@@ -61,7 +60,6 @@ const increaseAb = (abIndex) => {
     }
     document.getElementById(`${boxToChange}`).innerHTML = currentChar.charBaseAbs[abIndex];
     refreshSpecs()
-    console.log(`Points Remaining: ${availablePoints}`);
 }
 
 const decreaseAb = (abIndex) => {
@@ -97,7 +95,6 @@ const decreaseAb = (abIndex) => {
     }
     document.getElementById(`${boxToChange}`).innerHTML = currentChar.charBaseAbs[abIndex];
     refreshSpecs()
-    console.log(`Points Remaining: ${availablePoints}`);
 }
 
 document.getElementById('assignSTR').addEventListener('click',() => {showAbDesc(1);});
