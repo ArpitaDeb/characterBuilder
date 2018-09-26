@@ -1,0 +1,69 @@
+mixin assignAbilities
+
+    #assignAbilitiesTab.tab
+        h1.optionsHeader Character Abilities
+        #baseAbHeader 
+            h2.gold Base Abilities
+            p These are your abilities before bonuses, such as those from race. See the totals above for your abilities after bonuses.
+        #abilityIncrementors1
+            #assignSTR
+                h3.gold Strength:
+                #strAssignBox.assignBox
+                    #currentStrBox.currentAbBox 8
+                    #strUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #strDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+            #assignDEX
+                h3.gold Dexterity:
+                #dexAssignBox.assignBox
+                    #currentDexBox.currentAbBox 8
+                    #dexUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #dexDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+            #assignCON
+                h3.gold Constitution:
+                #conAssignBox.assignBox
+                    #currentConBox.currentAbBox 8
+                    #conUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #conDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+        #abilityIncrementors2
+            #assignINT
+                h3.gold Intelligence:
+                #intAssignBox.assignBox
+                    #currentIntBox.currentAbBox 8
+                    #intUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #intDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+            #assignWIS
+                h3.gold Wisdom:
+                #wisAssignBox.assignBox
+                    #currentWisBox.currentAbBox 8
+                    #wisUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #wisDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+            #assignCHA
+                h3.gold Charisma:
+                #chaAssignBox.assignBox
+                    #currentChaBox.currentAbBox 8
+                    #chaUp.clickUp
+                        i.fas.fa-chevron-circle-up.gold
+                    #chaDown.clickDown
+                        i.fas.fa-chevron-circle-down.gold
+
+        #abilityDescription
+            h2.gold Ability Description
+            p#abDescP Spend points to set your starting abilities here. Increasing an ability up to 13 costs one point each, but increasing to 14 and 15 costs 2 points each. You may not increase an ability beyond a base of 15, or decrease below a base of 8.
+                br 
+                br
+                |Click on one of the abilities on the left to see its description.
+        #pointsRemaining
+            h2.gold Points Remaining
+            #pointsLeft.currentAbBox
+
+    script(src='/js/assignAbilities.js' type="text/javascript" defer)

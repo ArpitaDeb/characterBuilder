@@ -19,6 +19,7 @@ html
     include description-mixin
     include chooseRace-mixin
     include chooseClass-mixin
+    include assignAbilities-mixin
     include finalSummary-mixin
 
   body
@@ -31,6 +32,7 @@ html
         +description
         +chooseRace
         +chooseClass
+        +assignAbilities
       #footer
         button#btnBack(type='button') Back
         button#btnNext(type='button') Next
