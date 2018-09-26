@@ -2,7 +2,10 @@ mixin assignAbilities
 
     #assignAbilitiesTab.tab
         h1.optionsHeader Character Abilities
-        #abilityIncrementors
+        #baseAbHeader 
+            h2.gold Base Abilities
+            p These are your abilities before bonuses, such as those from race. See the totals above for your abilities after bonuses.
+        #abilityIncrementors1
             #assignSTR
                 h3.gold Strength:
                 #strAssignBox.assignBox
@@ -27,6 +30,7 @@ mixin assignAbilities
                         i.fas.fa-chevron-circle-up.gold
                     #conDown.clickDown
                         i.fas.fa-chevron-circle-down.gold
+        #abilityIncrementors2
             #assignINT
                 h3.gold Intelligence:
                 #intAssignBox.assignBox
@@ -51,6 +55,9 @@ mixin assignAbilities
                         i.fas.fa-chevron-circle-up.gold
                     #chaDown.clickDown
                         i.fas.fa-chevron-circle-down.gold
+
         #abilityDescription
+            h2.gold Ability Description
+            p#abDescP Click on one of the abilities on the left to see its description
 
     script(src='/js/assignAbilities.js' type="text/javascript" defer)

@@ -1,5 +1,23 @@
 let availablePoints = 27;
 
+const showAbDesc = (index) => {
+    console.log(`Showing Description: ${index}`);
+    let abDescP = document.getElementById('abDescP');
+    
+    fetch(`http://www.dnd5eapi.co/api/ability-scores/${index}/`)
+        .then(res => {
+            return res.json();
+        })
+        .then(ability => {
+            abDescP.innerHTML = '';
+            abilityDesc = ability.desc;
+            abilityDesc.forEach((fetchedP) => {
+                toAppend = document.createElement('p');
+                toAppend.innerHTML = fetchedP;
+                abDescP.appendChild(toAppend);
+            })
+        })
+};
 
 const increaseAb = (abIndex) => {
     let currentBaseAb = currentChar.charBaseAbs[abIndex];
@@ -76,6 +94,12 @@ const decreaseAb = (abIndex) => {
     console.log(`Points Remaining: ${availablePoints}`);
 }
 
+document.getElementById('assignSTR').addEventListener('click',() => {showAbDesc(1);});
+document.getElementById('assignDEX').addEventListener('click',() => {showAbDesc(2);});
+document.getElementById('assignCON').addEventListener('click',() => {showAbDesc(3);});
+document.getElementById('assignINT').addEventListener('click',() => {showAbDesc(4);});
+document.getElementById('assignWIS').addEventListener('click',() => {showAbDesc(5);});
+document.getElementById('assignCHA').addEventListener('click',() => {showAbDesc(6);});
 
 document.getElementById('strUp').addEventListener('click', () => {increaseAb(0);});
 document.getElementById('dexUp').addEventListener('click', () => {increaseAb(1);});

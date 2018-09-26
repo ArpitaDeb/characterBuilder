@@ -288,32 +288,53 @@ margin: auto;
 
                 #assignAbilitiesTab {
                         display: grid;
-                        grid: repeat(7, max-content) / 6.3em auto;
+                        grid: repeat(5, max-content) / 7em 7em auto;
+                        grid-gap: 2em;
                 }
 
                 #abilityDescription {
-                        grid-row: 2 / span 6;
-                        grid-column: 2;
+                        grid-row: 2 / span 3;
+                        grid-column: 3;
                 }
 
                 .assignBox {
                         display: grid;
-                        grid: repeat(2, max-content) / 2em 1.5em;
+                        grid: repeat(2, max-content) / 5vmax max-content;
                         text-align: center;
                         margin-bottom: 1em;
                 }
 
                 .currentAbBox {
                         grid-row: 1 / span 2;
-                        font-size: 3vmax;
+                        font-size: 4vmax;
                 }
 
                 .clickUp, .clickDown {
                         padding: 2px;
                 }
         
-                
+                #baseAbHeader {
+                        grid-row: 2;
+                        grid-column: 1 / span 2;
+                        margin-bottom: -2em;
+                        
+                }
 
+                #abilityDescription {
+                        grid-row: 2 / span 4;
+                        grid-column: 3;
+                        margin-left: 2em;
+                }
+
+                #abilityIncrementors1 {
+                        grid-row: 3 / span 3;
+                        grid-column: 1;
+                }
+
+                #abilityIncrementors2 {
+                        grid-row: 3 / span 3;
+                        grid-column: 2;
+                }
 
         
         #footer {
