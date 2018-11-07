@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/final/', (req,res) => {
+app.get('/final', (req,res) => {
     res.render('finalSummary',{});
 });
