@@ -24,7 +24,6 @@
     "npm": "^6.4.1",
     "path": "^0.12.7",
     "pug": "^2.0.3",
-    "start": "node server.js"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
